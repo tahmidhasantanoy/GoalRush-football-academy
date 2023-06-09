@@ -19,7 +19,8 @@ const NavBar = () => {
     </>
   );
   return (
-    <div>
+    // TODO : header will be fixed & attractive menu
+    <>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -65,9 +66,7 @@ const NavBar = () => {
               className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                </a>
+                <a className="justify-between">Profile</a>
               </li>
               <li>
                 <a>Settings</a>
@@ -79,7 +78,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
