@@ -40,7 +40,7 @@ const Login = () => {
                 </a>
               </label>
             </div>
-            <div className="form-control mt-6">
+            <div className="form-control mt-6 w-2/4 mx-auto">
               <button className="btn btn-primary">Login</button>
             </div>
           </div>
