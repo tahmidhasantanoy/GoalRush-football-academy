@@ -4,9 +4,11 @@ import "./SignUp.css";
 import { useForm } from "react-hook-form";
 import TItlePage from "../../TItlePage/TItlePage";
 import useAuth from "../../Hooks/useAuth";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser } = useAuth();
+  const { createUser, user } = useAuth();
+  console.log(user);
 
   const {
     register,
@@ -22,6 +24,14 @@ const SignUp = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+
+        //Update user profile
+        updateProfile(user, {
+          displayName: data.name,
+          photoURL: data.PhotoUrl,
+        })
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err.message));
       })
       .catch((err) => console.log(err.message));
     reset();
@@ -61,7 +71,7 @@ const SignUp = () => {
                 <span className="label-text text-white">Email</span>
               </label>
               <input
-                {...register("email")}
+                {...register("email", { required: true })}
                 type="text"
                 placeholder="abc@gmail.com"
                 className="input input-bordered"
@@ -72,7 +82,11 @@ const SignUp = () => {
                 <span className="label-text text-white">Password</span>
               </label>
               <input
-                {...register("password")}
+                {...register(
+                  "password",
+                  { required: true },
+                  { pattern: /^[A-Za-z]+$/i }
+                )}
                 type="text"
                 placeholder="At least 6 characters"
                 className="input input-bordered"
@@ -94,7 +108,7 @@ const SignUp = () => {
                 <span className="label-text text-white">Photo Url</span>
               </label>
               <input
-                {...register("Photo url")}
+                {...register("PhotoUrl")}
                 type="url"
                 placeholder="Enter your photo url"
                 className="input input-bordered"
