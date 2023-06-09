@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import registrationImg from "../../../public/Authenticaion/Reg-pic.jpg";
 import "./SignUp.css";
 import { useForm } from "react-hook-form";
 import TItlePage from "../../TItlePage/TItlePage";
+import useAuth from "../../Hooks/useAuth";
 
 const SignUp = () => {
+  const { createUser } = useAuth();
+  console.log(createUser);
+
   const {
     register,
     handleSubmit,
@@ -13,7 +17,14 @@ const SignUp = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data.email, data.password);
+
+    createUser(data.email, data.password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((err) => console.log(err.message));
     reset();
   };
 
