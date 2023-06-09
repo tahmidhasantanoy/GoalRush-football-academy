@@ -8,7 +8,6 @@ import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const { createUser, user } = useAuth();
-  console.log(user);
 
   const {
     register,
@@ -18,23 +17,21 @@ const SignUp = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data.email, data.password);
 
     createUser(data.email, data.password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
 
         //Update user profile
         updateProfile(user, {
           displayName: data.name,
           photoURL: data.PhotoUrl,
         })
-          .then((res) => console.log(res))
+          .then()
           .catch((err) => console.log(err.message));
       })
       .catch((err) => console.log(err.message));
-    reset();
+    // reset();
   };
 
   //TODO : input border color,btn color,btn size
@@ -84,10 +81,14 @@ const SignUp = () => {
               <input
                 {...register(
                   "password",
+                  { minLength: 6 },
                   { required: true },
-                  { pattern: /^[A-Za-z]+$/i }
+                  {
+                    pattern:
+                      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
+                  }
                 )}
-                type="text"
+                type="password"
                 placeholder="At least 6 characters"
                 className="input input-bordered"
               />
@@ -98,7 +99,7 @@ const SignUp = () => {
               </label>
               <input
                 {...register("Confirm-password")}
-                type="text"
+                type="password"
                 placeholder="Confirm Password"
                 className="input input-bordered"
               />
@@ -123,7 +124,8 @@ const SignUp = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary w-1/2 mx-auto">Login</button>
+              {/* <button className="btn btn-primary w-1/2 mx-auto">Login</button> */}
+              <input className="btn btn-primary w-1/2 mx-auto" type="submit" value="Sign In" />
             </div>
           </form>
         </div>
