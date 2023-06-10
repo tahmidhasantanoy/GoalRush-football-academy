@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
+import axios from "axios";
 
 const auth = getAuth(app);
 export const Authcontext = createContext();
@@ -32,9 +33,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
 
       //TODO : jwt start
+      //get & set the token
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .then((data) => {
+            console.log(data.data.token);
+
+            localStorage.setItem("jwt-access-token", data.data.token);
+          });
+      } else {
+        localStorage.removeItem("jwt-access-token");
+      }
+      setLoading(false);
     });
     return () => {
       return unSubscribe();
