@@ -11,10 +11,27 @@ const AddClass = () => {
   } = useForm();
   const { user, loading } = useAuth();
 
-  const onSubmit = (data) => {
-    console.log(data.file[0])
-};
+  const img_hosting_token = import.meta.env.VITE_Image_Hosting_Token;
 
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
+
+  const onSubmit = (data) => {
+    console.log(data.file[0]);
+
+    //Hosting image yo imgbb
+    if (data.file[0]) {
+      const formData = new FormData();
+      formData.append("image", data.file[0]);
+
+      fetch(img_hosting_url, {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err.message));
+    }
+  };
 
   if (loading) {
     return <progress className="progress w-56"></progress>;
