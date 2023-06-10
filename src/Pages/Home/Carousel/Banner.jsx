@@ -11,7 +11,7 @@ import Pic5 from "../../../../public/Banner/Pic-05.webp";
 
 const Banner = () => {
   return (
-    <Carousel>
+    <Carousel className="text-center">
       <div>
         <img src={Pic1} />
       </div>

@@ -61,6 +61,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="Enter your full name"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -72,6 +73,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="abc@gmail.com"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
