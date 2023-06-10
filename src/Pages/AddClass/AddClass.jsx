@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AddClass = () => {
   const {
@@ -9,6 +10,7 @@ const AddClass = () => {
     handleSubmit,
     watch,
     formState: { errors },
+    reset,
   } = useForm();
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
@@ -34,7 +36,6 @@ const AddClass = () => {
         .then((res) => res.json())
         .then((imgRes) => {
           if (imgRes.success) {
-            console.log(data);
             console.log(imgRes.data.display_url);
             const imgURL = imgRes.data.display_url;
             const {
@@ -55,7 +56,16 @@ const AddClass = () => {
             };
 
             axiosSecure.post("/all-class", newClassData).then((res) => {
-              console.log(res.data);
+              if (res.data.insertedId) {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: `New class is added`,
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                // reset();
+              }
             });
           }
         })
