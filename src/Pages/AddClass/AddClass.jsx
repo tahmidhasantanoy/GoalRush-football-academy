@@ -11,9 +11,10 @@ const AddClass = () => {
   } = useForm();
   const { user, loading } = useAuth();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data.file[0])
+};
 
-  console.log(user);
 
   if (loading) {
     return <progress className="progress w-56"></progress>;
@@ -23,9 +24,7 @@ const AddClass = () => {
     <div className="p-20">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
-          <label
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Class name
           </label>
           <input
@@ -95,16 +94,16 @@ const AddClass = () => {
         </div>
 
         <div className="mb-6">
-          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Class image
-          </label>
-          <input
-            {...register("classImage")}
-            type="url"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter class image"
-            required
-          />
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="text-white">Choose class image</span>
+            </label>
+            <input
+              {...register("file", { required: true })}
+              type="file"
+              className="file-input file-input-bordered w-full max-w-xs"
+            />
+          </div>
         </div>
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
@@ -115,9 +114,7 @@ const AddClass = () => {
               required
             />
           </div>
-          <label
-            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
+          <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             I agree with the{" "}
             <a
               href="#"
