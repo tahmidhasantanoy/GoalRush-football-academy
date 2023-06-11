@@ -1,15 +1,16 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
+import useInstructor from "../../Hooks/useInstructor";
 import { Navigate, useLocation } from "react-router-dom";
 
-const PrivateRoute = ({ children }) => {
+const InstructorRoute = ({ children }) => {
   const { user, loading } = useAuth();
+  const [isInstructor, isInstructorLoading] = useInstructor();
   const location = useLocation();
 
-  if (loading) {
+  if (loading && isInstructorLoading) {
+    // may problem in here
     return (
-
-        // may problem in here
       <div className="text-center">
         <div role="status">
           <svg
@@ -34,10 +35,10 @@ const PrivateRoute = ({ children }) => {
     );
   }
 
-  if (user) {
+  if (user && isInstructor) {
     return children;
   }
-  return <Navigate to={"/login"} state={{ from: location }} replace></Navigate>;
+  return <Navigate to={"/"} state={{ from: location }} replace></Navigate>;
 };
 
-export default PrivateRoute;
+export default InstructorRoute;
