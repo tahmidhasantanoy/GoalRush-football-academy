@@ -9,7 +9,6 @@ const AdminRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading && isAdminLoading) {
-    // may problem in here
     return (
       <div className="text-center">
         <div role="status">
@@ -35,7 +34,7 @@ const AdminRoute = ({ children }) => {
     );
   }
 
-  if (user && isAdmin) {
+  if (user && isAdmin?.admin) {
     return children;
   }
   return <Navigate to={"/"} state={{ from: location }} replace></Navigate>;

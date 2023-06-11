@@ -7,9 +7,11 @@ const InstructorRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const [isInstructor, isInstructorLoading] = useInstructor();
   const location = useLocation();
+  console.log(10, isInstructor?.instructor);
 
-  if (loading && isInstructorLoading) {
-    // may problem in here
+  if (loading || isInstructorLoading) {
+    console.log(loading, isInstructorLoading); //why loading isnot working
+
     return (
       <div className="text-center">
         <div role="status">
@@ -35,7 +37,7 @@ const InstructorRoute = ({ children }) => {
     );
   }
 
-  if (user && isInstructor) {
+  if (user && isInstructor?.instructor) {
     return children;
   }
   return <Navigate to={"/"} state={{ from: location }} replace></Navigate>;
