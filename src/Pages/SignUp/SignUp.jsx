@@ -31,7 +31,11 @@ const SignUp = () => {
         })
           .then((res) => {
             // user info saved to DB
-            const newUserData = { name: data.name, email: data.email };
+            const newUserData = {
+              name: data.name,
+              email: data.email,
+              image: data.PhotoUrl,
+            };
             console.log(newUserData);
             fetch("http://localhost:5000/users", {
               method: "POST",

@@ -7,10 +7,9 @@ const InstructorRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const [isInstructor, isInstructorLoading] = useInstructor();
   const location = useLocation();
-  console.log(10, isInstructor?.instructor);
+//   console.log(10, isInstructor?.instructor);
 
   if (loading || isInstructorLoading) {
-    console.log(loading, isInstructorLoading); //why loading isnot working
 
     return (
       <div className="text-center">

@@ -7,6 +7,7 @@ import AddClass from "../../Pages/AddClass/AddClass";
 import DashBoardPage from "../../Pages/DashBoard/DashBoardPage/DashBoardPage";
 import Instructors from "../../Pages/Instructors/Instructors";
 import InstructorRoute from "../InstructorRoute/InstructorRoute";
+import AllClasses from "../../Pages/AllClasses/AllClasses";
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,12 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
 
-      //
+      //must be in dashboard
       {
         path: "/addclass",
         element: <AddClass />,
       },
+      //must be in dashboard
       {
         path: "/instructors",
         element: (
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
             <Instructors />
           </InstructorRoute>
         ),
+      },
+      {
+        path: "/allclasses",
+        element: <AllClasses />,
       },
     ],
   },
