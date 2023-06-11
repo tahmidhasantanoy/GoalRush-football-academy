@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import useAdmin from "../../Hooks/useAdmin";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
   // console.log(user.photoURL);
+
+
+  const [isAdmin] = useAdmin()
+  console.log(isAdmin);
 
   const handleLogout = () => {
     logout()
@@ -25,13 +30,13 @@ const NavBar = () => {
       </li>
       {user && (
         <li>
-          <Link>DashBoard</Link>
+          <Link to={"dashboard"}>DashBoard</Link>
         </li>
       )}
     </>
   );
   return (
-    // TODO : header will be fixed & attractive menu
+    // TODO : header will be attractive menu
     <>
       <div className="navbar fixed z-10  bg-black bg-opacity-20 max-w-screen-xl text-white font-semibold">
         <div className="navbar-start">
@@ -69,7 +74,7 @@ const NavBar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-20 rounded-full">
-                  <img src={user.photoURL} />
+                  <img title={user?.displayName} src={user.photoURL} />
                 </div>
               </label>
               <ul

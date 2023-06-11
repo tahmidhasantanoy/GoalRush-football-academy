@@ -5,9 +5,12 @@ import { useForm } from "react-hook-form";
 import TItlePage from "../../TItlePage/TItlePage";
 import useAuth from "../../Hooks/useAuth";
 import { updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser, user } = useAuth();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -17,7 +20,6 @@ const SignUp = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-
     createUser(data.email, data.password)
       .then((res) => {
         const user = res.user;
@@ -27,7 +29,31 @@ const SignUp = () => {
           displayName: data.name,
           photoURL: data.PhotoUrl,
         })
-          .then()
+          .then((res) => {
+            // user info saved to DB
+            const newUserData = { name: data.name, email: data.email };
+            console.log(newUserData);
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(newUserData),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Sign Up is Successfull",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              })
+              .catch((err) => console.log(err.message));
+          })
           .catch((err) => console.log(err.message));
       })
       .catch((err) => console.log(err.message));
@@ -94,6 +120,21 @@ const SignUp = () => {
                 placeholder="At least 6 characters"
                 className="input input-bordered"
               />
+              {errors.password?.type === "required" && (
+                <p className="text-error" role="alert">
+                  First name is required
+                </p>
+              )}
+              {errors.password?.type === "pattern" && (
+                <p className="text-error" role="alert">
+                  Criteria not fullfill
+                </p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-error" role="alert">
+                  Minimun length is 6
+                </p>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -127,7 +168,11 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-6">
               {/* <button className="btn btn-primary w-1/2 mx-auto">Login</button> */}
-              <input className="btn btn-primary w-1/2 mx-auto" type="submit" value="Sign In" />
+              <input
+                className="btn btn-primary w-1/2 mx-auto"
+                type="submit"
+                value="Sign In"
+              />
             </div>
           </form>
         </div>
