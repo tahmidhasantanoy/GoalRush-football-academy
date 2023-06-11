@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
-  // console.log(user.photoURL);
 
 
-  const [isAdmin] = useAdmin()
-  console.log(isAdmin);
+  const [isInstructor] = useInstructor()
+  // console.log(isAdmin);
+  console.log(isInstructor);
 
   const handleLogout = () => {
     logout()
