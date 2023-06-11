@@ -107,15 +107,13 @@ const SignUp = () => {
                 <span className="label-text text-white">Password</span>
               </label>
               <input
-                {...register(
-                  "password",
-                  { minLength: 6 },
-                  { required: true },
-                  {
-                    pattern:
-                      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
-                  }
-                )}
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 10,
+                  pattern:
+                    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
+                })}
                 type="password"
                 placeholder="At least 6 characters"
                 className="input input-bordered"

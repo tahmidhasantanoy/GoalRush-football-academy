@@ -2,9 +2,15 @@ import React from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
@@ -14,10 +20,11 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    login(data.email,data.password)
+    login(data.email, data.password)
       .then((res) => {
         const user = res.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((err) => console.log(err.message));
   };
