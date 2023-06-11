@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
+import useGeneralUser from "../../Hooks/UseGeneralUser";
 
 const NavBar = () => {
   const { user, logout } = useAuth();
 
 
-  const [isInstructor] = useInstructor()
+  const [isGeneralUser] = useGeneralUser()
   // console.log(isAdmin);
-  console.log(isInstructor);
+  console.log(isGeneralUser);
 
   const handleLogout = () => {
     logout()
