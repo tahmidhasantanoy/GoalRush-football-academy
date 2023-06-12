@@ -3,6 +3,7 @@ import useSelectClasses from "../../../../Hooks/useSelectClasses";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const SelectClasses = () => {
   const [selectClass, refetch] = useSelectClasses();
@@ -69,9 +70,9 @@ const SelectClasses = () => {
             </tr>
           </thead>
           {selectClass.map((item, idx) => (
-            <tbody>
+            <tbody key={item?._id}>
               {/* row 1 */}
-              <tr key={item?._id}>
+              <tr>
                 <th>
                   <label className="ml-5">{idx + 1}</label>
                 </th>
@@ -98,7 +99,10 @@ const SelectClasses = () => {
                 <td>{item?.price}</td>
                 <td className="pl-12">{item?.availableSeats}</td>
                 <th>
-                  <button className="btn btn-ghost ">pay</button>
+                  {/* only change here  */}
+                  <Link to={`/dashboard/payment/${encodeURIComponent(JSON.stringify(item))}`}>
+                    <button className="btn btn-ghost ">pay</button>
+                  </Link>
                 </th>
                 <th>
                   <button

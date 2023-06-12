@@ -9,6 +9,7 @@ import Instructors from "../../Pages/Instructors/Instructors";
 import InstructorRoute from "../InstructorRoute/InstructorRoute";
 import AllClasses from "../../Pages/AllClasses/AllClasses";
 import SelectClasses from "../../Pages/DashBoard/UserPage/SelectClasses/SelectClasses";
+import PaymentPage from "../../Pages/DashBoard/UserPage/Payement/PaymentPage/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -51,16 +52,20 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <DashBoardPage />,
-    children : [
+    children: [
       {
-        path : "addclass",
-        element : <AddClass/>
+        path: "addclass",
+        element: <AddClass />,
       },
       {
-        path : "select-classes",
-        element : <SelectClasses/>
-      }
-    ]
+        path: "select-classes",
+        element: <SelectClasses />,
+      },
+      {
+        path: "payment/:item",
+        element: <PaymentPage />,
+      },
+    ],
   },
 ]);
 

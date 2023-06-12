@@ -45,6 +45,7 @@ const AllClasses = () => {
     } = addItem;
 
     const addClass = {
+      classId: _id,
       image,
       classname,
       instructorName,
