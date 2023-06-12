@@ -3,13 +3,18 @@ import useAllClass from "../../Hooks/useAllClass";
 import { FaBeer, FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa";
 import useInstructor from "../../Hooks/useInstructor";
 import useAdmin from "../../Hooks/useAdmin";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
-  // console.log(classData);
+  console.log(classData);
   const [isInstructor] = useInstructor();
   const [isAdmin] = useAdmin();
-  const [button, setButton] = useState();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   if (!Array.isArray(classData)) {
     return (
@@ -27,8 +32,56 @@ const AllClasses = () => {
     );
   }
 
-  if (isInstructor?.instructor || isAdmin?.admin) {
-  }
+  const handleAddClass = (addItem) => {
+    // console.log(addItem);
+    const {
+      _id,
+      image,
+      classname,
+      instructorName,
+      instructorEmail,
+      price,
+      availableSeats,
+    } = addItem;
+
+    const addClass = {
+      image,
+      classname,
+      instructorName,
+      instructorEmail,
+      price: parseFloat(price),
+      availableSeats: parseInt(availableSeats),
+    };
+
+    if (user?.email) {
+      console.log(user.email);
+
+      //Let's do simply
+      fetch("http://localhost:5000/all-class/selected", {
+        method: "POST",
+
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addClass),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          Swal.fire({
+            position: 'top-middle',
+            icon: 'success',
+            title: 'class added successfully',
+            showConfirmButton: false,
+            timer: 2000
+          })
+        })
+        .catch((err) => console.log(err.message));
+    } else {
+      Swal.fire("Please! Login first");
+      navigate("/login", { state: { from: location } });
+    }
+  };
 
   return (
     <div className="grid gri md:grid-cols-2 pt-28">
@@ -52,7 +105,11 @@ const AllClasses = () => {
               ${item?.price}
             </p>
             <div className="card-actions justify-start">
-              <button disabled={isInstructor?.instructor || isAdmin?.admin}className="btn btn-sm w-full mt-5 mx-auto ">
+              <button
+                onClick={() => handleAddClass(item)}
+                disabled={isInstructor?.instructor || isAdmin?.admin}
+                className="btn btn-sm w-full mt-5 mx-auto "
+              >
                 <FaRegCalendarCheck /> Book now
               </button>
             </div>
