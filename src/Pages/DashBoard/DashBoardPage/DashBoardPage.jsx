@@ -20,7 +20,7 @@ const DashBoardPage = () => {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center ">
         {/* Page content here */}
-        {/* <Outlet></Outlet> */}
+        <Outlet></Outlet>
         <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
@@ -62,7 +62,7 @@ const DashBoardPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link>
+                  <Link to={"/dashboard/addclass"}>
                     <FaBookMedical />
                     Add class
                   </Link>
@@ -86,7 +86,7 @@ const DashBoardPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link>
+                  <Link >
                     <FaSwatchbook />
                     All class
                   </Link>
