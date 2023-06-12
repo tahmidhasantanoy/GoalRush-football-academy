@@ -8,12 +8,12 @@ import useGeneralUser from "../../Hooks/UseGeneralUser";
 const NavBar = () => {
   const { user, logout } = useAuth();
 
-  // const [isGeneralUser] = useGeneralUser();
-  // const [isAdmin] = useAdmin();
-  // const [isInstructor] = useInstructor();
-  // console.log(isAdmin);
-  // console.log(isGeneralUser);
-  // console.log(isInstructor);
+  const [isGeneralUser] = useGeneralUser();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  console.log(isAdmin);
+  console.log(isGeneralUser);
+  console.log(isInstructor);
 
   const handleLogout = () => {
     logout()
