@@ -73,14 +73,14 @@ const SignUp = () => {
       </p>
 
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className=".text-center w-full lg:text-left .ml-5">
+        <div className=".text-center w-full lg:text-left">
           <img
             className=".opacity-70 h-[620px] rounded-md"
             src={registrationImg}
             alt=""
           />
         </div>
-        <div className="card .flex-shrink-0 w-full .max-w-sm shadow-2xl bg-base-100 opacity-80 lg:ml-16 mr-5">
+        <div className="card w-full   .max-w-sm shadow-2xl bg-base-100 opacity-80 lg:ml-16 mr-5">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
             <div className="form-control">
               <label className="label">
@@ -168,7 +168,7 @@ const SignUp = () => {
                 </a>
               </label>
             </div>
-            <div className="form-control mt-6">
+            <div className="form-control mt-4">
               {/* <button className="btn btn-primary w-1/2 mx-auto">Login</button> */}
               <input
                 className="btn btn-primary w-1/2 mx-auto"

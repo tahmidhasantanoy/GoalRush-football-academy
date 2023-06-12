@@ -4,6 +4,7 @@ import {
   FaBeer,
   FaBook,
   FaBookMedical,
+  FaHistory,
   FaHome,
   FaSwatchbook,
 } from "react-icons/fa";
@@ -51,6 +52,12 @@ const DashBoardPage = () => {
                   Enrolled classes
                 </Link>
               </li>
+              <li>
+                <Link>
+                  <FaHistory />
+                  Payment history
+                </Link>
+              </li>
             </>
           )}
           <div className="space-y-1">
@@ -68,7 +75,7 @@ const DashBoardPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link>
+                  <Link to={"/dashboard/myclass"}>
                     <FaBook />
                     My class
                   </Link>

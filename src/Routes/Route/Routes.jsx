@@ -10,6 +10,7 @@ import InstructorRoute from "../InstructorRoute/InstructorRoute";
 import AllClasses from "../../Pages/AllClasses/AllClasses";
 import SelectClasses from "../../Pages/DashBoard/UserPage/SelectClasses/SelectClasses";
 import PaymentPage from "../../Pages/DashBoard/UserPage/Payement/PaymentPage/PaymentPage";
+import MyClass from "../../Pages/DashBoard/InstructorPage/MyClass/MyClass";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,10 @@ const router = createBrowserRouter([
       {
         path: "payment/:item",
         element: <PaymentPage />,
-      },
+      },{
+        path : "myclass",
+        element : <MyClass/>
+      }
     ],
   },
 ]);
