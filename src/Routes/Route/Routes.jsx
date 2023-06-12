@@ -8,6 +8,7 @@ import DashBoardPage from "../../Pages/DashBoard/DashBoardPage/DashBoardPage";
 import Instructors from "../../Pages/Instructors/Instructors";
 import InstructorRoute from "../InstructorRoute/InstructorRoute";
 import AllClasses from "../../Pages/AllClasses/AllClasses";
+import SelectClasses from "../../Pages/DashBoard/UserPage/SelectClasses/SelectClasses";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path : "addclass",
         element : <AddClass/>
+      },
+      {
+        path : "select-classes",
+        element : <SelectClasses/>
       }
     ]
   },

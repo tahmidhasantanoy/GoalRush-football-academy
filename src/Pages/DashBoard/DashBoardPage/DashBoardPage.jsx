@@ -40,7 +40,7 @@ const DashBoardPage = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to={"/dashboard/select-classes"}>
                   <FaSwatchbook />
                   Selected classes
                 </Link>
@@ -86,7 +86,7 @@ const DashBoardPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link >
+                  <Link>
                     <FaSwatchbook />
                     All class
                   </Link>

@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
-  console.log(classData);
+  // console.log(classData);
   const [isInstructor] = useInstructor();
   const [isAdmin] = useAdmin();
   const { user } = useAuth();
@@ -67,14 +67,16 @@ const AllClasses = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
-          Swal.fire({
-            position: 'top-middle',
-            icon: 'success',
-            title: 'class added successfully',
-            showConfirmButton: false,
-            timer: 2000
-          })
+          // console.log(data);
+          if (data.insertedId) {
+            Swal.fire({
+              position: "top-middle",
+              icon: "success",
+              title: "class added successfully",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+          }
         })
         .catch((err) => console.log(err.message));
     } else {
