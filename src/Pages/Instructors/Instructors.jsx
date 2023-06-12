@@ -4,7 +4,21 @@ const Instructors = () => {
   const [instructors, refetch] = useInstructorCollection();
 
   if (!Array.isArray(instructors)) {
-    return <p>Loading...</p>;
+    return (
+      <>
+        <>
+          <div>
+            <div className="flex items-center justify-center pt-20">
+              {/* <p>Loading &nbsp; &nbsp;</p> */}
+              <span className="loading loading-dots loading-xs text-yellow-400"></span>
+              <span className="loading loading-dots loading-sm text-yellow-400"></span>
+              <span className="loading loading-dots loading-md text-yellow-400"></span>
+              <span className="loading loading-dots loading-lg text-yellow-400"></span>
+            </div>
+          </div>
+        </>
+      </>
+    );
   }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 py-20">

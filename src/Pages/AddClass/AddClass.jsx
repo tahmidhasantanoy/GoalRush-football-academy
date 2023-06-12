@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
-
 //TODO : only instructor see this
 const AddClass = () => {
   const {
@@ -76,11 +75,20 @@ const AddClass = () => {
   };
 
   if (loading) {
-    return <progress className="progress w-56"></progress>;
+    return (
+      <>
+        <div className="flex">
+        <span className="loading loading-dots loading-xs text-yellow-400"></span>
+        <span className="loading loading-dots loading-sm text-yellow-400"></span>
+        <span className="loading loading-dots loading-md text-yellow-400"></span>
+        <span className="loading loading-dots loading-lg text-yellow-400"></span>
+        </div>
+      </>
+    );
   }
 
   return (
-    <div className="p-20" >
+    <div className="p-20">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
