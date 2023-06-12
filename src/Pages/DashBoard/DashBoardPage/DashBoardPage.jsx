@@ -53,7 +53,7 @@ const DashBoardPage = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to={"/dashboard/payment-history"}>
                   <FaHistory />
                   Payment history
                 </Link>

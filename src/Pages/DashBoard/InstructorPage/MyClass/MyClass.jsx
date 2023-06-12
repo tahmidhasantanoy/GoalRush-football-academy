@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
-import useSpecificClass from "../../../../Hooks/useSpecificClass";
 
 const MyClass = () => {
   const [specificInstrucClass] = useSpecificClass();

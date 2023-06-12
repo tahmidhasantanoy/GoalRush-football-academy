@@ -82,7 +82,7 @@ const CheckoutForm = ({ paymentClassData, price }) => {
         amount: price,
         classId: paymentClassData._id,
         selectClassId : paymentClassData.classId,
-        className: paymentClassData.className,
+        className: paymentClassData.classname,
         OrderStatus : "Pending"
       };
 
