@@ -1,20 +1,63 @@
 import React from "react";
 import useAlluser from "../../../../Hooks/useAlluser";
-import {
-  FaUserAstronaut,
-  FaUserEdit,
-  FaUserSecret,
-  FaUserTie,
-} from "react-icons/fa";
+import { FaUserAstronaut, FaUserEdit } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
-  const [usersData] = useAlluser();
+  const [usersData, refetch] = useAlluser();
   console.log(usersData);
+
+  const handleMakeAdmin = (user) => {
+    console.log(user);
+
+    fetch(`http://localhost:5000/users/${user._id}`, {
+      method: "PATCH",
+      headers: {
+        "conent-type": "applicatio.json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount && data.acknowledged === true) {
+          refetch();
+          Swal.fire({
+            position: "top-middle",
+            icon: "success",
+            title: { user } + "Made admin",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        else{
+            Swal.fire('Aleady admin')
+        }
+      })
+      .catch((err) => console.log(err.message));
+  };
+  const handleMakeInstructor = (user) => {
+    console.log(user);
+  };
+
+  if (!Array.isArray(usersData)) {
+    return (
+      <>
+        <div>
+          <div className="flex items-center justify-center pt-20">
+            <p>Loading &nbsp;</p>
+            <span className="loading loading-dots loading-xs text-yellow-400"></span>
+            <span className="loading loading-dots loading-sm text-yellow-400"></span>
+            <span className="loading loading-dots loading-md text-yellow-400"></span>
+            <span className="loading loading-dots loading-lg text-yellow-400"></span>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <div>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
             <tr>
               <th>
@@ -29,7 +72,6 @@ const ManageUsers = () => {
           </thead>
           {usersData.map((user, idx) => (
             <tbody>
-              {/* row 1 */}
               <tr>
                 <th>
                   <label>{idx + 1}</label>
@@ -38,10 +80,7 @@ const ManageUsers = () => {
                   <div className="flex items-center space-x-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src={user.image}
-                          alt="No image found"
-                        />
+                        <img src={user.image} alt="No image found" />
                       </div>
                     </div>
                     <div></div>
@@ -54,11 +93,11 @@ const ManageUsers = () => {
                     {user.email}
                   </span>
                 </td>
-                <td>
-                  <FaUserEdit className="w-40 pr-16" />
+                <td onClick={() => handleMakeInstructor(user)}>
+                  <FaUserEdit className="w-40 pr-16 btn-ghost" />
                 </td>
-                <td>
-                  <FaUserAstronaut className="w-40 pr-20" />
+                <td onClick={() => handleMakeAdmin(user)}>
+                  <FaUserAstronaut className="w-40 pr-20 btn-ghost" />
                 </td>
               </tr>
             </tbody>
