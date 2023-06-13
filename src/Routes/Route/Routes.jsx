@@ -12,6 +12,8 @@ import SelectClasses from "../../Pages/DashBoard/UserPage/SelectClasses/SelectCl
 import PaymentPage from "../../Pages/DashBoard/UserPage/Payement/PaymentPage/PaymentPage";
 import MyClass from "../../Pages/DashBoard/InstructorPage/MyClass/MyClass";
 import PaymentHistory from "../../Pages/DashBoard/UserPage/PaymentHistory/PaymentHistory";
+import EnrollClass from "../../Pages/DashBoard/UserPage/EnrollClass/EnrollClass";
+import ManageUsers from "../../Pages/DashBoard/AdminPage/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +34,10 @@ const router = createBrowserRouter([
       },
 
       //must be in dashboard
-      {
-        path: "/addclass",
-        element: <AddClass />,
-      },
+      // {
+      //   path: "/addclass",
+      //   element: <AddClass />,
+      // },
       //must be in dashboard
       {
         path: "/instructors",
@@ -73,6 +75,13 @@ const router = createBrowserRouter([
       },{
         path : "payment-history",
         element : <PaymentHistory/>
+      },{
+        path : "enroll-class",
+        element : <EnrollClass/>
+      },
+      {
+        path : "manage-users",
+        element : <ManageUsers/>
       }
     ],
   },

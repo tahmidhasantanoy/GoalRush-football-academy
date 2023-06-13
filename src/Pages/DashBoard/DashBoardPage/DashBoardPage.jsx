@@ -47,7 +47,7 @@ const DashBoardPage = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to={"/dashboard/enroll-class"}>
                   <FaBook />
                   Enrolled classes
                 </Link>
@@ -99,9 +99,9 @@ const DashBoardPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link>
+                  <Link to={"/dashboard/manage-users"}>
                     <FaBook />
-                    Enrolled classes
+                    Manage Users
                   </Link>
                 </li>
               </>
