@@ -8,7 +8,7 @@ const ManageUsers = () => {
   console.log(usersData);
 
   const handleMakeAdmin = (user) => {
-    console.log(user);
+    // console.log(user);
 
     fetch(`http://localhost:5000/users/${user._id}`, {
       method: "PATCH",
@@ -24,19 +24,41 @@ const ManageUsers = () => {
           Swal.fire({
             position: "top-middle",
             icon: "success",
-            title: { user } + "Made admin",
+            title: "Made admin successflly",
             showConfirmButton: false,
             timer: 1500,
           });
-        }
-        else{
-            Swal.fire('Aleady admin')
+        } else {
+          Swal.fire("Aleady admin");
         }
       })
       .catch((err) => console.log(err.message));
   };
+
   const handleMakeInstructor = (user) => {
-    console.log(user);
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+      method: "PATCH",
+      headers: {
+        "conent-type": "applicatio.json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount && data.acknowledged === true) {
+          refetch();
+          Swal.fire({
+            position: "top-middle",
+            icon: "success",
+            title: "Made instructor successflly",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire("Aleady Instructor");
+        }
+      })
+      .catch((err) => console.log(err.message));
   };
 
   if (!Array.isArray(usersData)) {
