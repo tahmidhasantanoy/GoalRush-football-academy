@@ -14,6 +14,7 @@ import MyClass from "../../Pages/DashBoard/InstructorPage/MyClass/MyClass";
 import PaymentHistory from "../../Pages/DashBoard/UserPage/PaymentHistory/PaymentHistory";
 import EnrollClass from "../../Pages/DashBoard/UserPage/EnrollClass/EnrollClass";
 import ManageUsers from "../../Pages/DashBoard/AdminPage/ManageUsers/ManageUsers";
+import ManageClass from "../../Pages/DashBoard/AdminPage/ManageClass/ManageClass";
 
 const router = createBrowserRouter([
   {
@@ -72,17 +73,23 @@ const router = createBrowserRouter([
       {
         path: "myclass",
         element: <MyClass />,
-      },{
-        path : "payment-history",
-        element : <PaymentHistory/>
-      },{
-        path : "enroll-class",
-        element : <EnrollClass/>
       },
       {
-        path : "manage-users",
-        element : <ManageUsers/>
-      }
+        path: "payment-history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "enroll-class",
+        element: <EnrollClass />,
+      },
+      {
+        path: "manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path : "manage-class",
+        element : <ManageClass/>
+      },
     ],
   },
 ]);

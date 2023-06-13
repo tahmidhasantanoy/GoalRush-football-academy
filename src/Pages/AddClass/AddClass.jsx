@@ -54,6 +54,7 @@ const AddClass = () => {
               availableSeats: parseInt(availableSeats),
               price: parseFloat(price),
               image: imgURL,
+              status: "pending",
             };
 
             axiosSecure.post("/all-class", newClassData).then((res) => {
@@ -65,7 +66,7 @@ const AddClass = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-                // reset();
+                reset();
               }
             });
           }
@@ -78,10 +79,10 @@ const AddClass = () => {
     return (
       <>
         <div className="flex">
-        <span className="loading loading-dots loading-xs text-yellow-400"></span>
-        <span className="loading loading-dots loading-sm text-yellow-400"></span>
-        <span className="loading loading-dots loading-md text-yellow-400"></span>
-        <span className="loading loading-dots loading-lg text-yellow-400"></span>
+          <span className="loading loading-dots loading-xs text-yellow-400"></span>
+          <span className="loading loading-dots loading-sm text-yellow-400"></span>
+          <span className="loading loading-dots loading-md text-yellow-400"></span>
+          <span className="loading loading-dots loading-lg text-yellow-400"></span>
         </div>
       </>
     );
@@ -113,7 +114,6 @@ const AddClass = () => {
             placeholder="Enter the class name"
             required
             defaultValue={user?.displayName}
-            // defaultValue={user?.DisplayName}
             readOnly
           />
         </div>
@@ -129,7 +129,6 @@ const AddClass = () => {
             placeholder="goalrush@gmail.com"
             required
             defaultValue={user?.email}
-            // defaultValue={user?.DisplayName}
             readOnly
           />
         </div>

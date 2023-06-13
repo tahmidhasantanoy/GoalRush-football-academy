@@ -93,9 +93,9 @@ const DashBoardPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link>
+                  <Link to={"/dashboard/manage-class"}>
                     <FaSwatchbook />
-                    All class
+                    Manage Class
                   </Link>
                 </li>
                 <li>
