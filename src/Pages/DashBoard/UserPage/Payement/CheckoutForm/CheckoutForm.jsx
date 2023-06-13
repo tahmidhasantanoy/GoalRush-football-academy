@@ -7,7 +7,7 @@ import "./CheckoutForm.css";
 
 const CheckoutForm = ({ paymentClassData, price }) => {
   console.log(paymentClassData.classId);
-  const deleteClassId = paymentClassData.classId
+  const deleteClassId = paymentClassData.classId;
   const stripe = useStripe();
   const elements = useElements();
   const [CardErr, SetCardErr] = useState("");
@@ -73,7 +73,6 @@ const CheckoutForm = ({ paymentClassData, price }) => {
       console.log("transsectionId", paymentIntent.id);
       const transsactionId = paymentIntent.id;
       setTranssactionId(paymentIntent.id);
-      //TODO : next
 
       const payment = {
         Date: new Date(),
@@ -81,15 +80,17 @@ const CheckoutForm = ({ paymentClassData, price }) => {
         email: user?.email,
         amount: price,
         classId: paymentClassData._id,
-        selectClassId : paymentClassData.classId,
+        selectClassId: paymentClassData.classId, //selectClassId
         className: paymentClassData.classname,
-        OrderStatus : "Pending"
+        OrderStatus: "Pending",
+        classInfo: paymentClassData,
       };
 
       axiosSecure.post(`/payments/${deleteClassId}`, payment).then((res) => {
-    //   axiosSecure.post("/payments", payment).then((res) => {
+        //   axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        if (res.data.insertedId) {
+        if (res.data.insertResult.insertedId) {
+          console.log(94, res.data.insertResult.insertedId);
           Swal.fire({
             position: "top-middle",
             icon: "success",
