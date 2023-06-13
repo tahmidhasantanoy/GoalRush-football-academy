@@ -1,6 +1,7 @@
 import React from "react";
 import useAllClass from "../../../../Hooks/useAllClass";
 import { FaCaretRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageClass = () => {
   const [classData,refetch] = useAllClass();
@@ -23,7 +24,7 @@ const ManageClass = () => {
           Swal.fire({
             position: "top-middle",
             icon: "success",
-            title: "Made admin successflly",
+            title: "Status change successflly",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -36,6 +37,30 @@ const ManageClass = () => {
 
   const handleDenyClass = (data) => {
     console.log(data);
+
+    fetch(`http://localhost:5000/all-class/deny/${data._id}`, {
+      method: "PATCH",
+      headers: {
+        "conent-type": "applicatio.json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount && data.acknowledged === true) {
+          refetch();
+          Swal.fire({
+            position: "top-middle",
+            icon: "success",
+            title: "Status change successflly",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire("Aleady deny");
+        }
+      })
+      .catch((err) => console.log(err.message));
   };
 
   if (!Array.isArray(classData)) {
