@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
+import useSpecificClass from "../../../../Hooks/useSpecificClass";
+import { Link } from "react-router-dom";
 
 const MyClass = () => {
   const [specificInstrucClass] = useSpecificClass();
@@ -37,7 +39,9 @@ const MyClass = () => {
             <p>Asking price : ${data.price}</p>
             <p>Available Seats : {data.availableSeats}</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Update</button>
+              <button className="btn btn-primary">
+                <Link to={`/dashboard/updateClass/${data._id}`}>Update</Link>
+              </button>
               {/* <button className="btn btn-ghost">Deny</button> */}
             </div>
           </div>

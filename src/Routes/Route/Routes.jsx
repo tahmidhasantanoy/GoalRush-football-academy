@@ -15,11 +15,14 @@ import PaymentHistory from "../../Pages/DashBoard/UserPage/PaymentHistory/Paymen
 import EnrollClass from "../../Pages/DashBoard/UserPage/EnrollClass/EnrollClass";
 import ManageUsers from "../../Pages/DashBoard/AdminPage/ManageUsers/ManageUsers";
 import ManageClass from "../../Pages/DashBoard/AdminPage/ManageClass/ManageClass";
+import Error from "../../Pages/Error/Error";
+import UpdateClass from "../../Pages/DashBoard/InstructorPage/UpdateClass/UpdateClass";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut />,
+    errorElement : <Error/>,
     children: [
       {
         path: "/",
@@ -33,13 +36,6 @@ const router = createBrowserRouter([
         path: "signup",
         element: <SignUp />,
       },
-
-      //must be in dashboard
-      // {
-      //   path: "/addclass",
-      //   element: <AddClass />,
-      // },
-      //must be in dashboard
       {
         path: "/instructors",
         element: (
@@ -90,6 +86,11 @@ const router = createBrowserRouter([
         path : "manage-class",
         element : <ManageClass/>
       },
+      {
+        path : "updateClass/:id",
+        element : <UpdateClass/>,
+        loader : ({params}) => fetch(`http://localhost:5000/all-class/${params.id}`)
+      }
     ],
   },
 ]);

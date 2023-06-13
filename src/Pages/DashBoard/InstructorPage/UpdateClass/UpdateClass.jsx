@@ -1,11 +1,21 @@
-import React from "react";
-import useAuth from "../../Hooks/useAuth";
+import React, { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import Swal from "sweetalert2";
+import useAuth from "../../../../Hooks/useAuth";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
-//TODO : only instructor see this
-const AddClass = () => {
+const UpdateClass = () => {
+  // const [id,setId] = useState("")
+  const classData = useLoaderData();
+  console.log(classData);
+
+  const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+
+  const { availableSeats, classname, price, image } = classData;
+
+  console.log(image);
+
   const {
     register,
     handleSubmit,
@@ -13,16 +23,12 @@ const AddClass = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const { user, loading } = useAuth();
-  const [axiosSecure] = useAxiosSecure();
-  // console.log(user);
 
   const img_hosting_token = import.meta.env.VITE_Image_Hosting_Token;
 
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const onSubmit = (data) => {
-    console.log(data.file[0]);
     console.log(data);
 
     //Hosting image yo imgbb
@@ -40,6 +46,7 @@ const AddClass = () => {
             console.log(imgRes.data.display_url);
             const imgURL = imgRes.data.display_url;
             const {
+              _id,
               classname,
               instructorEmail,
               instructorName,
@@ -47,7 +54,15 @@ const AddClass = () => {
               price,
             } = data;
 
-            const newClassData = {
+            console.log(
+              classname,
+              instructorEmail, 
+              instructorName,
+              availableSeats,
+              price
+            ); //undefiend
+
+            const updateClassData = {
               classname,
               instructorName,
               instructorEmail,
@@ -57,45 +72,36 @@ const AddClass = () => {
               status: "pending",
             };
 
-            axiosSecure.post("/all-class", newClassData).then((res) => {
-              if (res.data.insertedId) {
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: `New class is added`,
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                reset();
-              }
-            });
+            axiosSecure
+              .put(`/all-class/${classData._id}`, updateClassData)
+              .then((res) => {
+                if (res.data.insertedId) {
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `New class is added`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  reset();
+                }
+              });
           }
         })
         .catch((err) => console.log(err.message));
     }
   };
 
-  if (loading) {
-    return (
-      <>
-        <div className="flex">
-          <span className="loading loading-dots loading-xs text-yellow-400"></span>
-          <span className="loading loading-dots loading-sm text-yellow-400"></span>
-          <span className="loading loading-dots loading-md text-yellow-400"></span>
-          <span className="loading loading-dots loading-lg text-yellow-400"></span>
-        </div>
-      </>
-    );
-  }
-
   return (
     <div className="p-20">
+      <p className="text-center text-white text-2xl">Update {classname}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Class name
           </label>
           <input
+            defaultValue={classname}
             {...register("classname")}
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -111,10 +117,10 @@ const AddClass = () => {
             {...register("instructorName")}
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter the class name"
+            placeholder="Ensure istructor name"
             required
-            defaultValue={user?.displayName}
-            readOnly
+            // defaultValue={user?.displayName}
+            // readOnly
           />
         </div>
 
@@ -126,10 +132,10 @@ const AddClass = () => {
             {...register("instructorEmail")}
             type="email"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="goalrush@gmail.com"
+            placeholder="Ensure instructor email"
             required
-            defaultValue={user?.email}
-            readOnly
+            // defaultValue={user?.email}
+            // readOnly
           />
         </div>
         <div className="grid gap-6 mb-6 md:grid-cols-2">
@@ -138,6 +144,7 @@ const AddClass = () => {
               Available seats
             </label>
             <input
+              defaultValue={availableSeats}
               {...register("availableSeats")}
               type="number"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -150,6 +157,7 @@ const AddClass = () => {
               Price
             </label>
             <input
+              defaultValue={price}
               {...register("price")}
               type="number"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -165,6 +173,7 @@ const AddClass = () => {
               <span className="text-white">Choose class image</span>
             </label>
             <input
+              //   defaultValue={image}
               {...register("file", { required: true })}
               type="file"
               className="file-input file-input-bordered w-full max-w-xs"
@@ -195,11 +204,11 @@ const AddClass = () => {
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Submit
+          Update
         </button>
       </form>
     </div>
   );
 };
 
-export default AddClass;
+export default UpdateClass;
