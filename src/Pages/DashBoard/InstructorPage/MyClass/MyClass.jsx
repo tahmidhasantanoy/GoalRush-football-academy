@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import useSpecificClass from "../../../../Hooks/useSpecificClass";
 import { Link } from "react-router-dom";
+import { FaCaretRight } from "react-icons/fa";
 
 const MyClass = () => {
   const [specificInstrucClass] = useSpecificClass();
@@ -36,8 +37,22 @@ const MyClass = () => {
           <div className="card-body items-center text-center">
             <h2 className="card-title">{data.classname}</h2>
             <hr />
-            <p>Asking price : ${data.price}</p>
-            <p>Available Seats : {data.availableSeats}</p>
+            <div className="mr-36 justify-start my-5">
+            <div className="flex items-center">
+              <FaCaretRight className="pr-2" />
+              <p>Asking price : ${data.price}</p>
+            </div>
+            <div className="flex items-center">
+              <FaCaretRight className="pr-2" />
+              <p>Available Seats : {data.availableSeats}</p>
+            </div>
+            <div className="flex items-center">
+              <FaCaretRight className="pr-2" />
+              <p>Status : {data.status}</p>
+            </div>
+            </div>
+            
+            
             <div className="card-actions justify-end">
               <button className="btn btn-primary">
                 <Link to={`/dashboard/updateClass/${data._id}`}>Update</Link>
