@@ -61,12 +61,12 @@ const SignUp = () => {
           .catch((err) => console.log(err.message));
       })
       .catch((err) => console.log(err.message));
-    // reset();
+    reset();
   };
 
   //TODO : input border color,btn color,btn size
   return (
-    <div className=".hero min-h-screen .bg-base-200 reg-bg py-20">
+    <div className=".hero min-h-min reg-bg py-28">
       <TItlePage title={"Registration"}></TItlePage>
       <p className="text-center text-3xl font-semibold mb-3 text-white">
         Create new account.
@@ -75,12 +75,12 @@ const SignUp = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className=".text-center w-full lg:text-left">
           <img
-            className=".opacity-70 h-[620px] rounded-md"
+            className=".opacity-70 h-[1120px] rounded-md"
             src={registrationImg}
             alt=""
           />
         </div>
-        <div className="card w-full   .max-w-sm shadow-2xl bg-base-100 opacity-80 lg:ml-16 mr-5">
+        <div className="card w-full shadow-2xl bg-base-100 opacity-80 lg:ml-16 mr-5">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
             <div className="form-control">
               <label className="label">
@@ -169,7 +169,6 @@ const SignUp = () => {
               </label>
             </div>
             <div className="form-control mt-4">
-              {/* <button className="btn btn-primary w-1/2 mx-auto">Login</button> */}
               <input
                 className="btn btn-primary w-1/2 mx-auto"
                 type="submit"

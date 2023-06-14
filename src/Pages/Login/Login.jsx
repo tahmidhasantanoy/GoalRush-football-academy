@@ -62,11 +62,11 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6 w-2/4 mx-auto">
-              <button className="btn btn-primary w-full">Login</button>
+              <button className="btn btn-info bg-info w-full">Login</button>
             </div>
             <p className="text-center mt-5">
               Don't have an acoount? 
-              <span>
+              <span className="text-info">
                 <Link to={"/signup"}>Create account</Link>
               </span>
             </p>

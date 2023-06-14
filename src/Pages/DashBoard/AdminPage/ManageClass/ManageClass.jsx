@@ -110,7 +110,7 @@ const ManageClass = () => {
                 </div>
                 <div className="flex items-center">
                   <FaCaretRight className="pr-2" />
-                  <p className="">Price : {data.price}</p>
+                  <p className="">Price : ${data.price}</p>
                 </div>
                 <div className="flex items-center">
                   <FaCaretRight className="pr-2" />
