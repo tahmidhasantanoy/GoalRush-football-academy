@@ -90,6 +90,8 @@ const AddClass = () => {
 
   return (
     <div className="p-20">
+      <p className="text-4xl text-white text-center mt-20 .border-b-2">Add a class {user?.displayName} </p>
+      <hr className="2/4"/>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">

@@ -8,7 +8,7 @@ const Footer = () => {
       <div>
         <img className="w-32 h-24" src={logo} alt="" />
         <p>
-          GoalRush Industries Ltd.
+          GoalRush Football Institute.
           <br />
           Book your class now.
         </p>

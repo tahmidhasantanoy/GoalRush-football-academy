@@ -28,40 +28,45 @@ const MyClass = () => {
   console.log(insData);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      {insData.map((data) => (
-        <div
-          key={data._id}
-          className="card w-96 bg-neutral text-neutral-content m-20"
-        >
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">{data.classname}</h2>
-            <hr />
-            <div className="mr-36 justify-start my-5">
-            <div className="flex items-center">
-              <FaCaretRight className="pr-2" />
-              <p>Asking price : ${data.price}</p>
-            </div>
-            <div className="flex items-center">
-              <FaCaretRight className="pr-2" />
-              <p>Available Seats : {data.availableSeats}</p>
-            </div>
-            <div className="flex items-center">
-              <FaCaretRight className="pr-2" />
-              <p>Status : {data.status}</p>
-            </div>
-            </div>
-            
-            
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">
-                <Link to={`/dashboard/updateClass/${data._id}`}>Update</Link>
-              </button>
-              {/* <button className="btn btn-ghost">Deny</button> */}
-            </div>
-          </div>
+    <div>
+      <p className="text-4xl text-white text-center mt-20 .border-b-2">{user?.displayName} all classes</p>
+      <hr className="w-2/4 mx-auto"/>
+      <div className="grid grid-cols-1 md:grid-cols-2 my-20">
+
+{insData.map((data) => (
+  <div
+    key={data._id}
+    className="card w-96 bg-neutral text-neutral-content mx-12 mb-12 "
+  >
+    <div className="card-body items-center text-center">
+      <h2 className="card-title text-white border-b-2">
+        {data.classname}
+      </h2>
+      <hr />
+      <div className="mr-36 justify-start my-5">
+        <div className="flex items-center mb-1">
+          <FaCaretRight className="pr-2" />
+          <p>Asking price : ${data.price}</p>
         </div>
-      ))}
+        <div className="flex items-center mb-1">
+          <FaCaretRight className="pr-2" />
+          <p>Available Seats : {data.availableSeats}</p>
+        </div>
+        <div className="flex items-center">
+          <FaCaretRight className="pr-2" />
+          <p>Status : {data.status}</p>
+        </div>
+      </div>
+
+      <div className="card-actions justify-end">
+        <button className="btn btn-primary btn-md">
+          <Link to={`/dashboard/updateClass/${data._id}`}>Update</Link>
+        </button>
+      </div>
+    </div>
+  </div>
+))}
+</div>
     </div>
   );
 };

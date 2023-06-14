@@ -4,7 +4,7 @@ import { FaCaretRight } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageClass = () => {
-  const [classData,refetch] = useAllClass();
+  const [classData, refetch] = useAllClass();
   console.log(classData);
 
   const handleAcceptClass = (data) => {
@@ -68,7 +68,7 @@ const ManageClass = () => {
       <>
         <div>
           <div className="flex items-center justify-center pt-20">
-            <p>Loading &nbsp;c</p>
+            <p>Loading &nbsp;</p>
             <span className="loading loading-dots loading-xs text-yellow-400"></span>
             <span className="loading loading-dots loading-sm text-yellow-400"></span>
             <span className="loading loading-dots loading-md text-yellow-400"></span>

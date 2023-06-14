@@ -42,7 +42,7 @@ const NavBar = () => {
   return (
     // TODO : header will be attractive menu
     <>
-      <div className="navbar fixed z-10  bg-black bg-opacity-20 max-w-screen-xl text-white font-semibold">
+      <div className="navbar fixed z-10  bg-black bg-opacity-20 .max-w-screen-xl text-white font-semibold">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -68,7 +68,9 @@ const NavBar = () => {
               {menu}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl ">GoalRush</a>
+          <p className="btn btn-ghost normal-case text-xl ">
+            <Link to={"/"}>GoalRush</Link>
+          </p>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menu}</ul>
@@ -77,7 +79,7 @@ const NavBar = () => {
           {user ? (
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-15 rounded-full">
+                <div className=" rounded-full">
                   <img title={user?.displayName} src={user.photoURL} />
                 </div>
               </label>

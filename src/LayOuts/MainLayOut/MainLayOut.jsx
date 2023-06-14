@@ -5,11 +5,13 @@ import { Outlet } from "react-router-dom";
 
 const MainLayOut = () => {
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <NavBar />
-      <Outlet></Outlet>
-      <Footer/>
-    </div>
+    <>
+      {/* <div className="w11/12 mx-auto"> */}
+        <NavBar />
+        <Outlet></Outlet>
+        <Footer />
+      {/* </div> */}
+    </>
   );
 };
 

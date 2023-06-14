@@ -21,7 +21,7 @@ const AllClasses = () => {
       <>
         <div>
           <div className="flex items-center justify-center pt-20">
-            <p>Loading &nbsp;c</p>
+            <p>Loading &nbsp;</p>
             <span className="loading loading-dots loading-xs text-yellow-400"></span>
             <span className="loading loading-dots loading-sm text-yellow-400"></span>
             <span className="loading loading-dots loading-md text-yellow-400"></span>
@@ -87,11 +87,11 @@ const AllClasses = () => {
   };
 
   return (
-    <div className="grid gri md:grid-cols-2 pt-28">
+    <div className="grid grid-cols-1 md:grid-cols-3 pt-28 justify-center">
       {classData.map((item) => (
         <div
           key={item._id}
-          className="card card-compact w-96 bg-[#1a4949] shadow-2xl hover:scale-105 duration-1000 mb-8"
+          className="card card-compact w-[400px] bg-[#1a4949] shadow-2xl hover:scale-105 duration-1000 mb-8 mx-auto"
         >
           <p className="mt-5 mb-1 pl-5 text-white font-semibold text-2xl">
             {item?.classname}
