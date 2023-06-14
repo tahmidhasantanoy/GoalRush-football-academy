@@ -170,7 +170,7 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-4">
               <input
-                className="btn btn-primary w-1/2 mx-auto hover:text-white"
+                className="btn btn-info w-1/2 mx-auto hover:text-white"
                 type="submit"
                 value="Sign In"
               />

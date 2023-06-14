@@ -8,8 +8,8 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 const ManageClass = () => {
   const [classData, refetch] = useAllClass();
   const [feedback, setFeedback] = useState(false);
-  const [id,setId] = useState("")
-  const [axiosSecure] = useAxiosSecure()
+  const [id, setId] = useState("");
+  const [axiosSecure] = useAxiosSecure();
   // console.log(classData);
 
   const handleAcceptClass = (data) => {
@@ -43,7 +43,7 @@ const ManageClass = () => {
   const handleDenyClass = (data) => {
     // console.log(data);
     setFeedback(true);
-    setId(data._id)
+    setId(data._id);
 
     fetch(`http://localhost:5000/all-class/deny/${data._id}`, {
       method: "PATCH",
@@ -76,7 +76,7 @@ const ManageClass = () => {
     // const feedback = JSON.stringify(feedData)
     // console.log(feedback,id);
 
-    axiosSecure.put(`/all-class/classFeedback/${id}`,  feedData).then((res) => {
+    axiosSecure.put(`/all-class/classFeedback/${id}`, feedData).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount) {
         Swal.fire({
@@ -123,28 +123,28 @@ const ManageClass = () => {
             </figure>
             <div className="card-body items-center text-center ">
               <h2 className="card-title text-white">{data.classname}</h2>
-              <div className="mr-36 justify-start my-5">
-                <div className="flex items-center">
+              <div className="mr-32 justify-start my-5">
+                <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
-                  <p className="">{data.instructorName}</p>
+                  <p className="text-start">{data.instructorName}</p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
-                  <p className="">{data.instructorEmail}</p>
+                  <p className="text-start">{data.instructorEmail}</p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
-                  <p className="">Price : ${data.price}</p>
+                  <p className="text-start">Price : ${data.price}</p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
-                  <p className="">Available Seats : {data.availableSeats}</p>
+                  <p className="text-start">Available Seats : {data.availableSeats}</p>
                 </div>
               </div>
               <div className="card-actions justify-end">
                 <button
                   onClick={() => handleAcceptClass(data)}
-                  className="btn btn-primary"
+                  className="btn btn-info"
                 >
                   Accept
                 </button>
@@ -155,7 +155,6 @@ const ManageClass = () => {
                   Deny
                 </button>
               </div>
-              {/* change  */}
               <form>
                 <input
                   disabled={!feedback}
@@ -166,7 +165,6 @@ const ManageClass = () => {
                   onBlur={handleFeedback}
                 />
               </form>
-              {/* change  */}
             </div>
           </div>
         ))}

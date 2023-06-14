@@ -3,12 +3,13 @@ import "./login.css";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login,googleLogin } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const [err,setErr] = useState("")
+  const [err, setErr] = useState("");
 
   const from = location.state?.from?.pathname || "/";
 
@@ -26,10 +27,21 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
-        reset()
+        reset();
         navigate(from, { replace: true });
       })
       .catch((err) => setErr("Email or password is not valid"));
+  };
+
+  const handleGoogleSubmit = () => {
+    googleLogin()
+      .then((res) => {
+        const user = res.user;
+        // setDisplayName(user.displayName);
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.log(err.message));
   };
 
   return (
@@ -68,8 +80,15 @@ const Login = () => {
             <div className="form-control mt-6 w-2/4 mx-auto">
               <button className="btn btn-info bg-info w-full">Login</button>
             </div>
+            {/* change */}
+            <div className="divider">OR</div>
+            <div onClick={handleGoogleSubmit} className="text-center flex items-center justify-center border mx-auto p-3 btn rounded-full">
+              {/* <p>Signin with </p> */}
+              <FaGoogle className="" />
+            </div>
+            {/* change */}
             <p className="text-center mt-5">
-              Don't have an acoount? 
+              Don't have an acoount?
               <span className="text-info underline">
                 <Link to={"/signup"}>Create account</Link>
               </span>

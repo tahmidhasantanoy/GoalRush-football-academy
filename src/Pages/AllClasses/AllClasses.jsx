@@ -111,7 +111,7 @@ const AllClasses = () => {
               <button
                 onClick={() => handleAddClass(item)}
                 disabled={isInstructor?.instructor || isAdmin?.admin}
-                className="btn btn-sm w-full mt-5 mx-auto "
+                className="btn btn-sm w-full mt-5 mx-auto btn-info "
               >
                 <FaRegCalendarCheck /> Book now
               </button>

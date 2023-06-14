@@ -78,7 +78,7 @@ const NavBar = () => {
         <div className="navbar-end">
           {user ? (
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <label tabIndex={0} className="btn btn-info btn-circle avatar">
                 <div className=" rounded-full">
                   <img title={user?.displayName} src={user.photoURL} />
                 </div>

@@ -26,7 +26,7 @@ const Error = () => {
               </p>
               <Link
                 to="/"
-                className="btn hover:btn-wide hover:text-white duration-1000 rounded-lg"
+                className="btn btn-info hover:btn-wide hover:text-white duration-1000 rounded-lg"
               >
                 Back to homepage
               </Link>
