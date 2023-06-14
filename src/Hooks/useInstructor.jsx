@@ -10,7 +10,7 @@ const useInstructor = () => {
     queryKey: ["instructor", user?.email],
     queryFn: async () => {
       const instructorData = fetch(
-        `http://localhost:5000/users/instructor/${user?.email}`,
+        `https://goal-rush-server.vercel.app/users/instructor/${user?.email}`,
         {
           headers: { authorization: `bearer ${jwtAccessToken}` },
         }

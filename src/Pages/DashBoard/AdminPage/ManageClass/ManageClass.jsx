@@ -15,7 +15,7 @@ const ManageClass = () => {
   const handleAcceptClass = (data) => {
     // console.log(data);
 
-    fetch(`http://localhost:5000/all-class/accept/${data._id}`, {
+    fetch(`https://goal-rush-server.vercel.app/all-class/accept/${data._id}`, {
       method: "PATCH",
       headers: {
         "conent-type": "applicatio.json",
@@ -45,7 +45,7 @@ const ManageClass = () => {
     setFeedback(true);
     setId(data._id);
 
-    fetch(`http://localhost:5000/all-class/deny/${data._id}`, {
+    fetch(`https://goal-rush-server.vercel.app/all-class/deny/${data._id}`, {
       method: "PATCH",
       headers: {
         "conent-type": "applicatio.json",

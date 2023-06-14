@@ -37,7 +37,7 @@ const SignUp = () => {
               image: data.PhotoUrl,
             };
             console.log(newUserData);
-            fetch("http://localhost:5000/users", {
+            fetch("https://goal-rush-server.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

@@ -17,7 +17,7 @@ const MyClass = () => {
   useEffect(() => {
     if (user?.email) {
       fetch(
-        `http://localhost:5000/all-class/instructor?instructorEmail=${user?.email}`
+        `https://goal-rush-server.vercel.app/all-class/instructor?instructorEmail=${user?.email}`
       )
         .then((res) => res.json())
         .then((data) => setInsData(data))
@@ -46,15 +46,15 @@ const MyClass = () => {
       <div className="mr-36 justify-start my-5">
         <div className="flex items-center mb-1">
           <FaCaretRight className="pr-2" />
-          <p>Asking price : ${data.price}</p>
+          <p className="text-start">Asking price : ${data.price}</p>
         </div>
         <div className="flex items-center mb-1">
           <FaCaretRight className="pr-2" />
-          <p>Available Seats : {data.availableSeats}</p>
+          <p className="text-start">Available Seats : {data.availableSeats}</p>
         </div>
         <div className="flex items-center">
           <FaCaretRight className="pr-2" />
-          <p>Status : {data.status}</p>
+          <p className="text-start">Status : {data.status}</p>
         </div>
       </div>
 

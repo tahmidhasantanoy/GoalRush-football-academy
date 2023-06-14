@@ -10,7 +10,7 @@ const useGeneralUser = () => {
     queryKey: ["generalUser", user?.email],
     queryFn: async () => {
       const generalUserData = fetch(
-        `http://localhost:5000/users/generalUser/${user?.email}`,
+        `https://goal-rush-server.vercel.app/users/generalUser/${user?.email}`,
         {
           headers: { authorization: `bearer ${jwtAccessToken}` },
         }

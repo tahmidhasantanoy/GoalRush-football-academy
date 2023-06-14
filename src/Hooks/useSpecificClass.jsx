@@ -9,7 +9,7 @@ const useSpecificClass = () => {
     queryKey: ["instructor-classes"],
     queryFn: async () => {
       const instClass = axiosSecure(
-        `http://localhost:5000/all-class/instructor?instructorEmail=${user?.email}`
+        `https://goal-rush-server.vercel.app/all-class/instructor?instructorEmail=${user?.email}`
       );
       return instClass.data;
     },

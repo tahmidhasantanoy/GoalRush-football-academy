@@ -20,18 +20,24 @@ const Instructors = () => {
     );
   }
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-28 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-28 gap-12">
       {instructors.map((instructor) => (
         <div key={instructor._id} className="">
           <div className="card w-80 bg-base-300 shadow-xl mx-auto">
             <figure className="px-10 pt-10">
-              <img src={instructor?.image} alt="Instructor image" className="rounded-xl" />
+              <img
+                src={instructor?.image}
+                alt="Instructor image"
+                className="rounded-xl"
+              />
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">{instructor?.name}</h2>
               <p>{instructor?.email}</p>
               <div className="card-actions">
-                <button className="btn btn-primary">see classes</button>
+                <button className="btn btn-info btn-sm mt-4">
+                  see classes
+                </button>
               </div>
             </div>
           </div>

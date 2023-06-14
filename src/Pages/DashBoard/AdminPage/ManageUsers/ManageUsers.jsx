@@ -10,7 +10,7 @@ const ManageUsers = () => {
   const handleMakeAdmin = (user) => {
     // console.log(user);
 
-    fetch(`http://localhost:5000/users/${user._id}`, {
+    fetch(`https://goal-rush-server.vercel.app/users/${user._id}`, {
       method: "PATCH",
       headers: {
         "conent-type": "applicatio.json",
@@ -36,7 +36,7 @@ const ManageUsers = () => {
   };
 
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+    fetch(`https://goal-rush-server.vercel.app/users/instructor/${user._id}`, {
       method: "PATCH",
       headers: {
         "conent-type": "applicatio.json",

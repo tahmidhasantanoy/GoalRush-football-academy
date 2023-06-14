@@ -10,7 +10,7 @@ const useAdmin = () => {
     queryKey: ["admin", user?.email],
     queryFn: async () => {
       const adminData = fetch(
-        `http://localhost:5000/users/admin/${user?.email}`,
+        `https://goal-rush-server.vercel.app/users/admin/${user?.email}`,
         {
           headers: { authorization: `bearer ${jwtAccessToken}` },
         }

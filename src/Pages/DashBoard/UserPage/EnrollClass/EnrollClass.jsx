@@ -7,7 +7,7 @@ const EnrollClass = () => {
   const { user } = useAuth();
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/payments?email=${user?.email}`)
+      fetch(`https://goal-rush-server.vercel.app/payments?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setEnroll(data))
         .catch((err) => console.log(err.message));

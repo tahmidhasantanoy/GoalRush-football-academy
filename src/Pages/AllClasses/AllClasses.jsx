@@ -58,7 +58,7 @@ const AllClasses = () => {
       console.log(user.email);
 
       //Let's do simply
-      fetch("http://localhost:5000/all-class/selected", {
+      fetch("https://goal-rush-server.vercel.app/all-class/selected", {
         method: "POST",
 
         headers: {

@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut />,
-    errorElement : <Error/>,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -38,11 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructors",
-        element: (
-          <InstructorRoute>
-            <Instructors />
-          </InstructorRoute>
-        ),
+        element: <Instructors />,
       },
       {
         path: "/allclasses",
@@ -83,14 +79,15 @@ const router = createBrowserRouter([
         element: <ManageUsers />,
       },
       {
-        path : "manage-class",
-        element : <ManageClass/>
+        path: "manage-class",
+        element: <ManageClass />,
       },
       {
-        path : "updateClass/:id",
-        element : <UpdateClass/>,
-        loader : ({params}) => fetch(`http://localhost:5000/all-class/${params.id}`)
-      }
+        path: "updateClass/:id",
+        element: <UpdateClass />,
+        loader: ({ params }) =>
+          fetch(`https://goal-rush-server.vercel.app/all-class/${params.id}`),
+      },
     ],
   },
 ]);

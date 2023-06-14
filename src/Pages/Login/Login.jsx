@@ -21,7 +21,8 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
+    setErr("")
 
     login(data.email, data.password)
       .then((res) => {
