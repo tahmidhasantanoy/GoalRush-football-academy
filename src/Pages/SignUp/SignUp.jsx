@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import TItlePage from "../../TItlePage/TItlePage";
 import useAuth from "../../Hooks/useAuth";
 import { updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
@@ -75,7 +75,7 @@ const SignUp = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className=".text-center w-full lg:text-left">
           <img
-            className=".opacity-70 h-[1120px] rounded-md"
+            className=".opacity-70 h-[1190px] rounded-md"
             src={registrationImg}
             alt=""
           />
@@ -170,11 +170,17 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-4">
               <input
-                className="btn btn-primary w-1/2 mx-auto"
+                className="btn btn-primary w-1/2 mx-auto hover:text-white"
                 type="submit"
                 value="Sign In"
               />
             </div>
+            <p className="text-center mt-5">
+              Already have an acoount? 
+              <span className="text-info underline">
+                <Link to={"/login"}> login</Link>
+              </span>
+            </p>
           </form>
         </div>
       </div>

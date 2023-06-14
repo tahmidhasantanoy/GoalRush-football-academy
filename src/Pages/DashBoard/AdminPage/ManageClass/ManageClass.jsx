@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import useAllClass from "../../../../Hooks/useAllClass";
 import { FaCaretRight } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
 const ManageClass = () => {
   const [classData, refetch] = useAllClass();
-  console.log(classData);
+  const [feedback, setFeedback] = useState(false);
+  const [id,setId] = useState("")
+  const [axiosSecure] = useAxiosSecure()
+  // console.log(classData);
 
   const handleAcceptClass = (data) => {
-    console.log(data);
+    // console.log(data);
 
     fetch(`http://localhost:5000/all-class/accept/${data._id}`, {
       method: "PATCH",
@@ -19,7 +23,7 @@ const ManageClass = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount && data.acknowledged === true) {
           refetch();
           Swal.fire({
@@ -37,7 +41,9 @@ const ManageClass = () => {
   };
 
   const handleDenyClass = (data) => {
-    console.log(data);
+    // console.log(data);
+    setFeedback(true);
+    setId(data._id)
 
     fetch(`http://localhost:5000/all-class/deny/${data._id}`, {
       method: "PATCH",
@@ -47,7 +53,7 @@ const ManageClass = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount && data.acknowledged === true) {
           refetch();
           Swal.fire({
@@ -64,7 +70,25 @@ const ManageClass = () => {
       .catch((err) => console.log(err.message));
   };
 
+  const handleFeedback = (event) => {
+    event.preventDefault();
+    const feedData = event.target.value;
+    // const feedback = JSON.stringify(feedData)
+    // console.log(feedback,id);
 
+    axiosSecure.put(`/all-class/classFeedback/${id}`,  feedData).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount) {
+        Swal.fire({
+          position: "top-middle",
+          icon: "success",
+          title: `Feeedback send`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
 
   if (!Array.isArray(classData)) {
     return (
@@ -131,6 +155,18 @@ const ManageClass = () => {
                   Deny
                 </button>
               </div>
+              {/* change  */}
+              <form>
+                <input
+                  disabled={!feedback}
+                  type="text"
+                  name="feedback"
+                  placeholder="Feedback for the class"
+                  className="input input-bordered input-info w-full max-w-xs"
+                  onBlur={handleFeedback}
+                />
+              </form>
+              {/* change  */}
             </div>
           </div>
         ))}
