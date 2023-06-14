@@ -77,7 +77,9 @@ const ManageUsers = () => {
     );
   }
   return (
-    <div>
+    <div className="my-20 mt-28">
+      <p className="text-center text-white text-2xl font-semibold ">All user of GoalRush</p>
+      <hr className="w-2/4 mx-auto mb-12"/>
       <div className="overflow-x-auto">
         <table className="table">
           <thead>

@@ -36,7 +36,7 @@ const TopClass = () => {
             <div class="px-6 ">
               <div class="font-bold text-xl mt-10 mb-2">{data.classname}</div>
             </div>
-            <div className="px-6 pt-4 pb-2 flex flex-col mt-6">
+            <div className="px-6 pt-4 pb-2 flex flex-col mt-6 mb-4">
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />

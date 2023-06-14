@@ -2,6 +2,7 @@ import React from "react";
 import useAllClass from "../../../../Hooks/useAllClass";
 import { FaCaretRight } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 const ManageClass = () => {
   const [classData, refetch] = useAllClass();
@@ -63,6 +64,8 @@ const ManageClass = () => {
       .catch((err) => console.log(err.message));
   };
 
+
+
   if (!Array.isArray(classData)) {
     return (
       <>
@@ -78,50 +81,60 @@ const ManageClass = () => {
       </>
     );
   }
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      {classData.map((data) => (
-        <div key={data._id} className="card w-96 bg-teal-950 shadow-xl m-12">
-          <figure className="px-10 pt-10">
-            <img src={data.image} alt="Shoes" className="rounded-xl" />
-          </figure>
-          <div className="card-body items-center text-center ">
-            <h2 className="card-title text-white">{data.classname}</h2>
-            <div className="mr-36 justify-start my-5">
-              <div className="flex items-center">
-                <FaCaretRight className="pr-2" />
-                <p className="">{data.instructorName}</p>
+    <div className="mt-28 mb-20">
+      <Fade cascade damping={0.1}>
+        <p className="text-center text-white text-2xl font-semibold">
+          All Classes of GoalRush
+        </p>
+      </Fade>
+
+      <hr className="w-2/4 mx-auto" />
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {classData.map((data) => (
+          <div key={data._id} className="card w-96 bg-teal-950 shadow-xl m-12">
+            <figure className="px-10 pt-10">
+              <img src={data.image} alt="Shoes" className="rounded-xl" />
+            </figure>
+            <div className="card-body items-center text-center ">
+              <h2 className="card-title text-white">{data.classname}</h2>
+              <div className="mr-36 justify-start my-5">
+                <div className="flex items-center">
+                  <FaCaretRight className="pr-2" />
+                  <p className="">{data.instructorName}</p>
+                </div>
+                <div className="flex items-center">
+                  <FaCaretRight className="pr-2" />
+                  <p className="">{data.instructorEmail}</p>
+                </div>
+                <div className="flex items-center">
+                  <FaCaretRight className="pr-2" />
+                  <p className="">Price : {data.price}</p>
+                </div>
+                <div className="flex items-center">
+                  <FaCaretRight className="pr-2" />
+                  <p className="">Available Seats : {data.availableSeats}</p>
+                </div>
               </div>
-              <div className="flex items-center">
-                <FaCaretRight className="pr-2" />
-                <p className="">{data.instructorEmail}</p>
+              <div className="card-actions justify-end">
+                <button
+                  onClick={() => handleAcceptClass(data)}
+                  className="btn btn-primary"
+                >
+                  Accept
+                </button>
+                <button
+                  onClick={() => handleDenyClass(data)}
+                  className="btn btn-ghost"
+                >
+                  Deny
+                </button>
               </div>
-              <div className="flex items-center">
-                <FaCaretRight className="pr-2" />
-                <p className="">Price : {data.price}</p>
-              </div>
-              <div className="flex items-center">
-                <FaCaretRight className="pr-2" />
-                <p className="">Available Seats : {data.availableSeats}</p>
-              </div>
-            </div>
-            <div className="card-actions justify-end">
-              <button
-                onClick={() => handleAcceptClass(data)}
-                className="btn btn-primary"
-              >
-                Accept
-              </button>
-              <button
-                onClick={() => handleDenyClass(data)}
-                className="btn btn-ghost"
-              >
-                Deny
-              </button>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
