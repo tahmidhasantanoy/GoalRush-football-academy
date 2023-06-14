@@ -6,7 +6,7 @@ import { FaTag } from "react-icons/fa";
 
 const Highlight = () => {
   return (
-    <>
+    <div className="mb-20">
       <h3 className="text-white text-center font-bold text-4xl py-12">
         Why player choose GoalRush
       </h3>
@@ -56,7 +56,7 @@ const Highlight = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

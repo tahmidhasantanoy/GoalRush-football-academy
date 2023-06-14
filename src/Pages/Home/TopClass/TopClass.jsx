@@ -4,7 +4,6 @@ import { FaCaretRight } from "react-icons/fa";
 
 const TopClass = () => {
   const [topClassData] = useTopClasses();
-  console.log(topClassData);
 
   if (!Array.isArray(topClassData)) {
     return (
@@ -29,9 +28,12 @@ const TopClass = () => {
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 px-12 pb-12">
         {topClassData.map((data) => (
-          <div key={data._id} className="rounded overflow-hidden shadow-xl bg-base-200 m-8">
+          <div
+            key={data._id}
+            className="rounded overflow-hidden shadow-xl bg-base-200 m-8"
+          >
             <img className="h-[280px] w-[500px]" src={data.image} alt="River" />
-            <div class="px-6 .py-4">
+            <div class="px-6 ">
               <div class="font-bold text-xl mt-10 mb-2">{data.classname}</div>
             </div>
             <div className="px-6 pt-4 pb-2 flex flex-col mt-6">

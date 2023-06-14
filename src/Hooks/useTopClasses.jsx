@@ -5,7 +5,7 @@ const useTopClasses = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const { data: topClassData, refetch } = useQuery({
-    queryKey: ["Class-data"],
+    queryKey: ["Top-class"],
     queryFn: async () => {
       const classes = await axiosSecure("/all-class/topClass");
       return classes.data;
