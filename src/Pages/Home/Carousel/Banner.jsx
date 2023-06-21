@@ -21,7 +21,7 @@ const Banner = () => {
         <AutoplaySlider
           play={true}
           cancelOnInteraction={false} // should stop playing on user interaction
-          interval={6000}
+          interval={4000}
         >
           <div
             className="hero min-h-screen rounded-xl"
@@ -134,47 +134,6 @@ const Banner = () => {
             </div>
           </div>
         </AutoplaySlider>
-      </div>
-
-      <div>
-        {/* <Carousel autoPlay infiniteLoop className="text-center">
-          <div>
-            <div
-              className="hero min-h-screen rounded-xl"
-              style={{ backgroundImage: `url(${Pic1})` }}
-            >
-              <div className="hero-overlay bg-opacity-5 gradient"></div>
-              <div className=" text-start">
-                <div className="max-w-5xl sm:ml-12">
-                  <h1 className="mb-5 text-3xl font-bold text-white">
-                    Join with <span className="text-info">GoalRush</span> <br />{" "}
-                    Enjoy Football In Summer
-                  </h1>
-                  <p className="mb-5 w-4/6 text-md">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
-                  </p>
-                  <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
-                    Get Started
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img src={Pic2} />
-          </div>
-          <div>
-            <img src={Pic3} />
-          </div>
-          <div>
-            <img src={Pic4} />
-          </div>
-          <div>
-            <img src={Pic5} />
-          </div>
-        </Carousel> */}
       </div>
     </>
   );

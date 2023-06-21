@@ -97,9 +97,9 @@ const NavBar = () => {
               </ul>
             </div>
           ) : (
-            <div>
+            <div className="pr-4">
               <Link to={"/login"}>
-                <button>Login</button>
+                <button className="btn-info">Login</button>
               </Link>
             </div>
           )}
