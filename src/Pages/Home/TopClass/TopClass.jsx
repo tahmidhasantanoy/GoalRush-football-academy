@@ -34,9 +34,9 @@ const TopClass = () => {
           >
             <img className="h-[280px] w-[500px]" src={data.image} alt="River" />
             <div class="px-6 ">
-              <div class="font-bold text-xl mt-10 mb-2">{data.classname}</div>
+              <div class="font-bold text-xl mt-10 .mb-2">{data.classname}</div>
             </div>
-            <div className="px-6 pt-4 pb-2 flex flex-col mt-6 mb-4">
+            <div className="px-6 pt-4 pb-2 flex flex-col mt-3 mb-4">
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
@@ -46,7 +46,7 @@ const TopClass = () => {
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
-                  <p>Email : {data.instructorEmail}</p>
+                  <p className="">Email : {data.instructorEmail}</p>
                 </div>
               </span>
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">

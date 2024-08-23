@@ -32,12 +32,10 @@ const Banner = () => {
               <div className="max-w-5xl sm:ml-12">
                 <h1 className="mb-5 text-3xl font-bold text-white">
                   Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Football In Summer
+                  Enjoy Every Moment of Football
                 </h1>
                 <p className="mb-5 w-4/6 text-md">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
                 </p>
                 <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
                   Get Started
@@ -54,12 +52,10 @@ const Banner = () => {
               <div className="max-w-5xl sm:ml-12">
                 <h1 className="mb-5 text-3xl font-bold text-white">
                   Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Football In Summer
+                  Enjoy Every Moment of Football
                 </h1>
                 <p className="mb-5 w-4/6 text-md">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
                 </p>
                 <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
                   Get Started
@@ -76,12 +72,10 @@ const Banner = () => {
               <div className="max-w-5xl sm:ml-12">
                 <h1 className="mb-5 text-3xl font-bold text-white">
                   Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Football In Summer
+                  Enjoy Every Moment of Football
                 </h1>
                 <p className="mb-5 w-4/6 text-md">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
                 </p>
                 <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
                   Get Started
@@ -98,12 +92,10 @@ const Banner = () => {
               <div className="max-w-5xl sm:ml-12">
                 <h1 className="mb-5 text-3xl font-bold text-white">
                   Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Football In Summer
+                  Enjoy Every Moment of Football
                 </h1>
                 <p className="mb-5 w-4/6 text-md">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
                 </p>
                 <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
                   Get Started
@@ -120,12 +112,10 @@ const Banner = () => {
               <div className="max-w-5xl sm:ml-12">
                 <h1 className="mb-5 text-3xl font-bold text-white">
                   Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Football In Summer
+                  Enjoy Every Moment of Football
                 </h1>
                 <p className="mb-5 w-4/6 text-md">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
                 </p>
                 <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
                   Get Started

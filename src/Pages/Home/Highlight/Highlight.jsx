@@ -20,7 +20,7 @@ const Highlight = () => {
             <div className="card-body">
               <div className="flex items-center">
                 <FaTag />
-                <h2 className="card-title ml-2">
+                <h2 className="card-title ml-2 hover:text-info">
                   All facilities Provide from indor
                 </h2>
               </div>
@@ -36,7 +36,7 @@ const Highlight = () => {
             <div className="card-body">
               <div className="flex items-center">
                 <FaTag />
-                <h2 className="card-title ml-2">1.32 acres football ground</h2>
+                <h2 className="card-title ml-2 hover:text-info">1.32 acres football ground</h2>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Highlight = () => {
             <div className="card-body">
               <div className="flex items-center">
                 <FaTag />
-                <h2 className="card-title ml-2">8+ years experince trainer</h2>
+                <h2 className="card-title ml-2 hover:text-info">8+ years experince trainer</h2>
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ const TopInstructors = () => {
                 <img
                   src={instructor.image}
                   alt="instructor image"
-                  className="rounded-xl"
+                  className="rounded-xl  hover:scale-105 hover:duration-700"
                 />
               </figure>
               <div className="card-body .items-center text-start">
