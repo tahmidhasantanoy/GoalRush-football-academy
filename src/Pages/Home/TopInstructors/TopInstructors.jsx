@@ -26,35 +26,35 @@ const TopInstructors = () => {
         Our top Instructors!
       </h3>
       <div className=" flex flex-col items-center .p-5">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mx-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 sm:gap-4 md:gap-4 lg:gap-8 mb-4 justify-center mx-auto m-2 lg:m-8">
           {topInstructorData.map((instructor) => (
             <div className="w-96 bg-base-300 hover:bg-white hover:border-[.8px] hover:border-cyan-500 rounded-lg hover:scale-95 transition-all duration-500">
-            <div className="flex-col">
-              <div>
-                <figure className="md:px-5 lg:px-10 md:py-2 lg:py-5 .pt-10">
-                  <img
-                    src={instructor.image}
-                    alt="instructor image"
-                    className="rounded-xl sm:shrink-0 lg:shrink-1 .md:h-[200px] lg: .md:w-[200px]"
-                  />
-                </figure>
-                <h1 className="text-3xl text-center font-bold">
-                  GoalRush Trainer!
-                </h1>
-              </div>
-              <div className="card-body text-start">
-                <div className="flex items-center mb-1 hover:font-mono duration-500 transition-all hover:scale-105">
-                  <FaCaretRight className="pr-2" />
-                  <p className="">Name : {instructor.name}</p>
+              <div className="flex-col">
+                <div>
+                  <figure className="md:px-5 lg:px-10 md:py-2 lg:py-5 .pt-10">
+                    <img
+                      src={instructor.image}
+                      alt="instructor image"
+                      className="rounded-xl sm:shrink-0 lg:shrink-1 .md:h-[200px] lg: .md:w-[200px]"
+                    />
+                  </figure>
+                  <h1 className="text-3xl text-center font-bold">
+                    GoalRush Trainer!
+                  </h1>
                 </div>
-                <div className="flex items-center mb-1 ">
-                  <FaCaretRight className="pr-2" />
-                  <p className="">Email : {instructor.email}</p>
+                <div className="card-body text-start">
+                  <div className="flex items-center mb-1 hover:font-mono duration-500 transition-all hover:scale-105">
+                    <FaCaretRight className="pr-2" />
+                    <p className="">Name : {instructor.name}</p>
+                  </div>
+                  <div className="flex items-center mb-1 ">
+                    <FaCaretRight className="pr-2" />
+                    <p className="">Email : {instructor.email}</p>
+                  </div>
+                  <button className="btn-info normal-case">See Classes</button>
                 </div>
-                <button className="btn-info normal-case">See Classes</button>
               </div>
             </div>
-          </div>
           ))}
         </div>
       </div>

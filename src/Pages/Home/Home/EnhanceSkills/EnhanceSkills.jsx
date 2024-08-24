@@ -22,7 +22,7 @@ const EnhanceSkills = () => {
   const seconds = String(time.getSeconds()).padStart(2, 0);
 
   return (
-    <div className="bg-black flex md:flex-col-reverse lg:flex-row justify-evenly items-center text-white rounded-lg">
+    <div className="bg-black flex sm:flex-col-reverse lg:flex-row justify-evenly items-center text-white rounded-lg p-4 lg:p-0">
       <div className="flex flex-col space-y-6">
         <div>
           <h1 className="text-4xl font-bold text-left">
@@ -48,7 +48,9 @@ const EnhanceSkills = () => {
             <p className="text-2xl">{seconds}</p>
           </div>
         </div>
-        <div>
+        <div className="flex sm:justify-center lg:justify-start">
+          {" "}
+          {/*  */}
           <button className="btn btn-md bg-green-600 normal-case text-white px-4 py-2 rounded-lg w-auto">
             Buy Now
           </button>

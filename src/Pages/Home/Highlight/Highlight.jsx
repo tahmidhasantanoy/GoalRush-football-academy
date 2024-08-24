@@ -10,7 +10,7 @@ const Highlight = () => {
       <h3 className="text-white text-center font-bold text-4xl py-12">
         Why player choose GoalRush
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3 justify-center">
         {/* 1 */}
         <div className=" flex flex-col items-center p-5">
           <div className="card w-96 bg-base-300 hover:bg-black duration-500 shadow-2xl">
@@ -36,7 +36,9 @@ const Highlight = () => {
             <div className="card-body">
               <div className="flex items-center">
                 <FaTag />
-                <h2 className="card-title ml-2 hover:text-info">1.32 acres football ground</h2>
+                <h2 className="card-title ml-2 hover:text-info">
+                  1.32 acres football ground
+                </h2>
               </div>
             </div>
           </div>
@@ -50,7 +52,9 @@ const Highlight = () => {
             <div className="card-body">
               <div className="flex items-center">
                 <FaTag />
-                <h2 className="card-title ml-2 hover:text-info">8+ years experince trainer</h2>
+                <h2 className="card-title ml-2 hover:text-info">
+                  8+ years experince trainer
+                </h2>
               </div>
             </div>
           </div>

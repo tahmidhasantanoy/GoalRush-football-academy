@@ -27,7 +27,7 @@ const TopClass = () => {
       <h3 className="text-white text-start font-bold text-4xl pt-12 ml-20">
         Our top classes!
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 px-12 pb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 .px-12 .pb-12">
         {topClassData.map((data) => (
           <div
             key={data._id}
