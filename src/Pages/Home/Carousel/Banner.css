@@ -7,20 +7,23 @@
     url("");
 }
 
+.custom-slider .awssld__arrow {
+  --slider-height-percentage: 56%;
+  --slider-transition-duration: 600ms;
+  --organic-arrow-thickness: 2px;
+  --organic-arrow-border-radius: 0px;
+  --organic-arrow-height: 22px;
+  --organic-arrow-color: #08a4af;
+  --control-button-width: 4%;
+  --control-button-height: 11%;
+  --control-button-background: transparent;
+  --control-bullet-color: #f33d42;
+  --control-bullet-active-color: #cf3438;
+  --loader-bar-color: transparent;
+  --loader-bar-height: 0px;
+}
 
-.aws-btn {
+.custom-slider .awssld__arrow:hover {
+  --control-button-background: transparent;
+}
 
-    --slider-height-percentage: 60%;
-    --slider-transition-duration: 700ms;
-    --organic-arrow-thickness: 4px;
-    --organic-arrow-border-radius: 0px;
-    --organic-arrow-height: 40px;
-    --organic-arrow-color: #00e9fa;
-    --control-button-width: 12%;
-    --control-button-height: 25%;
-    --control-button-background: transparent;
-    --control-bullet-color: #62a4fa;
-    --control-bullet-active-color: #538bd5;
-    --loader-bar-color: transparent;
-    --loader-bar-height: 6px;
-    }

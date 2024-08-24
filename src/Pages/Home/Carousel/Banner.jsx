@@ -11,121 +11,171 @@ import Pic2 from "../../../../public/Banner/ban2.jpeg";
 import Pic3 from "../../../../public/Banner/ban3.jpeg";
 import Pic4 from "../../../../public/Banner/ban1.jpeg";
 import Pic5 from "../../../../public/Banner/ban6.jpeg";
-
+import Typewriter from "typewriter-effect";
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Banner = () => {
   return (
-    <>
-      <div>
-        <AutoplaySlider
-          play={true}
-          cancelOnInteraction={false} // should stop playing on user interaction
-          interval={4000}
-        >
-          <div
-            className="hero min-h-screen rounded-xl"
-            style={{ backgroundImage: `url(${Pic1})`, alignItems: "normal" }}
-          >
-            <div className="hero-overlay bg-opacity-5 image-gradient"></div>
-            <div className=" text-start">
-              <div className="max-w-5xl sm:ml-12">
-                <h1 className="mb-5 text-3xl font-bold text-white">
-                  Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Every Moment of Football
-                </h1>
-                <p className="mb-5 w-4/6 text-md">
-                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
-                </p>
-                <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
-                  Get Started
-                </button>
-              </div>
-            </div>
+    <div className="custom-slider">
+      <AutoplaySlider
+        play={true}
+        cancelOnInteraction={false} // should stop playing on user interaction
+        interval={4000}
+        className="awssld__arrow"
+        cssModule
+      >
+        <div className="relative">
+          <img src={Pic1} alt="Banner 5" />
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
+            <h1 className="text-4xl font-bold mb-2 inline-flex">
+              <span className="text-info">Football</span> &nbsp; is &nbsp;
+              <Typewriter
+                options={{
+                  strings: ["Life"],
+                  autoStart: true,
+                  loop: true,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </h1>{" "}
+            <p className="mb-4 w-1/2 overflow-hidden text-left text-style">
+              "The difference between a successful person and others is not a
+              lack of strength, not a lack of knowledge, but rather a lack in
+              will."
+            </p>
+            <button className="btn-info text-white duration-500 hover:text-black normal-case">
+              See Course
+            </button>
           </div>
-          <div
-            className="hero min-h-screen rounded-xl"
-            style={{ backgroundImage: `url(${Pic2})`, alignItems: "normal" }}
-          >
-            <div className="hero-overlay bg-opacity-5 image-gradient"></div>
-            <div className=" text-start">
-              <div className="max-w-5xl sm:ml-12">
-                <h1 className="mb-5 text-3xl font-bold text-white">
-                  Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Every Moment of Football
-                </h1>
-                <p className="mb-5 w-4/6 text-md">
-                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
-                </p>
-                <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
-                  Get Started
-                </button>
-              </div>
-            </div>
+        </div>
+        <div className="relative">
+          <img src={Pic2} alt="Banner 5" />
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
+            <h1 className="text-4xl font-bold mb-2 inline-flex">
+              <span className="text-info">Football</span> &nbsp; is &nbsp;
+              <Typewriter
+                options={{
+                  strings: ["Love"],
+                  autoStart: true,
+                  loop: true,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </h1>{" "}
+            <p className="mb-4 w-1/2 overflow-hidden text-left">
+              "Success is no accident. It’s the result of preparation, hard
+              work,and learning from failure. In football, just like in life,
+              you must be willing to make sacrifices to achieve your goals."
+            </p>
+            <button className="btn-info text-white duration-500 hover:text-black normal-case">
+              See Course
+            </button>
           </div>
-          <div
-            className="hero min-h-screen rounded-xl"
-            style={{ backgroundImage: `url(${Pic3})`, alignItems: "normal" }}
-          >
-            <div className="hero-overlay bg-opacity-5 image-gradient"></div>
-            <div className=" text-start">
-              <div className="max-w-5xl sm:ml-12">
-                <h1 className="mb-5 text-3xl font-bold text-white">
-                  Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Every Moment of Football
-                </h1>
-                <p className="mb-5 w-4/6 text-md">
-                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
-                </p>
-                <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
-                  Get Started
-                </button>
-              </div>
-            </div>
+        </div>
+        <div className="relative">
+          <img src={Pic3} alt="Banner 5" />
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
+            <h1 className="text-4xl font-bold mb-2 inline-flex">
+              <span className="text-info">Football</span> &nbsp; is &nbsp;
+              <Typewriter
+                options={{
+                  strings: ["Fantasy"],
+                  autoStart: true,
+                  loop: true,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </h1>{" "}
+            <p className="mb-4 w-1/2 overflow-hidden text-left">
+              "In football, as in life, the best teams are those that work
+              together, trust each other, and play for one another. Individual
+              talent may win a match, but teamwork and intelligence win
+              championships."
+            </p>
+            <button className="btn-info text-white duration-500 hover:text-black normal-case">
+              See Course
+            </button>
           </div>
-          <div
-            className="hero min-h-screen rounded-xl"
-            style={{ backgroundImage: `url(${Pic4})`, alignItems: "normal" }}
-          >
-            <div className="hero-overlay bg-opacity-5 image-gradient"></div>
-            <div className=" text-start">
-              <div className="max-w-5xl sm:ml-12">
-                <h1 className="mb-5 text-3xl font-bold text-white">
-                  Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Every Moment of Football
-                </h1>
-                <p className="mb-5 w-4/6 text-md">
-                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
-                </p>
-                <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
-                  Get Started
-                </button>
-              </div>
-            </div>
+        </div>
+        <div className="relative">
+          <img src={Pic4} alt="Banner 5" />
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
+            <h1 className="text-4xl font-bold mb-2 inline-flex">
+              <span className="text-info">Football</span> &nbsp; is &nbsp;
+              <Typewriter
+                options={{
+                  strings: ["Entertaintment"],
+                  autoStart: true,
+                  loop: true,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </h1>{" "}
+            <p className="mb-4 w-1/2 overflow-hidden text-left">
+              "Football is like life—it requires perseverance, self-denial, hard
+              work, sacrifice, dedication, and respect for authority."
+            </p>
+            <button className="btn-info text-white duration-500 hover:text-black normal-case">
+              See Course
+            </button>
           </div>
-          <div
-            className="hero min-h-screen rounded-xl"
-            style={{ backgroundImage: `url(${Pic5})`, alignItems: "normal" }}
-          >
-            <div className="hero-overlay bg-opacity-5 image-gradient"></div>
-            <div className=" text-start">
-              <div className="max-w-5xl sm:ml-12">
-                <h1 className="mb-5 text-3xl font-bold text-white">
-                  Join with <span className="text-info">GoalRush</span> <br />{" "}
-                  Enjoy Every Moment of Football
-                </h1>
-                <p className="mb-5 w-4/6 text-md">
-                  Football is a thrilling, unifying, and passion-filled sport that teaches teamwork, valuable life lessons, and promotes physical and mental well-being. Its cultural significance and global appeal make it an incredibly important and attractive game.
-                </p>
-                <button className="btn btn-primary text-white hover:text-black hover:bg-cyan-600">
-                  Get Started
-                </button>
-              </div>
-            </div>
+        </div>
+        <div className="relative">
+          <img src={Pic5} alt="Banner 5" />
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-8">
+            <h1 className="text-4xl font-bold mb-2 inline-flex">
+              <span className="text-info">Football</span> &nbsp; is &nbsp;
+              <Typewriter
+                options={{
+                  strings: ["Lesson"],
+                  autoStart: true,
+                  loop: true,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </h1>{" "}
+            <p className="mb-4 w-1/2 overflow-hidden text-left">
+              "The road to victory is never easy, but with determination,
+              teamwork, and a never-give-up attitude, any obstacle can be
+              overcome. Football teaches us that no matter the odds, the fight
+              within us can turn the game around."
+            </p>
+            <button className="btn-info text-white duration-500 hover:text-black normal-case">
+              See Course
+            </button>
           </div>
-        </AutoplaySlider>
-      </div>
-    </>
+        </div>
+        <div className="relative">
+          <img src={Pic4} alt="Banner 5" />
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
+            <h1 className="text-4xl font-bold mb-2 inline-flex">
+              <span className="text-info">Football</span> &nbsp; is &nbsp;
+              <Typewriter
+                options={{
+                  strings: ["Entertaintment"],
+                  autoStart: true,
+                  loop: true,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </h1>{" "}
+            <p className="mb-4 w-1/2 overflow-hidden text-left">
+              "Football is like life—it requires perseverance, self-denial, hard
+              work, sacrifice, dedication, and respect for authority."
+            </p>
+            <button className="btn-info text-white duration-500 hover:text-black normal-case">
+              See Course
+            </button>
+          </div>
+        </div>
+      </AutoplaySlider>
+    </div>
   );
 };
 
