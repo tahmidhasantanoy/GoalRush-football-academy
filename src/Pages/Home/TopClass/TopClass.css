@@ -1,0 +1,9 @@
+.classCard {
+  background: linear-gradient(#353bf1, #8e92f4, #ebebef) padding-box,
+    linear-gradient(45deg, #e4e4eb, #8285ed, #353bf1) border-box;
+  border: solid 3px transparent;
+  border-radius: 8px;
+  /* background: white;  */
+  border-radius: 8px;
+  position: relative;
+}

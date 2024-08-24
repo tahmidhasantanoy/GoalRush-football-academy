@@ -1,6 +1,7 @@
 import React from "react";
 import useTopClasses from "../../../Hooks/useTopClasses";
 import { FaCaretRight } from "react-icons/fa";
+import "./TopClass.css"
 
 const TopClass = () => {
   const [topClassData] = useTopClasses();
@@ -30,7 +31,7 @@ const TopClass = () => {
         {topClassData.map((data) => (
           <div
             key={data._id}
-            className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 m-8"
+            className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 classCard m-8"
           >
             <img className="h-[200px] w-[500px]" src={data.image} alt="River" />
             <div class="px-6">
