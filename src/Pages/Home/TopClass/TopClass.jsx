@@ -1,7 +1,7 @@
 import React from "react";
 import useTopClasses from "../../../Hooks/useTopClasses";
 import { FaCaretRight } from "react-icons/fa";
-import "./TopClass.css"
+import "./TopClass.css";
 
 const TopClass = () => {
   const [topClassData] = useTopClasses();

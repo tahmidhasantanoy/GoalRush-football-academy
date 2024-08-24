@@ -13,7 +13,7 @@ const Highlight = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
         {/* 1 */}
         <div className=" flex flex-col items-center p-5">
-          <div className="card w-96 bg-base-300 shadow-2xl">
+          <div className="card w-96 bg-base-300 hover:bg-black duration-500 shadow-2xl">
             <figure>
               <img src={pic1} alt="Shoes" />
             </figure>
@@ -29,7 +29,7 @@ const Highlight = () => {
         </div>
         {/* 2 */}
         <div className=" flex flex-col items-center p-5">
-          <div className="card w-96 bg-base-300 shadow-2xl">
+          <div className="card w-96 bg-base-300 hover:bg-black duration-500 shadow-2xl">
             <figure>
               <img src={pic2} alt="Shoes" />
             </figure>
@@ -43,7 +43,7 @@ const Highlight = () => {
         </div>
         {/* 3 */}
         <div className=" flex flex-col items-center p-5">
-          <div className="card w-96 bg-base-300 shadow-2xl">
+          <div className="card w-96 bg-base-300 hover:bg-black duration-500 shadow-2xl">
             <figure>
               <img src={pic3} alt="Shoes" />
             </figure>
