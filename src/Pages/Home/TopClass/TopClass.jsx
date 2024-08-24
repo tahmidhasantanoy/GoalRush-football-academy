@@ -30,31 +30,48 @@ const TopClass = () => {
         {topClassData.map((data) => (
           <div
             key={data._id}
-            className="rounded overflow-hidden shadow-xl bg-base-200 m-8"
+            className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 m-8"
           >
-            <img className="h-[280px] w-[500px]" src={data.image} alt="River" />
-            <div class="px-6 ">
-              <div class="font-bold text-xl mt-10 .mb-2">{data.classname}</div>
+            <img className="h-[200px] w-[500px]" src={data.image} alt="River" />
+            <div class="px-6">
+              <p class="font-bold text-xl mt-4 .mb-2">{data.classname}</p>
             </div>
-            <div className="px-6 pt-4 pb-2 flex flex-col mt-3 mb-4">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <div className="px-6 pt-4 pb-2 flex flex-col mt-6 mb-4">
+              <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
                   <p>Instructor : {data.instructorName}</p>
                 </div>
               </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <div className="flex items-center mb-1">
-                  <FaCaretRight className="pr-2" />
-                  <p className="">Email : {data.instructorEmail}</p>
+                  <FaCaretRight className="pr-2 " />
+                  <p>Email : {data.instructorEmail}</p>
                 </div>
               </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <div className="flex items-center mb-1">
                   <FaCaretRight className="pr-2" />
                   <p>Price : ${data.price}</p>
                 </div>
               </span>
+              <div className="mt-4">
+                <hr className="font-bold" />
+                <div className="flex flex-row sm:flex-col md:flex-row items-center justify-between">
+                  <div className="flex flex-row sm:flex-col md:flex-row space-y-2">
+                    <button className="btn-info normal-case">Enroll now</button>{" "}
+                    <span className="font-bold">
+                      {" "}
+                      <sup>$</sup>
+                      {data.price}
+                    </span>
+                  </div>{" "}
+                  {/* want to add outline button but doesn't work */}
+                  <button className="btn-outline bg-transparent border-2 border-info normal-case">
+                    Details
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         ))}
