@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import useAllClass from "../../Hooks/useAllClass";
-import { FaBeer, FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa";
+import { FaBeer, FaCaretRight, FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa";
 import useInstructor from "../../Hooks/useInstructor";
 import useAdmin from "../../Hooks/useAdmin";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import TItlePage from "../../TItlePage/TItlePage";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
@@ -20,6 +21,7 @@ const AllClasses = () => {
     return (
       <>
         <div>
+          <TItlePage title={"All Class"}></TItlePage>
           <div className="flex items-center justify-center pt-20">
             <p>Loading &nbsp;</p>
             <span className="loading loading-dots loading-xs text-yellow-400"></span>
@@ -67,9 +69,9 @@ const AllClasses = () => {
         body: JSON.stringify(addClass),
       })
         .then((res) => res.json())
-        .then((data) => {
-          // console.log(data);
-          if (data.insertedId) {
+        .then((item) => {
+          // console.log(item);
+          if (item.insertedId) {
             Swal.fire({
               position: "top-middle",
               icon: "success",
@@ -87,34 +89,51 @@ const AllClasses = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 pt-28 justify-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-28 justify-center">
       {classData.map((item) => (
         <div
           key={item._id}
-          className="card card-compact w-[400px] bg-[#1a4949] shadow-2xl hover:scale-105 duration-1000 mb-8 mx-auto"
+          className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 classCard m-8"
         >
-          <p className="mt-5 mb-1 pl-5 text-white font-semibold text-2xl">
-            {item?.classname}
-          </p>
-          <figure>
-            <img className="p-3 rounded-3xl" src={item?.image} alt="Shoes" />
-          </figure>
-          <div className="card-body space-y-2 ml-3">
-            <p className="text-2xl">{item?.instructorName}</p>
-            <p className="border-b-2 mx-auto ml-0">
-              Available Now : {item?.availableSeats} seats
-            </p>
-            <p className="bg-white mx-auto ml-0 p-1 px-3 rounded-2xl text-black font-semibold">
-              ${item?.price}
-            </p>
-            <div className="card-actions justify-start">
-              <button
-                onClick={() => handleAddClass(item)}
-                disabled={isInstructor?.instructor || isAdmin?.admin}
-                className="btn btn-sm w-full mt-5 mx-auto btn-info "
-              >
-                <FaRegCalendarCheck /> Book now
-              </button>
+          <img className="h-[200px] w-[500px]" src={item.image} alt="River" />
+          <div class="px-6">
+            <p class="font-bold text-xl mt-4 .mb-2">{item.classname}</p>
+          </div>
+          <div className="px-6 pt-4 pb-2 flex flex-col mt-6 mb-4">
+            <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <div className="flex items-center mb-1">
+                <FaCaretRight className="pr-2" />
+                <p>Instructor : {item.instructorName}</p>
+              </div>
+            </span>
+            <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <div className="flex items-center mb-1">
+                <FaCaretRight className="pr-2 " />
+                <p>Email : {item.instructorEmail}</p>
+              </div>
+            </span>
+            <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <div className="flex items-center mb-1">
+                <FaCaretRight className="pr-2" />
+                <p>Price : ${item.price}</p>
+              </div>
+            </span>
+            <div className="mt-4">
+              <hr className="font-bold" />
+              <div className="flex flex-row sm:flex-col md:flex-row items-center justify-between">
+                <div className="flex flex-row sm:flex-col md:flex-row space-y-2">
+                  <button className="btn-info normal-case">Enroll now</button>{" "}
+                  <span className="font-bold">
+                    {" "}
+                    <sup>$</sup>
+                    {item.price}
+                  </span>
+                </div>{" "}
+                {/* want to add outline button but doesn't work */}
+                <button className="btn-outline bg-transparent border-2 border-info normal-case">
+                  Details
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -8,16 +8,12 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <>
-        <div>
-          <div className="flex items-center justify-center pt-20">
-            <span className="loading loading-dots loading-xs text-yellow-400"></span>
-            <span className="loading loading-dots loading-sm text-yellow-400"></span>
-            <span className="loading loading-dots loading-md text-yellow-400"></span>
-            <span className="loading loading-dots loading-lg text-yellow-400"></span>
-          </div>
-        </div>
-      </>
+      <div className="flex items-center justify-center pt-20">
+        <span className="loading loading-dots loading-xs text-yellow-400"></span>
+        <span className="loading loading-dots loading-sm text-yellow-400"></span>
+        <span className="loading loading-dots loading-md text-yellow-400"></span>
+        <span className="loading loading-dots loading-lg text-yellow-400"></span>
+      </div>
     );
   }
 
