@@ -12,6 +12,7 @@ const Instructors = () => {
         <>
           <div>
             <div className="flex items-center justify-center pt-20">
+              <p>Loading &nbsp;</p>
               <span className="loading loading-dots loading-xs text-yellow-400"></span>
               <span className="loading loading-dots loading-sm text-yellow-400"></span>
               <span className="loading loading-dots loading-md text-yellow-400"></span>

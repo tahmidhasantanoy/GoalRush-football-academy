@@ -41,8 +41,8 @@ const NavBar = () => {
   );
   return (
     // TODO : header will be attractive menu
-    <>
-      <div className="navbar fixed z-10  bg-black bg-opacity-80 text-white font-semibold p-0 w-11/12 rounded-lg">
+    <div className="flex justify-center">
+      <div className="navbar fixed z-10 bg-black bg-opacity-80 text-white font-semibold p-0 w-11/12 rounded-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -105,7 +105,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

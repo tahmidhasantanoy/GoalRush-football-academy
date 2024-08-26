@@ -64,51 +64,53 @@ const SignUp = () => {
     reset();
   };
 
-  //TODO : input border color,btn color,btn size
+  //TODO : .inputborder color,btn color,btn size
   return (
-    <div className=".hero min-h-min reg-bg py-28">
+    <div className=".hero flex justify-center min-h-min reg-bg">
       <TItlePage title={"Registration"}></TItlePage>
-      <p className="text-center text-3xl font-semibold mb-3 text-white">
-        Create new account.
-      </p>
-
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row-reverse .my-14"> {/*  */}
         <div className=".text-center w-full lg:text-left">
           <img
-            className=".opacity-70 h-[1190px] rounded-md"
+            className="h-[580px] rounded-md"
             src={registrationImg}
-            alt=""
+            alt="Image"
           />
         </div>
-        <div className="card w-full shadow-2xl bg-base-100 opacity-80 lg:ml-16 mr-5">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-white">Name</span>
+        <div className="card w-full shadow-2xl lg:ml-16 .mr-5 py-4 px-0 my-4 md:my-6 lg:my-20 reg_body  ">
+          <p className="text-center text-2xl md:text-3xl font-semibold py-6 text-white">
+            Create new account.
+          </p>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className=".card-body m-0 p-0 mx-auto"
+          >
+            <div className="form-control m-0 p-0">
+              <label className="label m-0 p-0">
+                <span className="label-text text-black">Name</span>
               </label>
               <input
                 {...register("name")}
                 type="text"
                 placeholder="Enter your full name"
-                className="input input-bordered"
+                className=".input input-bordered w-full .md:w-full"
                 required
               />
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-white">Email</span>
+            <div className="form-control m-0 p-0">
+              <label className="label m-0 p-0">
+                <span className="label-text text-black">Email</span>
               </label>
               <input
                 {...register("email", { required: true })}
                 type="text"
                 placeholder="abc@gmail.com"
-                className="input input-bordered"
+                className=".input input-bordered w-full .md:w-full"
                 required
               />
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-white">Password</span>
+            <div className="form-control m-0 p-0">
+              <label className="label m-0 p-0">
+                <span className="label-text text-black">Password</span>
               </label>
               <input
                 {...register("password", {
@@ -120,7 +122,7 @@ const SignUp = () => {
                 })}
                 type="password"
                 placeholder="At least 6 characters"
-                className="input input-bordered"
+                className=".input input-bordered w-full .md:w-full"
               />
               {errors.password?.type === "required" && (
                 <p className="text-error" role="alert">
@@ -138,47 +140,47 @@ const SignUp = () => {
                 </p>
               )}
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-white">Confirm Password</span>
+            <div className="form-control m-0 p-0">
+              {/* <label className="label m-0 p-0">
+                <span className="label-text text-black">Confirm Password</span>
               </label>
               <input
                 {...register("Confirm-password")}
                 type="password"
                 placeholder="Confirm Password"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-white">Photo Url</span>
-              </label>
-              <input
-                {...register("PhotoUrl")}
-                type="url"
-                placeholder="Enter your photo url"
-                className="input input-bordered"
-              />
-              <label className="label">
+                className=".input input-bordered w-4/5 md:w-full"
+              /> */}
+              <label className=".label flex justify-end m-0 p-0">
                 <a
                   href="#"
-                  className="label-text text-white-alt link link-hover"
+                  className="flex justify-end m-0 p-0 label-text text-red-400 link link-hover"
                 >
                   Forgot password?
                 </a>
               </label>
             </div>
+            <div className="form-control m-0 p-0">
+              {/*  <label className="label">
+                <span className="label-text text-black">Photo Url</span>
+              </label>
+              <input
+                {...register("PhotoUrl")}
+                type="url"
+                placeholder="Enter your photo url"
+                className=".inputinput-bordered w-4/5 md:w-full"
+              /> */}
+            </div>
             <div className="form-control mt-4">
               <input
-                className="btn btn-info w-1/2 mx-auto hover:text-white"
+                className="btn btn-info w-1/2 md:w-full mx-auto hover:text-white normal-case"
                 type="submit"
                 value="Sign In"
               />
             </div>
-            <p className="text-center mt-5">
-              Already have an acoount? 
-              <span className="text-info underline">
-                <Link to={"/login"}> login</Link>
+            <p className="text-center">
+              Already have an acoount?
+              <span className="text-info hover:underline">
+                <Link to={"/login"}> Login</Link>
               </span>
             </p>
           </form>

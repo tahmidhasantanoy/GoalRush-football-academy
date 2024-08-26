@@ -48,54 +48,6 @@ const Login = () => {
   return (
     <div className="hero min-h-screen bg-base-200 login-bg p-0 m-0">
       <div className="hero-content w-6/12 mx-auto p-0 m-0">
-        {/* change  */}
-        {/* <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="text"
-                placeholder="password"
-                className="input input-bordered"
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
-            </div>
-            <div className="divider">OR</div>
-            <div
-              onClick={handleGoogleSubmit}
-              className="text-center flex items-center justify-center border mx-auto p-3 btn rounded-full"
-            >
-              <FaGoogle className="" />
-            </div>
-            <p className="text-center mt-5">
-              Don't have an acoount?
-              <span className="text-info underline">
-                <Link to={"/signup"}>Create account</Link>
-              </span>
-            </p>
-          </div>
-        </div> */}
-
-        {/* change  */}
         <div className="card  w-full shadow-xl shadow-pink-400 bg-base-100 opacity-80 mt-24 mb-12">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0">
             <div className="form-control py-0 m-0">
@@ -142,8 +94,8 @@ const Login = () => {
               className="w-2/4 md:w-10/12 mt-3 mx-auto btn btn-outline hover:text-info "
             >
               <div className="flex items-center">
-              <p>Signin with </p>
-              <FaGoogle className="ml-2"/>
+                <p>Signin with </p>
+                <FaGoogle className="ml-2" />
               </div>
             </div>
           </form>
