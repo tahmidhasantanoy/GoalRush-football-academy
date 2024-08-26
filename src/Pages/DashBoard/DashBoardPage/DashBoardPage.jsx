@@ -23,15 +23,18 @@ const DashBoardPage = () => {
         {/* Page content here */}
         <Outlet></Outlet>
         <label
-          htmlFor="my-drawer-2"
+          // htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
         >
           Open drawer
         </label>
       </div>
       <div className="drawer-side ">
-        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-sky-950 .text-base-content pt-16 pl-12 text-white space-y-1">
+        <label
+          //  htmlFor="my-drawer-2" 
+          className="drawer-overlay"
+        ></label>
+        <ul className="menu p-4 w-80 h-full bg-sky-950 pt-16 pl-12 text-white space-y-1">
           {/* Sidebar content here */}
           {isGeneralUser?.generalUser && (
             <>

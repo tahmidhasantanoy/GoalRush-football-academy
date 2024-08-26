@@ -2,6 +2,8 @@ import React from "react";
 import useAlluser from "../../../../Hooks/useAlluser";
 import { FaUserAstronaut, FaUserEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
+import "./ManageUsers.css";
+import TItlePage from "../../../../TItlePage/TItlePage";
 
 const ManageUsers = () => {
   const [usersData, refetch] = useAlluser();
@@ -78,39 +80,34 @@ const ManageUsers = () => {
   }
   return (
     <div className="my-20 mt-28">
-      <p className="text-center text-white text-2xl font-semibold ">All user of GoalRush</p>
-      <hr className="w-2/4 mx-auto mb-12"/>
+      <TItlePage title={"Manage Class | Dashboard"}></TItlePage>
+      <p className="text-center text-white text-2xl font-semibold ">
+        All user of GoalRush
+      </p>
+      <hr className="w-1/2 mx-auto mb-12" />
       <div className="overflow-x-auto">
         <table className="table">
-          <thead>
+          <thead className="bg-blue-800 tableHead">
             <tr>
-              <th>
-                <label>User no.</label>
-              </th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Make Instructor</th>
-              <th>Make Admin</th>
-              <th></th>
+              <th className="text-2xl font-bold text-white">Image</th>
+              <th className="text-2xl font-bold text-white">Information</th>
+              <th className="text-2xl font-bold text-white">Make Instructor</th>
+              <th className="text-2xl font-bold text-white">Make Admin</th>
             </tr>
           </thead>
           {usersData.map((user, idx) => (
-            <tbody>
+            <tbody className="tableData">
               <tr>
-                <th>
-                  <label>{idx + 1}</label>
-                </th>
                 <td>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 ">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
                         <img src={user.image} alt="No image found" />
                       </div>
                     </div>
-                    <div></div>
                   </div>
                 </td>
-                <td>
+                <td className="bg-base-300">
                   <span className="ml-2">{user.name}</span>
                   <br />
                   <span className="badge badge-ghost badge-sm ml-0">
@@ -120,10 +117,15 @@ const ManageUsers = () => {
                 <td onClick={() => handleMakeInstructor(user)}>
                   <FaUserEdit className="w-40 pr-16 btn-ghost" />
                 </td>
-                <td onClick={() => handleMakeAdmin(user)}>
+                <td
+                  className="bg-base-300"
+                  onClick={() => handleMakeAdmin(user)}
+                >
                   <FaUserAstronaut className="w-40 pr-20 btn-ghost" />
                 </td>
               </tr>
+              <hr className="text-blue-700 bg-blue-700 w-3" />
+              <hr className="text-blue-700 bg-blue-700 w-3 " />
             </tbody>
           ))}
         </table>

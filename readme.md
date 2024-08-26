@@ -36,4 +36,4 @@
 
 ## 🔗 Live hosting link :
 
-[Live project link](https://goalrush-9bf94.web.app/)
+[Live project link](https://goalrush-9bf94.web.app)

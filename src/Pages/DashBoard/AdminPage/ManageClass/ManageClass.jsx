@@ -109,62 +109,68 @@ const ManageClass = () => {
   return (
     <div className="mt-28 mb-20">
       <Fade cascade damping={0.1}>
-        <p className="text-center text-white text-2xl font-semibold">
+        <p className="text-center text-black text-2xl font-semibold">
           All Classes of GoalRush
         </p>
       </Fade>
 
-      <hr className="w-2/4 mx-auto" />
+      <hr className="w-1/2 mx-auto" />
       <div className="grid grid-cols-1 md:grid-cols-2">
         {classData.map((data) => (
-          <div key={data._id} className="card w-96 bg-teal-950 shadow-xl m-12">
-            <figure className="px-10 pt-10">
-              <img src={data.image} alt="Shoes" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-center text-center ">
-              <h2 className="card-title text-white">{data.classname}</h2>
-              <div className="mr-32 justify-start my-5">
-                <div className="flex items-center mb-1">
-                  <FaCaretRight className="pr-2" />
-                  <p className="text-start">{data.instructorName}</p>
+          <div
+            key={data._id}
+            className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 classCard px-8 pt-8 pb-4 m-12"
+          >
+            <img className="h-[200px] w-[500px]" src={data.image} alt="River" />
+            <div class="px-6">
+              <p class="font-bold text-xl mt-4">{data.classname}</p>
+            </div>
+            <div className="px-6 flex flex-col mt-6 mb-4">
+              <div className="flex items-center bg-gray-200 hover:bg-white rounded-full px-3 text-sm font-semibold text-gray-700 py-2 mb-2">
+                <FaCaretRight className="pr-2" />
+                <p>Instructor : {data.instructorName}</p>
+              </div>
+              <div className="flex items-center bg-gray-200 hover:bg-white rounded-full px-3 text-sm font-semibold text-gray-700 py-2 mb-2">
+                <FaCaretRight className="pr-2 " />
+                <p>Email : {data.instructorEmail}</p>
+              </div>
+              <div className="flex items-center bg-gray-200 hover:bg-white rounded-full px-3 text-sm font-semibold text-gray-700 py-2 mb-2">
+                <FaCaretRight className="pr-2" />
+                <p>Price : ${data.price}</p>
+              </div>
+              <div className="flex items-center bg-gray-200 hover:bg-white rounded-full px-3 text-sm font-semibold text-gray-700 py-2 mb-2">
+                <FaCaretRight className="pr-2" />
+                <p>Available seat number : {data.availableSeats}</p>
+              </div>
+              <div className="mt-4">
+                <hr className="font-bold" />
+                <div className="card-actions flex justify-end">
+                  <button
+                    onClick={() => handleAcceptClass(data)}
+                    className="btn-info normal-case"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    onClick={() => handleDenyClass(data)}
+                    className="btn-ghost normal-case"
+                  >
+                    Deny
+                  </button>
                 </div>
-                <div className="flex items-center mb-1">
-                  <FaCaretRight className="pr-2" />
-                  <p className="text-start">{data.instructorEmail}</p>
-                </div>
-                <div className="flex items-center mb-1">
-                  <FaCaretRight className="pr-2" />
-                  <p className="text-start">Price : ${data.price}</p>
-                </div>
-                <div className="flex items-center mb-1">
-                  <FaCaretRight className="pr-2" />
-                  <p className="text-start">Available Seats : {data.availableSeats}</p>
+                <div>
+                  <form className="flex items-center m-0 py-3">
+                    <input
+                      disabled={!feedback}
+                      type="text"
+                      name="feedback"
+                      placeholder="Feedback for the class"
+                      className=" .w-full .max-w-xs rounded-sm"
+                      onBlur={handleFeedback}
+                    />
+                  </form>
                 </div>
               </div>
-              <div className="card-actions justify-end">
-                <button
-                  onClick={() => handleAcceptClass(data)}
-                  className="btn btn-info"
-                >
-                  Accept
-                </button>
-                <button
-                  onClick={() => handleDenyClass(data)}
-                  className="btn btn-ghost"
-                >
-                  Deny
-                </button>
-              </div>
-              <form>
-                <input
-                  disabled={!feedback}
-                  type="text"
-                  name="feedback"
-                  placeholder="Feedback for the class"
-                  className="input input-bordered input-info w-full max-w-xs"
-                  onBlur={handleFeedback}
-                />
-              </form>
             </div>
           </div>
         ))}

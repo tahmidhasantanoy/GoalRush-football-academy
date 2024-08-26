@@ -8,7 +8,7 @@ import EnhanceSkills from "./EnhanceSkills/EnhanceSkills";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <TItlePage title={"Home"}></TItlePage>
       <Banner />
       <hr className="font-bold" />
@@ -16,7 +16,7 @@ const Home = () => {
       <hr className="font-bold" />
       <TopInstructors />
       <hr className="font-bold" />
-      <EnhanceSkills/>
+      <EnhanceSkills />
       <hr className="font-bold" />
       <Highlight />
     </div>
