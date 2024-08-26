@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import registrationImg from "../../../public/Authenticaion/Reg-pic.jpg";
 import "./SignUp.css";
 import { useForm } from "react-hook-form";
-import TItlePage from "../../TItlePage/TItlePage";
+import TitlePage from "../../TitlePage/TitlePage";
 import useAuth from "../../Hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
@@ -67,8 +67,10 @@ const SignUp = () => {
   //TODO : .inputborder color,btn color,btn size
   return (
     <div className=".hero flex justify-center min-h-min reg-bg">
-      <TItlePage title={"Registration"}></TItlePage>
-      <div className="hero-content flex-col lg:flex-row-reverse .my-14"> {/*  */}
+      <TitlePage title={"Registration"}></TitlePage>
+      <div className="hero-content flex-col lg:flex-row-reverse .my-14">
+        {" "}
+        {/*  */}
         <div className=".text-center w-full lg:text-left">
           <img
             className="h-[580px] rounded-md"

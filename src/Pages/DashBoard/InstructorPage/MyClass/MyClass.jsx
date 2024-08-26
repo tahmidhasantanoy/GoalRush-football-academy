@@ -5,7 +5,7 @@ import useAuth from "../../../../Hooks/useAuth";
 import useSpecificClass from "../../../../Hooks/useSpecificClass";
 import { Link } from "react-router-dom";
 import { FaCaretRight } from "react-icons/fa";
-import TItlePage from "../../../../TItlePage/TItlePage";
+import TitlePage from "../../../../TitlePage/TitlePage";
 
 const MyClass = () => {
   const [specificInstrucClass] = useSpecificClass();
@@ -30,7 +30,7 @@ const MyClass = () => {
 
   return (
     <div>
-      <TItlePage title={"My Class | Dashboard"} />
+      <TitlePage title={"My Class | Dashboard"} />
       <p className="text-4xl text-black text-center mt-20 .border-b-2">
         {user?.displayName}'s all classes
       </p>

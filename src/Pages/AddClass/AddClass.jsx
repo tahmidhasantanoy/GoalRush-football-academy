@@ -3,7 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import TItlePage from "../../TItlePage/TItlePage";
+import TitlePage from "../../TitlePage/TitlePage";
 
 //TODO : only instructor see this
 const AddClass = () => {
@@ -94,7 +94,7 @@ const AddClass = () => {
   return (
     <div className="p-20">
       {/* new  */}
-      <TItlePage title={"Add Class | Dashboard"}/>
+      <TitlePage title={"Add Class | Dashboard"} />
       <p className="text-4xl text-black text-center mt-10 .border-b-2">
         Add a class {user?.displayName}{" "}
       </p>

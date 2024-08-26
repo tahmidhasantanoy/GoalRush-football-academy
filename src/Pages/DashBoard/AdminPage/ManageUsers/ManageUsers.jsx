@@ -3,7 +3,7 @@ import useAlluser from "../../../../Hooks/useAlluser";
 import { FaUserAstronaut, FaUserEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "./ManageUsers.css";
-import TItlePage from "../../../../TItlePage/TItlePage";
+import TitlePage from "../../../../TitlePage/TitlePage";
 
 const ManageUsers = () => {
   const [usersData, refetch] = useAlluser();
@@ -80,7 +80,7 @@ const ManageUsers = () => {
   }
   return (
     <div className="my-20 mt-28">
-      <TItlePage title={"Manage Class | Dashboard"}></TItlePage>
+      <TitlePage title={"Manage Class | Dashboard"}></TitlePage>
       <p className="text-center text-white text-2xl font-semibold ">
         All user of GoalRush
       </p>

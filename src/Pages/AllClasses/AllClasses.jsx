@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import useAllClass from "../../Hooks/useAllClass";
-import { FaBeer, FaCaretRight, FaRegCalendar, FaRegCalendarCheck } from "react-icons/fa";
+import {
+  FaBeer,
+  FaCaretRight,
+  FaRegCalendar,
+  FaRegCalendarCheck,
+} from "react-icons/fa";
 import useInstructor from "../../Hooks/useInstructor";
 import useAdmin from "../../Hooks/useAdmin";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import TItlePage from "../../TItlePage/TItlePage";
+import TitlePage from "../../TitlePage/TitlePage";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
@@ -21,7 +26,7 @@ const AllClasses = () => {
     return (
       <>
         <div>
-          <TItlePage title={"All Class"}></TItlePage>
+          <TitlePage title={"All Class"}></TitlePage>
           <div className="flex items-center justify-center pt-20">
             <p>Loading &nbsp;</p>
             <span className="loading loading-dots loading-xs text-yellow-400"></span>
