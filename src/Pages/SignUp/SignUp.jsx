@@ -174,7 +174,7 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-4">
               <input
-                className="btn btn-info w-1/2 md:w-full mx-auto hover:text-white normal-case"
+                className="btn btn-primary w-1/2 md:w-full mx-auto hover:text-white normal-case duration-500"
                 type="submit"
                 value="Sign In"
               />
