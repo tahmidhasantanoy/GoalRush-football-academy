@@ -5,6 +5,7 @@ import Highlight from "../Highlight/Highlight";
 import TopClass from "../TopClass/TopClass";
 import TopInstructors from "../TopInstructors/TopInstructors";
 import EnhanceSkills from "./EnhanceSkills/EnhanceSkills";
+import Sponsors from "./Sponsors/Sponsors";
 
 const Home = () => {
   return (
@@ -19,6 +20,8 @@ const Home = () => {
       <EnhanceSkills />
       <hr className="font-bold" />
       <Highlight />
+      <hr className="font-bold" />
+      <Sponsors />
     </div>
   );
 };

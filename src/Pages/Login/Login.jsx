@@ -49,24 +49,13 @@ const Login = () => {
   return (
     <div className="hero min-h-screen p-0 m-0 login-bg">
       <TitlePage title={"Login"}></TitlePage>
-      <div className="hero-content w-6/12 mx-auto p-0 my-24 login_body">
+      <div className="hero-content w-10/12 lg:w-1/2 p-0 my-24 login_body">
         <div className="card w-full shadow-xl">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=".card-body my-10 mx-28 py-0"
+            className="card-body my-10 mx-3 md:mx-10 lg:mx-28 py-0"
           >
-            {/* <div className="form-control py-0 m-0">
-                <label className="label py-0">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  {...register("email")}
-                  type="text"
-                  placeholder="Enter your email"
-                  className="input input-bordered"
-                />
-              </div> */}
-            <div className="form-control m-0 p-0">
+            <div className="form-control m-0 p-0 mx-auto w-full md:w-10/12 lg:w-full">
               <label className="label m-0 p-0">
                 <span className="label-text text-black font-medium">Email</span>
               </label>
@@ -74,29 +63,12 @@ const Login = () => {
                 {...register("email")}
                 type="text"
                 placeholder="Enter your email"
-                className=".input input-bordered w-1/2 md:w-full lg:w-full"
+                className=".input input-bordered w-3/4 md:w-full lg:w-full mx-auto"
                 required
               />
             </div>
-            {/*               <div className="form-control m-0 p-0">
-                <label className="label m-0 p-0">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  {...register("password")}
-                  type="password"
-                  placeholder="Enter secret password"
-                  className=".input input-bordered w-full"
-                  required
-                />
-                {err && <p className="text-error ml-4 text-sm">{err}</p>}
-                <label className="label mt-0 py-0">
-                  <a href="" className="label-text-alt link link-hover mt-0">
-                    Forgot password?
-                  </a>
-                </label>
-              </div> */}
-            <div className="form-control p-0 m-0">
+
+            <div className="form-control p-0 m-0 mx-auto w-full md:w-10/12 lg:w-full">
               <label className="label m-0 p-0">
                 <span className="label-text text-black font-medium">
                   Password
@@ -106,35 +78,40 @@ const Login = () => {
                 {...register("password")}
                 type="password"
                 placeholder="Enter secret password"
-                className=".input input-bordered w-1/2 md:w-full lg:w-full"
+                className=".input input-bordered w-3/4 md:w-full lg:w-full mx-auto"
+                required
               />
               {err && <p className="text-error ml-4 text-sm">{err}</p>}
               <label className="label mt-0 py-0">
                 <a
                   href=""
-                  className="label-text-alt text-black link link-hover mt-0"
+                  className="label-text-alt text-black link link-hover pl-7 md:pl-0 mt-0"
                 >
                   Forgot password?
                 </a>
               </label>
             </div>
-            <div className="form-control w-1/2 md:w-6/12 lg:w-8/12 mx-auto">
-              <button className="btn btn-primary normal-case">Login</button>
+
+            <div className="form-control w-5/12 md:w-6/12 lg:w-8/12 mx-auto">
+              <button className="btn btn-primary normal-case w-full">
+                Login
+              </button>
             </div>
+
             <p className="text-center text-black mt-1 text-sm">
-              Don't have an acoount?
+              Don't have an account?
               <span className="text-red-500 hover:underline hover:font-bold duration-300">
                 &nbsp;
                 <Link to={"/signup"}>Create account</Link>
               </span>
             </p>
-            <div className="divider m-0 py-4">OR</div>
+            <div className="divider m-0 py-2">OR</div>
             <div className="flex justify-center">
               <div
                 onClick={handleGoogleSubmit}
-                className=" w-1/2 md:w-8/12 mt-3 .mx-auto btn btn-outline hover:text-info"
+                className="w-7/12 md:w-6/12 mt-3 btn btn-outline hover:text-info"
               >
-                <div className="flex items-center">
+                <div className="flex items-center normal-case">
                   <p>Signin with </p>
                   <FaGoogle className="ml-2" />
                 </div>
