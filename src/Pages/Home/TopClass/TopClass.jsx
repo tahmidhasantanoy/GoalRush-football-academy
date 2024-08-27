@@ -24,7 +24,7 @@ const TopClass = () => {
 
   return (
     <div>
-      <h3 className="text-white text-start font-bold text-4xl pt-12 ml-20">
+      <h3 className="text-black text-center font-bold text-3xl md:text-4xl py-2 pt-4  md:py-6 lg:py-8">
         Our top classes!
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 .px-12 .pb-12">

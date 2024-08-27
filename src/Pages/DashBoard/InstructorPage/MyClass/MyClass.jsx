@@ -31,7 +31,7 @@ const MyClass = () => {
   return (
     <div>
       <TitlePage title={"My Class | Dashboard"} />
-      <p className="text-4xl text-black text-center mt-20 .border-b-2">
+      <p className="text-4xl text-black text-center my-20">
         {user?.displayName}'s all classes
       </p>
       <hr className="w-2/4 mx-auto" />

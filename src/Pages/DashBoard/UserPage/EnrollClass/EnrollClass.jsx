@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../../Hooks/useAuth";
+import TitlePage from "../../../../TitlePage/TitlePage";
 
 const EnrollClass = () => {
   const [enroll, setEnroll] = useState([]);
@@ -18,6 +19,7 @@ const EnrollClass = () => {
 
   return (
     <div className="mt-28 mb-12">
+      <TitlePage title={"Enroll Classes | Dashboard"}></TitlePage>
       <p className="text-2xl text-center font-semibold mb-5">
         Enrolles classes
       </p>

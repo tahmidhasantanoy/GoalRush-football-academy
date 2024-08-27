@@ -21,14 +21,14 @@ const TopInstructors = () => {
     );
   }
   return (
-    <div className="mx-auto my-12">
-      <h3 className="text-white text-start font-bold text-4xl pt-12 ml-12">
+    <div className="mx-auto my-6">
+      <h3 className="text-black text-center font-bold text-3xl md:text-4xl py-8 ">
         Our top Instructors!
       </h3>
-      <div className=" flex flex-col items-center .p-5">
+      <div className=" flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 sm:gap-4 md:gap-4 lg:gap-8 mb-4 justify-center mx-auto m-2 lg:m-8">
           {topInstructorData.map((instructor) => (
-            <div className="w-96 bg-base-300 hover:bg-white hover:border-[.8px] hover:border-cyan-500 rounded-lg hover:scale-95 transition-all duration-500">
+            <div className="w-72 lg:w-96 bg-base-300 hover:bg-white hover:border-[.8px] hover:border-cyan-500 rounded-lg hover:scale-95 transition-all duration-500 mb-6">
               <div className="flex-col">
                 <div>
                   <figure className="md:px-5 lg:px-10 md:py-2 lg:py-5 .pt-10">
@@ -38,7 +38,7 @@ const TopInstructors = () => {
                       className="rounded-xl sm:shrink-0 lg:shrink-1 .md:h-[200px] lg: .md:w-[200px]"
                     />
                   </figure>
-                  <h1 className="text-3xl text-center font-bold">
+                  <h1 className="text-2xl md:text-3xl text-center font-bold">
                     GoalRush Trainer!
                   </h1>
                 </div>

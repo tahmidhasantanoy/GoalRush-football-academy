@@ -20,11 +20,11 @@ const Sponsors = () => {
         <img className="w-1/5 h-[150px] max-w-xs .h-auto" src={logo7} alt="logo image" />
         <img className="w-1/5 h-1/6 max-w-xs .h-auto" src={logo1} alt="logo image" />
         <img className="w-1/5 h-[150px] max-w-xs .h-auto" src={logo2} alt="logo image" />
-        <img className="w-1/5 h-1/12 max-w-xs .h-auto" src={logo3} alt="logo image" />
         <img className="w-1/5 .h-1/12 max-w-xs h-auto" src={logo4} alt="logo image" />
+        <img className="w-1/5 h-1/12 max-w-xs .h-auto" src={logo3} alt="logo image" />
         <img className="w-1/5 .h-1/12 max-w-xs h-auto" src={logo5} alt="logo image" />
         <img className="w-1/5 h-[100px] max-w-xs .h-auto" src={logo6} alt="logo image" />
-        {/*  */}
+        {/* for repeat */}
         <img className="w-1/5 h-[150px] max-w-xs .h-auto" src={logo7} alt="logo image" />
         <img className="w-1/5 h-1/6 max-w-xs .h-auto" src={logo1} alt="logo image" />
         <img className="w-1/5 h-[150px] max-w-xs .h-auto" src={logo2} alt="logo image" />

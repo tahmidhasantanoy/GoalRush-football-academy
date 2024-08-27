@@ -4,6 +4,7 @@ import { FaCaretRight } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import TitlePage from "../../../../TitlePage/TitlePage";
 
 const ManageClass = () => {
   const [classData, refetch] = useAllClass();
@@ -108,6 +109,7 @@ const ManageClass = () => {
 
   return (
     <div className="mt-28 mb-20">
+      <TitlePage title={"Manage Class | Dashboard"}></TitlePage>
       <Fade cascade damping={0.1}>
         <p className="text-center text-black text-2xl font-semibold">
           All Classes of GoalRush

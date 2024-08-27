@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../../Hooks/useAuth";
+import TitlePage from "../../../../TitlePage/TitlePage";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
@@ -17,6 +18,7 @@ const PaymentHistory = () => {
   console.log(payData);
   return (
     <div className="my-20">
+      <TitlePage title={"Payment History | Dashboard"}></TitlePage>
         <p className="text-center text-2xl text-white">Payment History</p>
       <div className="overflow-x-auto my-6">
         <table className="table">

@@ -16,7 +16,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Banner = () => {
   return (
-    <div className="custom-slider">
+    <div className="custom-slider py-[77px] md:py-0 mb-0 md:mb-5 lg:mb-10">
       <AutoplaySlider
         play={true}
         cancelOnInteraction={false} // should stop playing on user interaction
@@ -27,7 +27,7 @@ const Banner = () => {
         <div className="relative">
           <img src={Pic1} alt="Banner 5" />
           <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
-            <h1 className="text-4xl font-bold mb-2 inline-flex">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 inline-flex">
               <span className="text-info">Football</span> &nbsp; is &nbsp;
               <Typewriter
                 options={{
@@ -39,7 +39,7 @@ const Banner = () => {
                 }}
               />
             </h1>{" "}
-            <p className="mb-4 w-1/2 overflow-hidden text-left text-style">
+            <p className="mb-4 w-full md:w-1/2 overflow-hidden text-left text-style">
               "The difference between a successful person and others is not a
               lack of strength, not a lack of knowledge, but rather a lack in
               will."
@@ -52,7 +52,7 @@ const Banner = () => {
         <div className="relative">
           <img src={Pic2} alt="Banner 5" />
           <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
-            <h1 className="text-4xl font-bold mb-2 inline-flex">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 inline-flex">
               <span className="text-info">Football</span> &nbsp; is &nbsp;
               <Typewriter
                 options={{
@@ -64,7 +64,7 @@ const Banner = () => {
                 }}
               />
             </h1>{" "}
-            <p className="mb-4 w-1/2 overflow-hidden text-left">
+            <p className="mb-4 w-full md:w-1/2 overflow-hidden text-left">
               "Success is no accident. It’s the result of preparation, hard
               work,and learning from failure. In football, just like in life,
               you must be willing to make sacrifices to achieve your goals."
@@ -77,7 +77,7 @@ const Banner = () => {
         <div className="relative">
           <img src={Pic3} alt="Banner 5" />
           <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
-            <h1 className="text-4xl font-bold mb-2 inline-flex">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 inline-flex">
               <span className="text-info">Football</span> &nbsp; is &nbsp;
               <Typewriter
                 options={{
@@ -89,7 +89,7 @@ const Banner = () => {
                 }}
               />
             </h1>{" "}
-            <p className="mb-4 w-1/2 overflow-hidden text-left">
+            <p className="mb-4 w-full md:w-1/2 overflow-hidden text-left">
               "In football, as in life, the best teams are those that work
               together, trust each other, and play for one another. Individual
               talent may win a match, but teamwork and intelligence win
@@ -103,11 +103,11 @@ const Banner = () => {
         <div className="relative">
           <img src={Pic4} alt="Banner 5" />
           <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
-            <h1 className="text-4xl font-bold mb-2 inline-flex">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 inline-flex">
               <span className="text-info">Football</span> &nbsp; is &nbsp;
               <Typewriter
                 options={{
-                  strings: ["Entertaintment"],
+                  strings: ["Fun"],
                   autoStart: true,
                   loop: true,
                   cursor: "_",
@@ -115,7 +115,7 @@ const Banner = () => {
                 }}
               />
             </h1>{" "}
-            <p className="mb-4 w-1/2 overflow-hidden text-left">
+            <p className="mb-4 w-full md:w-1/2 overflow-hidden text-left">
               "Football is like life—it requires perseverance, self-denial, hard
               work, sacrifice, dedication, and respect for authority."
             </p>
@@ -127,7 +127,7 @@ const Banner = () => {
         <div className="relative">
           <img src={Pic5} alt="Banner 5" />
           <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-8">
-            <h1 className="text-4xl font-bold mb-2 inline-flex">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 inline-flex">
               <span className="text-info">Football</span> &nbsp; is &nbsp;
               <Typewriter
                 options={{
@@ -139,7 +139,7 @@ const Banner = () => {
                 }}
               />
             </h1>{" "}
-            <p className="mb-4 w-1/2 overflow-hidden text-left">
+            <p className="mb-4 w-full md:w-1/2 overflow-hidden text-left">
               "The road to victory is never easy, but with determination,
               teamwork, and a never-give-up attitude, any obstacle can be
               overcome. Football teaches us that no matter the odds, the fight
@@ -153,11 +153,11 @@ const Banner = () => {
         <div className="relative">
           <img src={Pic4} alt="Banner 5" />
           <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-4 pl-12">
-            <h1 className="text-4xl font-bold mb-2 inline-flex">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 inline-flex">
               <span className="text-info">Football</span> &nbsp; is &nbsp;
               <Typewriter
                 options={{
-                  strings: ["Entertaintment"],
+                  strings: ["Fun"],
                   autoStart: true,
                   loop: true,
                   cursor: "_",
@@ -165,7 +165,7 @@ const Banner = () => {
                 }}
               />
             </h1>{" "}
-            <p className="mb-4 w-1/2 overflow-hidden text-left">
+            <p className="mb-4 w-full md:w-1/2 overflow-hidden text-left">
               "Football is like life—it requires perseverance, self-denial, hard
               work, sacrifice, dedication, and respect for authority."
             </p>

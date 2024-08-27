@@ -80,7 +80,7 @@ const ManageUsers = () => {
   }
   return (
     <div className="my-20 mt-28">
-      <TitlePage title={"Manage Class | Dashboard"}></TitlePage>
+      <TitlePage title={"Manage Users | Dashboard"}></TitlePage>
       <p className="text-center text-white text-2xl font-semibold ">
         All user of GoalRush
       </p>

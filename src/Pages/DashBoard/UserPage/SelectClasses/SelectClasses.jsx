@@ -4,7 +4,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
-import "./SelectClasses.css"
+import "./SelectClasses.css";
+import TitlePage from "../../../../TitlePage/TitlePage";
 
 const SelectClasses = () => {
   const [selectClass, refetch] = useSelectClasses();
@@ -52,6 +53,7 @@ const SelectClasses = () => {
 
   return (
     <div className="w-10/12">
+      <TitlePage title={"Selected Classes | Dashboard"}></TitlePage>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -98,8 +100,10 @@ const SelectClasses = () => {
                       {item?.instructorEmail}
                     </span>
                   </td>
-                  <td >{item?.price}</td>
-                  <td className="text-center bg-base-300">{item?.availableSeats}</td>
+                  <td>{item?.price}</td>
+                  <td className="text-center bg-base-300">
+                    {item?.availableSeats}
+                  </td>
                   <th>
                     {/* only change here  */}
                     <Link
@@ -107,7 +111,9 @@ const SelectClasses = () => {
                         JSON.stringify(item)
                       )}`}
                     >
-                      <button className="btn-outline hover:btn-success">pay</button>
+                      <button className="btn-outline hover:btn-success">
+                        pay
+                      </button>
                     </Link>
                   </th>
                   <th>

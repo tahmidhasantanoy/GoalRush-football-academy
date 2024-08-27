@@ -94,13 +94,17 @@ const AllClasses = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-28 justify-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 my-16 px-0 md:px-2 lg:px-6">
       {classData.map((item) => (
         <div
           key={item._id}
-          className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 classCard m-8"
+          className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 m-8 classCard"
         >
-          <img className="h-[200px] w-[500px]" src={item.image} alt="River" />
+          <img
+            className="h-[200px] w-[500px]"
+            src={item.image}
+            alt="Class image"
+          />
           <div class="px-6">
             <p class="font-bold text-xl mt-4 .mb-2">{item.classname}</p>
           </div>
