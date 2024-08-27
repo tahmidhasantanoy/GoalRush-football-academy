@@ -23,8 +23,8 @@ const AddClass = () => {
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const onSubmit = (data) => {
-    console.log(data.file[0]);
-    console.log(data);
+    // console.log(data.file[0]);
+    // console.log(data);
 
     //Hosting image yo imgbb
     if (data.file[0]) {
@@ -38,7 +38,7 @@ const AddClass = () => {
         .then((res) => res.json())
         .then((imgRes) => {
           if (imgRes.success) {
-            console.log(imgRes.data.display_url);
+            // console.log(imgRes.data.display_url);
             const imgURL = imgRes.data.display_url;
             const {
               classname,
@@ -58,20 +58,20 @@ const AddClass = () => {
               status: "pending",
             };
 
-            console.log(newClassData);
+            // console.log(newClassData);
 
-            // axiosSecure.post("/all-className", newClassData).then((res) => {
-            //   if (res.data.insertedId) {
-            //     Swal.fire({
-            //       position: "top-end",
-            //       icon: "success",
-            //       title: `New className is added`,
-            //       showConfirmButton: false,
-            //       timer: 1500,
-            //     });
-            //     reset();
-            //   }
-            // });
+            axiosSecure.post("/all-class", newClassData).then((res) => {
+              if (res.data.insertedId) {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: `New class is added`,
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                reset();
+              }
+            });
           }
         })
         .catch((err) => console.log(err.message));
@@ -92,7 +92,7 @@ const AddClass = () => {
   }
 
   return (
-    <div className="p-20">
+    <div className="py-10 px-10 md:px-20 lg:px-20">
       {/* new  */}
       <TitlePage title={"Add Class | Dashboard"} />
       <p className="text-4xl text-black text-center mt-10 .border-b-2">
@@ -100,7 +100,7 @@ const AddClass = () => {
       </p>
       <hr className="" />
       <div className="flex min-h-screen bg-gray-100">
-        <div className="m-auto max-w-lg w-full px-4">
+        <div className="m-auto max-w-lg w-full px-0 md:px-4">
           <form onSubmit={handleSubmit(onSubmit)}>
             <button
               type="button"
@@ -150,7 +150,7 @@ const AddClass = () => {
                   </h1>
                 </div>
               </div>
-              <div className="px-5 pb-5">
+              <div className="px-2 md:px-5 lg:px-5 pb-5">
                 {/* <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Class name
                 </label> */}
@@ -188,7 +188,7 @@ const AddClass = () => {
                 <div>
                   <label className="label">
                     <span className="text-black font-semibold">
-                      Choose a image for className :
+                      Choose image for className :
                     </span>
                   </label>
                   <input
@@ -229,11 +229,15 @@ const AddClass = () => {
                     type="checkbox"
                     className="w-4 h-4 text-black bg-gray-300 border-none rounded-md focus:ring-transparent"
                   />
-                  <label
-                    for="safeAddress"
-                    className="block ml-2 text-sm text-gray-900 mb-6"
-                  >
-                    Save as default address
+                  <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 pb-5 md:pb-5">
+                    I agree with the{" "}
+                    <a
+                      href=""
+                      className="text-blue-600 hover:underline dark:text-blue-500"
+                    >
+                      terms and conditions
+                    </a>
+                    .
                   </label>
                 </div>
               </div>
@@ -245,7 +249,7 @@ const AddClass = () => {
                   className="flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize bg-black rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-900 transition duration-300 transform active:scale-95 ease-in-out"
                 > */}
                 <button
-                  type="button" /* submit */
+                  type="submit" /* submit */
                   className="flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize bg-black rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-900 transition duration-300 transform active:scale-95 ease-in-out"
                 >
                   <svg
@@ -286,115 +290,6 @@ const AddClass = () => {
         </div>
       </div>
       {/* new */}
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-6">
-          {/* <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Class name
-          </label> */}
-          <input
-            {...register("classname")}
-            type="text"
-            className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200 focus:border-gray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-            placeholder="Enter the className name"
-            required
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Instructor name
-          </label>
-          <input
-            {...register("instructorName")}
-            type="text"
-            className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200 focus:border-gray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-            placeholder="Enter the className name"
-            required
-            defaultValue={user?.displayName}
-            readOnly
-          />
-        </div>
-
-        <div className="mb-6">
-          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Instructor email
-          </label>
-          <input
-            {...register("instructorEmail")}
-            type="email"
-            className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200 focus:border-gray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-            placeholder="goalrush@gmail.com"
-            required
-            defaultValue={user?.email}
-            readOnly
-          />
-        </div>
-        <div className="grid gap-6 mb-6 md:grid-cols-2">
-          <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Available seats
-            </label>
-            <input
-              {...register("availableSeats")}
-              type="number"
-              className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200 focus:border-gray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-              placeholder="Enter available seat"
-              required
-            />
-          </div>
-          <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Price
-            </label>
-            <input
-              {...register("price")}
-              type="number"
-              className="text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200 focus:border-gray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 ring-gray-400"
-              placeholder="Enter className price"
-              required
-            />
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="text-white">Choose className image</span>
-            </label>
-            <input
-              {...register("file", { required: true })}
-              type="file"
-              className="file-input file-input-bordered w-full max-w-xs"
-            />
-          </div>
-        </div>
-        <div className="flex items-start mb-6">
-          <div className="flex items-center h-5">
-            <input
-              type="checkbox"
-              value=""
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-              required
-            />
-          </div>
-          <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-            I agree with the{" "}
-            <a
-              href="#"
-              className="text-blue-600 hover:underline dark:text-blue-500"
-            >
-              terms and conditions
-            </a>
-            .
-          </label>
-        </div>
-        <button
-          type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Add
-        </button>
-      </form>
     </div>
   );
 };
