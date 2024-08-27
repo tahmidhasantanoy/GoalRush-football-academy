@@ -4,6 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import "./SelectClasses.css"
 
 const SelectClasses = () => {
   const [selectClass, refetch] = useSelectClasses();
@@ -50,11 +51,11 @@ const SelectClasses = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-10/12">
       <div className="overflow-x-auto">
-        <table className="table p-20">
+        <table className="table">
           {/* head */}
-          <thead>
+          <thead className="select_tableHead">
             <tr>
               <th className="border-b-2 text-white">
                 <label>Class No.</label>
@@ -70,50 +71,56 @@ const SelectClasses = () => {
             </tr>
           </thead>
           {selectClass.map((item, idx) => (
-            <tbody key={item?._id}>
-              {/* row 1 */}
-              <tr>
-                <th>
-                  <label className="ml-5">{idx + 1}</label>
-                </th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src={item?.image}
-                          alt="Avatar Tailwind CSS Component"
-                        />
+            <>
+              <tbody key={item?._id} className="select_tableData">
+                {/* row 1 */}
+                <tr className="text-center">
+                  <th className="bg-base-300 text-center">
+                    <label>{idx + 1}</label>
+                  </th>
+                  <td>
+                    <div className="flex items-center space-x-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12 text-center">
+                          <img
+                            src={item?.image}
+                            alt="Avatar Tailwind CSS Component"
+                          />
+                        </div>
                       </div>
+                      <div></div>
                     </div>
-                    <div></div>
-                  </div>
-                </td>
-                <td>
-                  {item?.instructorName}
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    {item?.instructorEmail}
-                  </span>
-                </td>
-                <td>{item?.price}</td>
-                <td className="pl-12">{item?.availableSeats}</td>
-                <th>
-                  {/* only change here  */}
-                  <Link to={`/dashboard/payment/${encodeURIComponent(JSON.stringify(item))}`}>
-                    <button className="btn btn-ghost ">pay</button>
-                  </Link>
-                </th>
-                <th>
-                  <button
-                    onClick={() => handleDelete(item)}
-                    className="btn btn-ghost btn-xs"
-                  >
-                    <FaTrashAlt />
-                  </button>
-                </th>
-              </tr>
-            </tbody>
+                  </td>
+                  <td className="bg-base-300 text-center">
+                    {item?.instructorName}
+                    <br />
+                    <span className="badge badge-ghost badge-sm">
+                      {item?.instructorEmail}
+                    </span>
+                  </td>
+                  <td >{item?.price}</td>
+                  <td className="text-center bg-base-300">{item?.availableSeats}</td>
+                  <th>
+                    {/* only change here  */}
+                    <Link
+                      to={`/dashboard/payment/${encodeURIComponent(
+                        JSON.stringify(item)
+                      )}`}
+                    >
+                      <button className="btn-outline hover:btn-success">pay</button>
+                    </Link>
+                  </th>
+                  <th>
+                    <button
+                      onClick={() => handleDelete(item)}
+                      className="btn-error btn-xs"
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </th>
+                </tr>
+              </tbody>
+            </>
           ))}
         </table>
       </div>

@@ -97,7 +97,7 @@ const ManageUsers = () => {
           </thead>
           {usersData.map((user, idx) => (
             <tbody className="tableData">
-              <tr>
+              <tr className="text-center">
                 <td>
                   <div className="flex items-center space-x-3 ">
                     <div className="avatar">
