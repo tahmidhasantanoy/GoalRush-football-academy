@@ -103,12 +103,14 @@ const CheckoutForm = ({ paymentClassData, price }) => {
     }
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="flex justify-center">
+      <form onSubmit={handleSubmit} className="">
         <CardElement
+          className="w-[400px] md:w-[500px]"
           options={{
             style: {
               base: {
+                // width : "300px",
                 fontSize: "16px",
                 color: "#424770",
                 "::placeholder": {
@@ -122,18 +124,18 @@ const CheckoutForm = ({ paymentClassData, price }) => {
           }}
         />
         <button
-          className="btn btn-outline btn-sm btn-primary"
+          className="btn-primary normal-case"
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >
-          Pay
+          Pay for enroll
         </button>
       </form>
       {CardErr && <p className="text-error">{CardErr}</p>}
       {transsactionId && (
         <p className="text-success">Payment Success with{transsactionId}</p>
       )}
-    </>
+    </div>
   );
 };
 

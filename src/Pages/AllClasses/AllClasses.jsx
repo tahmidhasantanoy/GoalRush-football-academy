@@ -130,8 +130,18 @@ const AllClasses = () => {
             <div className="mt-4">
               <hr className="font-bold" />
               <div className="flex flex-row sm:flex-col md:flex-row items-center justify-between">
-                <div className="flex flex-row sm:flex-col md:flex-row space-y-2">
-                  <button className="btn-info normal-case">Enroll now</button>{" "}
+                <div className="flex flex-row justify-center items-center sm:flex-col md:flex-row space-y-2">
+                  {/* new */}
+                  <button
+                    onClick={() => handleAddClass(item)}
+                    disabled={isInstructor?.instructor || isAdmin?.admin}
+                    className="btn-info normal-case"
+                  >
+                    {/* <FaRegCalendarCheck /> */}
+                    Book now
+                  </button>
+                  {/* <button className="btn-info normal-case">Enroll now</button>{" "} */}
+                  {/* new */}
                   <span className="font-bold">
                     {" "}
                     <sup>$</sup>

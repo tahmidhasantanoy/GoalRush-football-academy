@@ -1,0 +1,13 @@
+.payment {
+  background: linear-gradient(90deg, #61007b, #8e92f4, #ebebef) padding-box,
+    linear-gradient(90deg, #e4e4eb, #8285ed, #353bf1) border-box;
+  border: solid 3px transparent;
+  border-radius: 8px;
+  position: relative;
+  padding: 10px 20px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

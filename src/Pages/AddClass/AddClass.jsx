@@ -23,7 +23,7 @@ const AddClass = () => {
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const onSubmit = (data) => {
-    // console.log(data.file[0]);
+    console.log(data.file[0]);
     // console.log(data);
 
     //Hosting image yo imgbb

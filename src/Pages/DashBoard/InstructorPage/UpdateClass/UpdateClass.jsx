@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import TitlePage from "../../../../TitlePage/TitlePage";
+import Swal from "sweetalert2";
 
 const UpdateClass = () => {
   // const [id,setId] = useState("")
@@ -14,6 +15,7 @@ const UpdateClass = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const {
+    _id,
     availableSeats,
     instructorName,
     instructorEmail,
@@ -22,7 +24,7 @@ const UpdateClass = () => {
     image,
   } = classData;
 
-  console.log(image);
+  // console.log(image);
 
   const {
     register,
@@ -37,12 +39,15 @@ const UpdateClass = () => {
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data.file[0]); //is Same? : same
 
     //Hosting image yo imgbb
     if (data.file[0]) {
+      console.log("Dukse"); //ok
       const formData = new FormData();
       formData.append("image", data.file[0]);
+
+      console.log(formData); //ok
 
       fetch(img_hosting_url, {
         method: "POST",
@@ -51,10 +56,10 @@ const UpdateClass = () => {
         .then((res) => res.json())
         .then((imgRes) => {
           if (imgRes.success) {
-            console.log(imgRes.data.display_url);
+            console.log(imgRes.data.display_url); // image link create
             const imgURL = imgRes.data.display_url;
             const {
-              _id,
+              // _id,
               classname,
               instructorEmail,
               instructorName,
@@ -68,7 +73,7 @@ const UpdateClass = () => {
               instructorName,
               availableSeats,
               price
-            ); //undefiend
+            );
 
             const updateClassData = {
               classname,
@@ -80,20 +85,44 @@ const UpdateClass = () => {
               status: "pending",
             };
 
-            axiosSecure
-              .put(`/all-class/${classData._id}`, updateClassData)
-              .then((res) => {
-                if (res.data.insertedId) {
+            // axiosSecure  // cors policy error --
+            //   .put(`/all-class/${_id}`, updateClassData)
+            //   .then((res) => {
+            //     if (res.data.insertedId) {
+            //       Swal.fire({
+            //         position: "top-end",
+            //         icon: "success",
+            //         title: `New class is added`,
+            //         showConfirmButton: false,
+            //         timer: 1500,
+            //       });
+
+            //       reset();
+            //     }
+            //   });
+
+            fetch(`http://localhost:5000/all-class/${_id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(updateClassData),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data.modifiedCount == 1);
+                if (data.modifiedCount == 1) {
                   Swal.fire({
                     position: "top-end",
                     icon: "success",
                     title: `New class is added`,
-                    showConfirmButton: false,
+                    showConfirmButton: false, 
                     timer: 1500,
                   });
                   reset();
                 }
-              });
+              })
+              .catch((err) => console.log(err));
           }
         })
         .catch((err) => console.log(err.message));

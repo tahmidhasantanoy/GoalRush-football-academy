@@ -1,10 +1,71 @@
 import React from "react";
 import useTopClasses from "../../../Hooks/useTopClasses";
 import { FaCaretRight } from "react-icons/fa";
+import useInstructor from "../../../Hooks/useInstructor";
+import useAdmin from "../../../Hooks/useAdmin";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 import "./TopClass.css";
 
 const TopClass = () => {
   const [topClassData] = useTopClasses();
+  const [isInstructor] = useInstructor();
+  const [isAdmin] = useAdmin();
+  const { user } = useAuth();
+
+  const handleAddClass = (addItem) => {
+    // console.log(addItem);
+    const {
+      _id,
+      image,
+      classname,
+      instructorName,
+      instructorEmail,
+      price,
+      availableSeats,
+    } = addItem;
+
+    const addClass = {
+      classId: _id,
+      image,
+      classname,
+      instructorName,
+      instructorEmail,
+      price: parseFloat(price),
+      availableSeats: parseInt(availableSeats),
+    };
+
+    if (user?.email) {
+      console.log(user.email);
+
+      //Let's do simply
+      fetch("https://goal-rush-server.vercel.app/all-class/selected", {
+        method: "POST",
+
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addClass),
+      })
+        .then((res) => res.json())
+        .then((item) => {
+          // console.log(item);
+          if (item.insertedId) {
+            Swal.fire({
+              position: "top-middle",
+              icon: "success",
+              title: "class added successfully",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+          }
+        })
+        .catch((err) => console.log(err.message));
+    } else {
+      Swal.fire("Please! Login first");
+      navigate("/login", { state: { from: location } });
+    }
+  };
 
   if (!Array.isArray(topClassData)) {
     return (
@@ -60,7 +121,18 @@ const TopClass = () => {
                 <hr className="font-bold" />
                 <div className="flex flex-row sm:flex-col md:flex-row items-center justify-between">
                   <div className="flex flex-row sm:flex-col md:flex-row space-y-2">
-                    <button className="btn-info normal-case">Enroll now</button>{" "}
+                    {/* new */}
+
+                    <button
+                      onClick={() => handleAddClass(data)}
+                      disabled={isInstructor?.instructor || isAdmin?.admin}
+                      className="btn-info normal-case"
+                    >
+                      {/* <FaRegCalendarCheck /> */}
+                      Book now
+                    </button>
+
+                    {/* new */}
                     <span className="font-bold">
                       {" "}
                       <sup>$</sup>
