@@ -73,22 +73,27 @@ const ManageClass = () => {
 
   const handleFeedback = (event) => {
     event.preventDefault();
-    const feedData = event.target.value;
+    const feedBackData = event.target.value;
+    console.log(feedBackData);
+
+    if (feedBackData == undefined) return;
     // const feedback = JSON.stringify(feedData)
     // console.log(feedback,id);
 
-    axiosSecure.put(`/all-class/classFeedback/${id}`, feedData).then((res) => {
-      console.log(res.data);
-      if (res.data.modifiedCount) {
-        Swal.fire({
-          position: "top-middle",
-          icon: "success",
-          title: `Feeedback send`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    axiosSecure
+      .put(`/all-class/classFeedback/${id}`, feedBackData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
+          Swal.fire({
+            position: "top-middle",
+            icon: "success",
+            title: `Feeedback send`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   if (!Array.isArray(classData)) {
@@ -166,15 +171,18 @@ const ManageClass = () => {
                       disabled={!feedback}
                       type="text"
                       name="feedback"
-                      placeholder="  Feedback for the class"
-                      className=" w-full .max-w-xs rounded-xl"
+                      placeholder="Feedback for the class"
+                      className="w-full .max-w-xs rounded-xl"
                     />
                     <button
                       className="absolute btn-outline hover:btn-outline right-0 top-2"
                       onClick={handleFeedback}
                     >
                       {" "}
-                      <FaPlusCircle className="text-black bg-white " />
+                      <FaPlusCircle
+                        disabled={!feedback}
+                        className="text-black bg-white "
+                      />
                     </button>
                   </form>
                 </div>

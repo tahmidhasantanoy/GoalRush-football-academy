@@ -84,7 +84,7 @@ const ManageUsers = () => {
       <p className="text-center text-black text-3xl md:text-4xl font-semibold ">
         All user of GoalRush
       </p>
-      <hr className="w-1/2 mx-auto mb-6"/>
+      <hr className="w-1/2 mx-auto mb-6" />
       <div className="overflow-x-auto">
         <table className="table">
           <thead className="bg-blue-800 tableHead">
