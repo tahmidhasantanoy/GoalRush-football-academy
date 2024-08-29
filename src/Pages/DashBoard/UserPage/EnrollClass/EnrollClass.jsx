@@ -15,17 +15,17 @@ const EnrollClass = () => {
     }
   }, [user?.email]);
 
-//   console.log(enroll);
+  //   console.log(enroll);
 
   return (
     <div className="mt-28 mb-12">
       <TitlePage title={"Enroll Classes | Dashboard"}></TitlePage>
-      <p className="text-2xl text-center font-semibold mb-5">
-        Enrolles classes
+      <p className="text-3xl md:text-4xl text-black text-center font-semibold mb-5">
+        Enrolles class
       </p>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mx-10">
         <table className="table">
-          <thead>
+          <thead className="select_tableHead">
             <tr>
               <th>
                 <label>Class No.</label>
@@ -37,8 +37,8 @@ const EnrollClass = () => {
             </tr>
           </thead>
           {enroll.map((data, idx) => (
-            <tbody key="">
-              <tr>
+            <tbody key={idx} className="select_tableData">
+              <tr className="text-center">
                 <th>
                   <label>{idx + 1}</label>
                 </th>

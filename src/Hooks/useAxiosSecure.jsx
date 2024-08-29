@@ -9,7 +9,7 @@ const useAxiosSecure = () => {
 
   //Base url for all
   const axiosSecure = axios.create({
-    baseURL: "https://goal-rush-server.vercel.app",
+    baseURL: "http://localhost:5000/", //https://goal-rush-server.vercel.app
   });
 
   //Jwt header is here & use all over

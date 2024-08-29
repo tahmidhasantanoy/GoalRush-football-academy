@@ -16,12 +16,12 @@ const PaymentPage = () => {
   const price = parseFloat(classPrice.toFixed(2));
 
   return (
-    <div className="my-20">
+    <div className=".my-10">
       <p className="text-black text-2xl md:text-4xl text-center">
         Pay for selected class
       </p>
 
-      <div className="w-[800px] h-[250px] my-8 p-24 payment mx-20">
+      <div className="w-[800px] h-[250px] my-8 payment mx-20">
         <TitlePage title={"Payment | Dashboard"}></TitlePage>
         <Elements stripe={stripePromise}>
           <CheckoutForm

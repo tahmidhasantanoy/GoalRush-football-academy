@@ -6,11 +6,17 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import "./SelectClasses.css";
 import TitlePage from "../../../../TitlePage/TitlePage";
+import useAuth from "../../../../Hooks/useAuth";
 
 const SelectClasses = () => {
   const [selectClass, refetch] = useSelectClasses();
   const [axiosSecure] = useAxiosSecure();
-  //   console.log(selectClass);
+  console.log(selectClass);
+
+  /* For test if i fount or not */
+  const { user } = useAuth();
+  const email = user?.email;
+  console.log(email, user);
 
   if (!Array.isArray(selectClass)) {
     return (
@@ -55,6 +61,7 @@ const SelectClasses = () => {
     <div className="w-10/12">
       <TitlePage title={"Selected Classes | Dashboard"}></TitlePage>
       <div className="overflow-x-auto">
+        <p className="text-center text-3xl md:text-4xl py-5">Selected classes for {user?.displayName}</p>
         <table className="table">
           {/* head */}
           <thead className="select_tableHead">

@@ -79,12 +79,12 @@ const ManageUsers = () => {
     );
   }
   return (
-    <div className="my-20 mt-28">
+    <div className="my-10 .mt-8">
       <TitlePage title={"Manage Users | Dashboard"}></TitlePage>
-      <p className="text-center text-white text-2xl font-semibold ">
+      <p className="text-center text-black text-3xl md:text-4xl font-semibold ">
         All user of GoalRush
       </p>
-      <hr className="w-1/2 mx-auto mb-12" />
+      <hr className="w-1/2 mx-auto mb-6"/>
       <div className="overflow-x-auto">
         <table className="table">
           <thead className="bg-blue-800 tableHead">

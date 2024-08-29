@@ -24,12 +24,12 @@ const Instructors = () => {
     );
   }
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-28 gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-28 gap-6">
       {instructors.map((instructor) => (
         <div key={instructor._id} className="group">
           <div className="card w-80 bg-base-300 shadow-xl mx-auto flex flex-row">
             <div>
-              <figure className="pl-10 pr-4 pt-10">
+              <figure className="pl-10 pr-4 pt-10">  {/*  for social media */}
                 <img
                   src={instructor?.image}
                   alt="Instructor image"

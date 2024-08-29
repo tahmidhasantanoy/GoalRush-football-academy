@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useAllClass from "../../../../Hooks/useAllClass";
-import { FaCaretRight } from "react-icons/fa";
+import { FaCaretRight, FaPlusCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -161,15 +161,21 @@ const ManageClass = () => {
                   </button>
                 </div>
                 <div>
-                  <form className="flex items-center m-0 py-3">
-                    <input
+                  <form className="flex items-center m-0 py-3 relative">
+                    <textarea
                       disabled={!feedback}
                       type="text"
                       name="feedback"
-                      placeholder="Feedback for the class"
-                      className=" .w-full .max-w-xs rounded-sm"
-                      onBlur={handleFeedback}
+                      placeholder="  Feedback for the class"
+                      className=" w-full .max-w-xs rounded-xl"
                     />
+                    <button
+                      className="absolute btn-outline hover:btn-outline right-0 top-2"
+                      onClick={handleFeedback}
+                    >
+                      {" "}
+                      <FaPlusCircle className="text-black bg-white " />
+                    </button>
                   </form>
                 </div>
               </div>

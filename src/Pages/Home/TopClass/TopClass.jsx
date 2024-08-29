@@ -12,6 +12,7 @@ const TopClass = () => {
   const [isInstructor] = useInstructor();
   const [isAdmin] = useAdmin();
   const { user } = useAuth();
+  console.log(topClassData);
 
   const handleAddClass = (addItem) => {
     // console.log(addItem);
@@ -31,6 +32,7 @@ const TopClass = () => {
       classname,
       instructorName,
       instructorEmail,
+      user_email: user?.email,
       price: parseFloat(price),
       availableSeats: parseInt(availableSeats),
     };

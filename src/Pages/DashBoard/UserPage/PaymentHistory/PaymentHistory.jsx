@@ -17,13 +17,13 @@ const PaymentHistory = () => {
 
   console.log(payData);
   return (
-    <div className="my-20">
+    <div className="my-10">
       <TitlePage title={"Payment History | Dashboard"}></TitlePage>
-        <p className="text-center text-2xl text-white">Payment History</p>
-      <div className="overflow-x-auto my-6">
+      <p className="text-center text-3xl md:text-4xl text-black">Payment History</p>
+      <div className="overflow-x-auto my-6 mx-10">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="select_tableHead">
             <tr>
               <th>Class name</th>
               <th>Date & Time</th>
@@ -33,9 +33,9 @@ const PaymentHistory = () => {
             </tr>
           </thead>
           {payData.map((data) => (
-            <tbody key={data._id}>
-              <tr className="hover">
-                <td>{data?.classname ? data?.classname : "No name"}</td>
+            <tbody key={data._id} className="">
+              <tr className="text-center">
+                <td>{data?.classname ? data?.classname : "No name found"}</td>
                 <th>{data.Date}</th>
                 <td>{data.transsactionId}</td>
                 <td>{data?.amount}</td>

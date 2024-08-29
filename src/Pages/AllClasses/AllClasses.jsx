@@ -21,6 +21,7 @@ const AllClasses = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(user?.email);
 
   if (!Array.isArray(classData)) {
     return (
@@ -57,9 +58,12 @@ const AllClasses = () => {
       classname,
       instructorName,
       instructorEmail,
+      user_email: user?.email,
       price: parseFloat(price),
       availableSeats: parseInt(availableSeats),
     };
+
+    console.log(addClass);
 
     if (user?.email) {
       console.log(user.email);
