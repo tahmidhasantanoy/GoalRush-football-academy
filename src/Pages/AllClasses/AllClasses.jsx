@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import TitlePage from "../../TitlePage/TitlePage";
 import { IoMdClose } from "react-icons/io"; // Importing a close icon for the cancel button
+import Button from "../../components/ui/Button";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
@@ -23,6 +24,7 @@ const AllClasses = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [filterItem, setFilterItem] = useState("");
+  const [visibleClass, setVisibleClass] = useState(6);
 
   if (!Array.isArray(classData)) {
     return (
@@ -48,6 +50,11 @@ const AllClasses = () => {
   );
 
   const handleClear = () => setFilterItem("");
+
+  const handleSeeMore = () => {
+    console.log("object");
+    setVisibleClass((prevVisibleClass) => prevVisibleClass + 6);
+  };
 
   const handleAddClass = (addItem) => {
     const {
@@ -102,7 +109,8 @@ const AllClasses = () => {
   };
 
   return (
-    <div className="mt-32 my-16 px-0 md:px-2 lg:px-6">
+    <div className="mt-28 my-16 px-0 md:px-2 lg:px-6">
+      <TitlePage title={"All Class"}></TitlePage>
       <div className="flex justify-center items-center m-0 p-0">
         <div className="relative w-2/5">
           <input
@@ -127,9 +135,8 @@ const AllClasses = () => {
           )}
         </div>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 .mt-20 .my-16 px-0 md:px-2 lg:px-6">
-        {searchItems.map((item) => (
+        {searchItems.slice(0, visibleClass).map((item) => (
           <div
             key={item._id}
             className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 m-8 classCard"
@@ -188,6 +195,21 @@ const AllClasses = () => {
           </div>
         ))}
       </div>
+
+      {visibleClass < classData?.length && (
+        // <div className="flex justify-center">
+        //   <button
+        //   onClick={handleSeeMore}
+        //   className="btn-md bg-cyan-400 hover:bg-cyan-500 text-white "
+        // >
+        //   See More
+        // </button>
+        // </div>
+
+        <div className="flex justify-center py-2">
+          <Button onClick={() => handleSeeMore()}>See more</Button>
+        </div>
+      )}
     </div>
   );
 };
