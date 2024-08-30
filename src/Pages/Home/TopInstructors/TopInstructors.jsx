@@ -1,5 +1,6 @@
 import { FaCaretRight } from "react-icons/fa";
 import useTopInstrctor from "../../../Hooks/useTopInstrctor";
+import { Link } from "react-router-dom";
 
 const TopInstructors = () => {
   const [topInstructorData] = useTopInstrctor();
@@ -27,8 +28,11 @@ const TopInstructors = () => {
       </h3>
       <div className=" flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 sm:gap-4 md:gap-4 lg:gap-8 mb-4 justify-center mx-auto m-2 lg:m-8">
-          {topInstructorData.map((instructor) => (
-            <div className="w-72 lg:w-96 bg-base-300 hover:bg-white hover:border-[.8px] hover:border-cyan-500 rounded-lg hover:scale-95 transition-all duration-500 mb-6">
+          {topInstructorData.map((instructor, idx) => (
+            <div
+              key={idx}
+              className="w-72 lg:w-96 bg-base-300 hover:bg-white hover:border-[.8px] hover:border-cyan-500 rounded-lg hover:scale-95 transition-all duration-500 mb-6"
+            >
               <div className="flex-col">
                 <div>
                   <figure className="md:px-5 lg:px-10 md:py-2 lg:py-5 .pt-10">
@@ -51,7 +55,12 @@ const TopInstructors = () => {
                     <FaCaretRight className="pr-2" />
                     <p className="">Email : {instructor.email}</p>
                   </div>
-                  <button className="btn-info normal-case">See Classes</button>
+                  {/* <button className="btn-info normal-case">See Classes</button> */}
+                  <Link to={`/instructor-all-class/${instructor?.email}`}>
+                    <button className="btn-info normal-case w-full">
+                      see classes
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

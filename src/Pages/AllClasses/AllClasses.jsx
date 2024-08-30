@@ -15,13 +15,11 @@ import TitlePage from "../../TitlePage/TitlePage";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
-  // console.log(classData);
-  const [isInstructor] = useInstructor();
   const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(user?.email);
 
   if (!Array.isArray(classData)) {
     return (
@@ -41,7 +39,7 @@ const AllClasses = () => {
   }
 
   const handleAddClass = (addItem) => {
-    // console.log(addItem);
+
     const {
       _id,
       image,
@@ -63,10 +61,8 @@ const AllClasses = () => {
       availableSeats: parseInt(availableSeats),
     };
 
-    console.log(addClass);
 
     if (user?.email) {
-      console.log(user.email);
 
       //Let's do simply
       fetch("https://goal-rush-server.vercel.app/all-class/selected", {
@@ -84,7 +80,7 @@ const AllClasses = () => {
             Swal.fire({
               position: "top-middle",
               icon: "success",
-              title: "class added successfully",
+              title: "Class added successfully",
               showConfirmButton: false,
               timer: 2000,
             });
@@ -141,13 +137,9 @@ const AllClasses = () => {
                     disabled={isInstructor?.instructor || isAdmin?.admin}
                     className="btn-info normal-case"
                   >
-                    {/* <FaRegCalendarCheck /> */}
                     Book now
                   </button>
-                  {/* <button className="btn-info normal-case">Enroll now</button>{" "} */}
-                  {/* new */}
                   <span className="font-bold">
-                    {" "}
                     <sup>$</sup>
                     {item.price}
                   </span>

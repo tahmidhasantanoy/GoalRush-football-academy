@@ -2,25 +2,20 @@ import useInstructorCollection from "../../Hooks/useInstructorCollection";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Instructors = () => {
   const [instructors, refetch] = useInstructorCollection();
 
   if (!Array.isArray(instructors)) {
     return (
-      <>
-        <>
-          <div>
-            <div className="flex items-center justify-center pt-20">
-              <p>Loading &nbsp;</p>
-              <span className="loading loading-dots loading-xs text-yellow-400"></span>
-              <span className="loading loading-dots loading-sm text-yellow-400"></span>
-              <span className="loading loading-dots loading-md text-yellow-400"></span>
-              <span className="loading loading-dots loading-lg text-yellow-400"></span>
-            </div>
-          </div>
-        </>
-      </>
+      <div className="flex items-center justify-center pt-20">
+        <p>Loading &nbsp;</p>
+        <span className="loading loading-dots loading-xs text-yellow-400"></span>
+        <span className="loading loading-dots loading-sm text-yellow-400"></span>
+        <span className="loading loading-dots loading-md text-yellow-400"></span>
+        <span className="loading loading-dots loading-lg text-yellow-400"></span>
+      </div>
     );
   }
   return (
@@ -29,7 +24,9 @@ const Instructors = () => {
         <div key={instructor._id} className="group">
           <div className="card w-80 bg-base-300 shadow-xl mx-auto flex flex-row">
             <div>
-              <figure className="pl-10 pr-4 pt-10">  {/*  for social media */}
+              <figure className="pl-10 pr-4 pt-10">
+                {" "}
+                {/*  for social media */}
                 <img
                   src={instructor?.image}
                   alt="Instructor image"
@@ -40,9 +37,11 @@ const Instructors = () => {
                 <h2 className="card-title">{instructor?.name}</h2>
                 <p>{instructor?.email}</p>
                 <div className="card-actions">
-                  <button className="btn btn-info btn-sm mt-4 ">
-                    see classes
-                  </button>
+                  <Link to={`/instructor-all-class/${instructor?.email}`}>
+                    <button className="btn btn-info btn-sm mt-4 ">
+                      see classes
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

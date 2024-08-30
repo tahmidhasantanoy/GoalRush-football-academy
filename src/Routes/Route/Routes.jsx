@@ -17,6 +17,8 @@ import ManageUsers from "../../Pages/DashBoard/AdminPage/ManageUsers/ManageUsers
 import ManageClass from "../../Pages/DashBoard/AdminPage/ManageClass/ManageClass";
 import Error from "../../Pages/Error/Error";
 import UpdateClass from "../../Pages/DashBoard/InstructorPage/UpdateClass/UpdateClass";
+import InstructorAllClass from "../../Pages/InstructorAllClass/InstructorAllClass";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,23 @@ const router = createBrowserRouter([
       {
         path: "/allclasses",
         element: <AllClasses />,
+      },
+      {
+        path: "/instructor-all-class/:email",
+        element: <InstructorAllClass />,
+        loader: async ({ params }) => {
+          console.log(params?.email);
+          const response = await fetch(
+            `http://localhost:5000/instructor-all-class/${params?.email}`
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch data");
+          }
+
+          const instructorAllClassData = await response.json();
+          return instructorAllClassData;
+        },
       },
     ],
   },

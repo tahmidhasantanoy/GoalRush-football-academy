@@ -92,7 +92,7 @@ const UpdateClass = () => {
             //       Swal.fire({
             //         position: "top-end",
             //         icon: "success",
-            //         title: `New class is added`,
+            //         title: `New Class is added`,
             //         showConfirmButton: false,
             //         timer: 1500,
             //       });

@@ -25,9 +25,9 @@ const SelectClasses = () => {
           <div className="flex items-center justify-center pt-20">
             <p>Loading &nbsp; &nbsp;</p>
             <span className="loading loading-dots loading-xs text-yellow-400"></span>
-            <span className="loading loading-dots loading-sm text-yellow-400"></span>
-            <span className="loading loading-dots loading-md text-yellow-400"></span>
-            <span className="loading loading-dots loading-lg text-yellow-400"></span>
+            <span className="loading loading-dots loading-sm text-[#f5f821]"></span>
+            <span className="loading loading-dots loading-md text-[#f3f66e]"></span>
+            <span className="loading loading-dots loading-lg text-[#f3f59c]"></span>
           </div>
         </div>
       </>
@@ -61,7 +61,9 @@ const SelectClasses = () => {
     <div className="w-10/12">
       <TitlePage title={"Selected Classes | Dashboard"}></TitlePage>
       <div className="overflow-x-auto">
-        <p className="text-center text-3xl md:text-4xl py-5">Selected classes for {user?.displayName}</p>
+        <p className="text-center text-3xl md:text-4xl py-5">
+          Selected classes for {user?.displayName}
+        </p>
         <table className="table">
           {/* head */}
           <thead className="select_tableHead">

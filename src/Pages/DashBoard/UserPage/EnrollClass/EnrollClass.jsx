@@ -21,7 +21,7 @@ const EnrollClass = () => {
     <div className="mt-28 mb-12">
       <TitlePage title={"Enroll Classes | Dashboard"}></TitlePage>
       <p className="text-3xl md:text-4xl text-black text-center font-semibold mb-5">
-        Enrolles class
+        Enroll class
       </p>
       <div className="overflow-x-auto mx-10">
         <table className="table">

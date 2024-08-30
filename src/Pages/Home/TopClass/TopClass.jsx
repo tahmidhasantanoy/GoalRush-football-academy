@@ -97,8 +97,8 @@ const TopClass = () => {
             className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 classCard m-8"
           >
             <img className="h-[200px] w-[500px]" src={data.image} alt="River" />
-            <div class="px-6">
-              <p class="font-bold text-xl mt-4 .mb-2">{data.classname}</p>
+            <div className="px-6">
+              <p className="font-bold text-xl mt-4 .mb-2">{data.classname}</p>
             </div>
             <div className="px-6 pt-4 pb-2 flex flex-col mt-6 mb-4">
               <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -130,11 +130,8 @@ const TopClass = () => {
                       disabled={isInstructor?.instructor || isAdmin?.admin}
                       className="btn-info normal-case"
                     >
-                      {/* <FaRegCalendarCheck /> */}
                       Book now
                     </button>
-
-                    {/* new */}
                     <span className="font-bold">
                       {" "}
                       <sup>$</sup>

@@ -11,6 +11,7 @@ import {
 import useGeneralUser from "../../../Hooks/UseGeneralUser";
 import useInstructor from "../../../Hooks/useInstructor";
 import useAdmin from "../../../Hooks/useAdmin";
+import TitlePage from "../../../TitlePage/TitlePage";
 
 const DashBoardPage = () => {
   const [isGeneralUser] = useGeneralUser();
@@ -18,6 +19,7 @@ const DashBoardPage = () => {
   const [isAdmin] = useAdmin();
   return (
     <div className="drawer lg:drawer-open">
+      <TitlePage title={"Dashboard"}></TitlePage>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
