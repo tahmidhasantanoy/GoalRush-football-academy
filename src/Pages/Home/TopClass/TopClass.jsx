@@ -6,6 +6,7 @@ import useAdmin from "../../../Hooks/useAdmin";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import "./TopClass.css";
+import { Link } from "react-router-dom";
 
 const TopClass = () => {
   const [topClassData] = useTopClasses();
@@ -139,9 +140,11 @@ const TopClass = () => {
                     </span>
                   </div>{" "}
                   {/* want to add outline button but doesn't work */}
-                  <button className="btn-outline bg-transparent border-2 border-info normal-case">
-                    Details
-                  </button>
+                  <Link to={`/course-details`}>
+                    <button className="btn-outline bg-transparent border-2 border-info normal-case">
+                      Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -19,6 +19,7 @@ import Error from "../../Pages/Error/Error";
 import UpdateClass from "../../Pages/DashBoard/InstructorPage/UpdateClass/UpdateClass";
 import InstructorAllClass from "../../Pages/InstructorAllClass/InstructorAllClass";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
           const instructorAllClassData = await response.json();
           return instructorAllClassData;
         },
+      },
+      {
+        path: "course-details",
+        element: <CourseDetails />,
       },
     ],
   },

@@ -11,12 +11,12 @@ import useAuth from "../../../../Hooks/useAuth";
 const SelectClasses = () => {
   const [selectClass, refetch] = useSelectClasses();
   const [axiosSecure] = useAxiosSecure();
-  console.log(selectClass);
+  // console.log(selectClass);
 
   /* For test if i fount or not */
   const { user } = useAuth();
   const email = user?.email;
-  console.log(email, user);
+  // console.log(email, user);
 
   if (!Array.isArray(selectClass)) {
     return (

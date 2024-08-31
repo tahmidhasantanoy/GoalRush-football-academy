@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import TitlePage from "../../TitlePage/TitlePage";
 import { IoMdClose } from "react-icons/io"; // Importing a close icon for the cancel button
-import Button from "../../components/ui/Button";
+import SeeMoreButton from "../../components/ui/SeeMoreButton/SeeMoreButton";
 
 const AllClasses = () => {
   const [classData] = useAllClass();
@@ -52,7 +52,6 @@ const AllClasses = () => {
   const handleClear = () => setFilterItem("");
 
   const handleSeeMore = () => {
-    console.log("object");
     setVisibleClass((prevVisibleClass) => prevVisibleClass + 6);
   };
 
@@ -197,17 +196,10 @@ const AllClasses = () => {
       </div>
 
       {visibleClass < classData?.length && (
-        // <div className="flex justify-center">
-        //   <button
-        //   onClick={handleSeeMore}
-        //   className="btn-md bg-cyan-400 hover:bg-cyan-500 text-white "
-        // >
-        //   See More
-        // </button>
-        // </div>
-
         <div className="flex justify-center py-2">
-          <Button onClick={() => handleSeeMore()}>See more</Button>
+          <SeeMoreButton onClick={() => handleSeeMore()}>
+            See more
+          </SeeMoreButton>
         </div>
       )}
     </div>

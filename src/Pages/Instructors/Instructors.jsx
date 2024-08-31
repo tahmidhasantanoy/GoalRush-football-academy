@@ -64,12 +64,10 @@ const Instructors = () => {
             <div className="card w-80 bg-base-300 shadow-xl mx-auto flex flex-row">
               <div>
                 <figure className="pl-10 pr-4 pt-10">
-                  {" "}
-                  {/*  for social media */}
                   <img
                     src={instructor?.image}
                     alt="Instructor image"
-                    className="rounded-xl"
+                    className="object-cover w-[350px] h-[200px] rounded-xl"
                   />
                 </figure>
                 <div className=".card-body flex flex-col items-center text-center py-6 pl-10 pr-4">

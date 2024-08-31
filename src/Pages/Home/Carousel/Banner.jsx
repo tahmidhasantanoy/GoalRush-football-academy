@@ -12,6 +12,7 @@ import Pic3 from "../../../../public/Banner/ban3.jpeg";
 import Pic4 from "../../../../public/Banner/ban1.jpeg";
 import Pic5 from "../../../../public/Banner/ban6.jpeg";
 import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Banner = () => {
@@ -44,9 +45,11 @@ const Banner = () => {
               lack of strength, not a lack of knowledge, but rather a lack in
               will."
             </p>
-            <button className="btn-info text-white duration-500 hover:text-black normal-case">
-              See Course
-            </button>
+            <Link to={`/allclasses`}>
+              <button className="btn-info text-white duration-500 hover:text-black normal-case">
+                See Course
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative">
@@ -69,9 +72,11 @@ const Banner = () => {
               work,and learning from failure. In football, just like in life,
               you must be willing to make sacrifices to achieve your goals."
             </p>
-            <button className="btn-info text-white duration-500 hover:text-black normal-case">
-              See Course
-            </button>
+            <Link to={`/allclasses`}>
+              <button className="btn-info text-white duration-500 hover:text-black normal-case">
+                See Course
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative">
@@ -95,9 +100,11 @@ const Banner = () => {
               talent may win a match, but teamwork and intelligence win
               championships."
             </p>
-            <button className="btn-info text-white duration-500 hover:text-black normal-case">
-              See Course
-            </button>
+            <Link to={`/allclasses`}>
+              <button className="btn-info text-white duration-500 hover:text-black normal-case">
+                See Course
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative">
@@ -119,9 +126,11 @@ const Banner = () => {
               "Football is like life—it requires perseverance, self-denial, hard
               work, sacrifice, dedication, and respect for authority."
             </p>
-            <button className="btn-info text-white duration-500 hover:text-black normal-case">
-              See Course
-            </button>
+            <Link to={`/allclasses`}>
+              <button className="btn-info text-white duration-500 hover:text-black normal-case">
+                See Course
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative">
@@ -145,9 +154,11 @@ const Banner = () => {
               overcome. Football teaches us that no matter the odds, the fight
               within us can turn the game around."
             </p>
-            <button className="btn-info text-white duration-500 hover:text-black normal-case">
-              See Course
-            </button>
+            <Link to={`/allclasses`}>
+              <button className="btn-info text-white duration-500 hover:text-black normal-case">
+                See Course
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative">
@@ -169,9 +180,11 @@ const Banner = () => {
               "Football is like life—it requires perseverance, self-denial, hard
               work, sacrifice, dedication, and respect for authority."
             </p>
-            <button className="btn-info text-white duration-500 hover:text-black normal-case">
-              See Course
-            </button>
+            <Link to={`/allclasses`}>
+              <button className="btn-info text-white duration-500 hover:text-black normal-case">
+                See Course
+              </button>
+            </Link>
           </div>
         </div>
       </AutoplaySlider>

@@ -5,12 +5,14 @@ import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import TitlePage from "../../../../TitlePage/TitlePage";
+import SeeMoreButton from "../../../../components/ui/SeeMoreButton/SeeMoreButton";
 
 const ManageClass = () => {
   const [classData, refetch] = useAllClass();
   const [feedback, setFeedback] = useState(false);
   const [id, setId] = useState("");
   const [axiosSecure] = useAxiosSecure();
+  const [visibleItem, setVisibleItem] = useState(6);
   // console.log(classData);
 
   const handleAcceptClass = (data) => {
@@ -111,6 +113,8 @@ const ManageClass = () => {
     );
   }
 
+  const handleSeeMore = () => setVisibleItem((prevItem) => prevItem + 6);
+
   return (
     <div className="mt-28 mb-20">
       <TitlePage title={"Manage Class | Dashboard"}></TitlePage>
@@ -121,8 +125,8 @@ const ManageClass = () => {
       </Fade>
 
       <hr className="w-1/2 mx-auto" />
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {classData.map((data) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+        {classData.slice(0, visibleItem).map((data) => (
           <div
             key={data._id}
             className="rounded overflow-hidden shadow-xl bg-base-100 hover:bg-base-300 duration-500 border-blue-800 border-2 classCard px-8 pt-8 pb-4 m-12"
@@ -190,6 +194,10 @@ const ManageClass = () => {
           </div>
         ))}
       </div>
+
+      {visibleItem < classData.length && (
+        <SeeMoreButton onClick={handleSeeMore}>See more</SeeMoreButton>
+      )}
     </div>
   );
 };

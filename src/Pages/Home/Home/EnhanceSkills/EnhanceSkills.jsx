@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import skillImg from "../../../../../public/EnhanceSkills/223.png";
+import { Link } from "react-router-dom";
 
 const EnhanceSkills = () => {
   const [time, setTime] = useState();
@@ -49,11 +50,11 @@ const EnhanceSkills = () => {
           </div>
         </div>
         <div className="flex sm:justify-center lg:justify-start">
-          {" "}
-          {/*  */}
-          <button className="btn btn-md bg-green-600 normal-case text-white px-4 py-2 rounded-lg w-auto">
-            Buy Now
-          </button>
+          <Link to={`/allclasses`}>
+            <button className="btn btn-md bg-green-600 hover:bg-green-700 normal-case text-white px-4 py-2 rounded-lg w-auto">
+              Enroll now
+            </button>
+          </Link>
         </div>
       </div>
       <div>
