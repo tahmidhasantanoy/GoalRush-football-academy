@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import TitlePage from "../../TitlePage/TitlePage";
 
 const HeroSection = () => (
   <div className="bg-gradient-to-b from-blue-100 to-indigo-700 text-white py-16 px-4 sm:py-28 sm:px-8 rounded-b-3xl">
+    <TitlePage title={"Details"}></TitlePage>
     <div className="container mx-auto text-center">
       <h1 className="text-3xl sm:text-4xl font-bold mb-4">
         GoalRush Football Academy

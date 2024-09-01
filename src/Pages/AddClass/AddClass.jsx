@@ -93,7 +93,6 @@ const AddClass = () => {
 
   return (
     <div className="py-10 px-10 md:px-20 lg:px-20">
-      {/* new  */}
       <TitlePage title={"Add Class | Dashboard"} />
       <p className="text-4xl text-black text-center mt-10 .border-b-2">
         Add a class {user?.displayName}{" "}

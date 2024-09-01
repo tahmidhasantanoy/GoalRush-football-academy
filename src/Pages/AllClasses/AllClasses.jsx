@@ -11,9 +11,9 @@ import useInstructor from "../../Hooks/useInstructor";
 import useAdmin from "../../Hooks/useAdmin";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import TitlePage from "../../TitlePage/TitlePage";
-import { IoMdClose } from "react-icons/io"; // Importing a close icon for the cancel button
+import { IoMdClose } from "react-icons/io";
 import SeeMoreButton from "../../components/ui/SeeMoreButton/SeeMoreButton";
 
 const AllClasses = () => {
@@ -119,6 +119,9 @@ const AllClasses = () => {
             type="text"
             placeholder="Search for classes..."
           />
+          {filterItem && (
+            <p className="text-center font-bold">Search for : <span className="text-error">{filterItem}</span></p>
+          )}
           <button className="absolute btn-outline left-0 top-[8px] px-4 flex items-cente text-white rounded-l-lg hover:bg-white hover:bg-opacity-10 hover:shadow-none focus:outline-none transition-all duration-300">
             <FaSearch className="w-4 h-8 btn-outline hover:btn-outline hover:bg-transparent transition-all duration-300" />
           </button>
@@ -185,9 +188,11 @@ const AllClasses = () => {
                     </span>
                   </div>{" "}
                   {/* want to add outline button but doesn't work */}
-                  <button className="btn-outline bg-transparent border-2 border-info normal-case">
-                    Details
-                  </button>
+                  <Link to={`/course-details`}>
+                    <button className="btn-outline bg-transparent border-2 border-info normal-case">
+                      Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

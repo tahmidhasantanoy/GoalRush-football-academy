@@ -33,8 +33,8 @@ const Instructors = () => {
   }
   return (
     <div className="mt-28 my-12">
-      <TitlePage title={"All Instructor"}></TitlePage>
       <div className="flex justify-center items-center m-0 p-0">
+        <TitlePage title={"All Instructor"}></TitlePage>
         <div className="relative w-2/5">
           <input
             value={filterItem}
@@ -43,6 +43,11 @@ const Instructors = () => {
             type="text"
             placeholder="Search for classes..."
           />
+          {filterItem && (
+            <p className="text-center font-bold">
+              Search for : <span className="text-error">{filterItem}</span>
+            </p>
+          )}
           <button className="absolute btn-outline left-0 top-[8px] px-4 flex items-cente text-white rounded-l-lg hover:bg-white hover:bg-opacity-10 hover:shadow-none focus:outline-none transition-all duration-300">
             <FaSearch className="w-4 h-8 btn-outline hover:btn-outline hover:bg-transparent transition-all duration-300" />
           </button>
@@ -58,7 +63,7 @@ const Instructors = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-10 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 py-10 gap-2 md:gap-6">
         {searchItems.map((instructor) => (
           <div key={instructor._id} className="group">
             <div className="card w-80 bg-base-300 shadow-xl mx-auto flex flex-row">
