@@ -102,12 +102,13 @@ const CheckoutForm = ({ paymentClassData, price }) => {
       });
     }
   };
+
   return (
-    <>
+    <div className="">
       <div className="flex justify-center">
-        <form onSubmit={handleSubmit} className="">
+        <form onSubmit={handleSubmit} >
           <CardElement
-            className="w-[400px] md:w-[500px]"
+            className="w-80 md:w-96"
             options={{
               style: {
                 base: {
@@ -123,6 +124,13 @@ const CheckoutForm = ({ paymentClassData, price }) => {
               },
             }}
           />
+          {CardErr && <p className="text-error">{CardErr}</p>}
+          {transsactionId && (
+            <p className="text-success">
+              Payment Success with{" "}
+              <span className="text-error">{transsactionId}</span>
+            </p>
+          )}
           <button
             className="btn-primary normal-case"
             type="submit"
@@ -132,31 +140,9 @@ const CheckoutForm = ({ paymentClassData, price }) => {
           </button>
         </form>
       </div>
-      <div className="">
-        {CardErr && <p className="text-error">{CardErr}</p>}
-        {transsactionId && (
-          <p className="text-success">
-            Payment Success with{" "}
-            <span className="text-error">{transsactionId}</span>
-          </p>
-        )}
-      </div>
 
-      <div className="bg-red-400 text-black flex flex-col space-y-4 justify-center items-center w-[770px] h-[250px] rounded-2xl border-2 border-blue-300 my-10">
-        <p className="text-zinc-700 text-3xl underline">
-          Please give a valid card number & date
-        </p>
-        <p>
-          card number : <span className="text-white">4242 4242 4242 4242</span>
-        </p>
-        <p>
-          Month : <span className="text-white">12</span> Year :{" "}
-          <span className="text-white">33</span> CVC :{" "}
-          <span className="text-white"> 123</span> ZIP :{" "}
-          <span className="text-white">12345</span>
-        </p>
-      </div>
-    </>
+      
+    </div>
   );
 };
 
