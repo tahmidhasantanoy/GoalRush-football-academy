@@ -80,8 +80,6 @@ const ManageClass = () => {
     const feedBackData = event.target.value;
 
     if (feedBackData == undefined) return;
-    // const feedback = JSON.stringify(feedData)
-    // console.log(feedback,id);
 
     axiosSecure
       .put(`/all-class/classFeedback/${id}`, feedBackData)

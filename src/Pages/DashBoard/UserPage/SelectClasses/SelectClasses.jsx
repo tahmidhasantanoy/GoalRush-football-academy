@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 import "./SelectClasses.css";
 import TitlePage from "../../../../TitlePage/TitlePage";
 import useAuth from "../../../../Hooks/useAuth";
+import Lottie from "lottie-react";
+import search from "../../../../../public/Animation/search.json";
 
 const SelectClasses = () => {
   const [selectClass, refetch] = useSelectClasses();
   const [axiosSecure] = useAxiosSecure();
-  // console.log(selectClass);
 
   const { user } = useAuth();
   const email = user?.email;
@@ -59,31 +60,38 @@ const SelectClasses = () => {
   return (
     <div className="w-10/12">
       <TitlePage title={"Selected Classes | Dashboard"}></TitlePage>
-      <div className="overflow-x-auto">
+      <div className=".overflow-x-auto">
         <p className="text-center text-3xl md:text-4xl py-5">
           Selected classes for {user?.displayName}
         </p>
-        <table className="table">
-          {/* head */}
-          <thead className="select_tableHead">
-            <tr>
-              <th className="border-b-2 text-white">
-                <label>Class No.</label>
-              </th>
-              <th className="border-b-2 m-5 text-white">Class Image</th>
-              <th className="border-b-2 m-5 text-white">
-                Instructor Name & Email
-              </th>
-              <th className="border-b-2 m-5 text-white">Price</th>
-              <th className="border-b-2 m-5 text-white">available seats</th>
-              <th className="border-b-2 m-5 text-white">Payment</th>
-              <th className="border-b-2 m-5 text-white">Actions</th>
-            </tr>
-          </thead>
-          {selectClass.map((item, idx) => (
-            <>
+
+        {selectClass.length === 0 ? (
+          <div className="flex items-center justify-center h-64 relative">
+            <Lottie animationData={search} className="absolute" />
+            <p className="absolute text-4xl top-1/2 transform -translate-y-1/2">
+              No class selected
+            </p>
+          </div>
+        ) : (
+          <table className="table overflow-x-auto">
+            {/* head */}
+            <thead className="select_tableHead">
+              <tr>
+                <th className="border-b-2 text-white">
+                  <label>Class No.</label>
+                </th>
+                <th className="border-b-2 m-5 text-white">Class Image</th>
+                <th className="border-b-2 m-5 text-white">
+                  Instructor Name & Email
+                </th>
+                <th className="border-b-2 m-5 text-white">Price</th>
+                <th className="border-b-2 m-5 text-white">Available Seats</th>
+                <th className="border-b-2 m-5 text-white">Payment</th>
+                <th className="border-b-2 m-5 text-white">Actions</th>
+              </tr>
+            </thead>
+            {selectClass.map((item, idx) => (
               <tbody key={item?._id} className="select_tableData">
-                {/* row 1 */}
                 <tr className="text-center">
                   <th className="bg-base-300 text-center">
                     <label>{idx + 1}</label>
@@ -92,13 +100,9 @@ const SelectClasses = () => {
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12 text-center">
-                          <img
-                            src={item?.image}
-                            alt="Avatar Tailwind CSS Component"
-                          />
+                          <img src={item?.image} alt="Class Avatar" />
                         </div>
                       </div>
-                      <div></div>
                     </div>
                   </td>
                   <td className="bg-base-300 text-center">
@@ -113,14 +117,13 @@ const SelectClasses = () => {
                     {item?.availableSeats}
                   </td>
                   <th>
-                    {/* only change here  */}
                     <Link
                       to={`/dashboard/payment/${encodeURIComponent(
                         JSON.stringify(item)
                       )}`}
                     >
                       <button className="btn-outline hover:btn-success">
-                        pay
+                        Pay
                       </button>
                     </Link>
                   </th>
@@ -134,9 +137,9 @@ const SelectClasses = () => {
                   </th>
                 </tr>
               </tbody>
-            </>
-          ))}
-        </table>
+            ))}
+          </table>
+        )}
       </div>
     </div>
   );
