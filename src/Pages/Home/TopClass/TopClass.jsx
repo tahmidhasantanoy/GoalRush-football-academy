@@ -6,14 +6,15 @@ import useAdmin from "../../../Hooks/useAdmin";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import "./TopClass.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const TopClass = () => {
   const [topClassData] = useTopClasses();
   const [isInstructor] = useInstructor();
   const [isAdmin] = useAdmin();
   const { user } = useAuth();
-  console.log(topClassData);
+  const navigate = useNavigate();
+  // console.log(topClassData);
 
   const handleAddClass = (addItem) => {
     // console.log(addItem);

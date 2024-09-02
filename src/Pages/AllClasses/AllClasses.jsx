@@ -126,7 +126,6 @@ const AllClasses = () => {
             <FaSearch className="w-4 h-8 btn-outline hover:btn-outline hover:bg-transparent transition-all duration-300" />
           </button>
 
-          {/* new */}
           {filterItem && (
             <button
               onClick={handleClear}
@@ -174,7 +173,6 @@ const AllClasses = () => {
                 <hr className="font-bold" />
                 <div className="flex flex-row sm:flex-col md:flex-row items-center justify-between">
                   <div className="flex flex-row justify-center items-center sm:flex-col md:flex-row space-y-2">
-                    {/* new */}
                     <button
                       onClick={() => handleAddClass(item)}
                       disabled={isInstructor?.instructor || isAdmin?.admin}
@@ -187,7 +185,6 @@ const AllClasses = () => {
                       {item.price}
                     </span>
                   </div>{" "}
-                  {/* want to add outline button but doesn't work */}
                   <Link to={`/course-details`}>
                     <button className="btn-outline bg-transparent border-2 border-info normal-case">
                       Details

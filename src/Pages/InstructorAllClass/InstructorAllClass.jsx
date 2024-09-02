@@ -1,14 +1,76 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
 import { FaCaretRight } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const InstructorAllClass = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+  const { user } = useAuth();
   const InstructorAllClass = useLoaderData();
-  console.log(InstructorAllClass);
+  const navigate = useNavigate();
+  // console.log(isAdmin);
+  // console.log(isInstructor);
+
+  const handleAddClass = (addItem) => {
+    const {
+      _id,
+      image,
+      classname,
+      instructorName,
+      instructorEmail,
+      price,
+      availableSeats,
+    } = addItem;
+
+    const addClass = {
+      classId: _id,
+      image,
+      classname,
+      instructorName,
+      instructorEmail,
+      user_email: user?.email,
+      price: parseFloat(price),
+      availableSeats: parseInt(availableSeats),
+    };
+
+    if (user?.email) {
+      //Let's do simply
+      fetch("https://goal-rush-server.vercel.app/all-class/selected", {
+        method: "POST",
+
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addClass),
+      })
+        .then((res) => res.json())
+        .then((item) => {
+          // console.log(item);
+          if (item.insertedId) {
+            Swal.fire({
+              position: "top-middle",
+              icon: "success",
+              title: "Class added successfully",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+          }
+        })
+        .catch((err) => console.log(err.message));
+    } else {
+      Swal.fire("Please! Login first");
+      navigate("/login", { state: { from: location } });
+    }
+  };
 
   if (!Array.isArray(InstructorAllClass)) {
     return (
@@ -25,9 +87,9 @@ const InstructorAllClass = () => {
   return (
     <div className="mt-20">
       <p className="text-3xl md:text-4xl text-center">
-        {InstructorAllClass?.instructorName}all classes
+        All class of this instructor
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6 px-0 md:px-2 lg:px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 my-6 px-0 md:px-2 lg:px-6">
         {InstructorAllClass.map((classes) => (
           <div
             key={classes._id}
@@ -66,17 +128,13 @@ const InstructorAllClass = () => {
                 <hr className="font-bold" />
                 <div className="flex flex-row sm:flex-col md:flex-row items-center justify-between">
                   <div className="flex flex-row justify-center items-center sm:flex-col md:flex-row space-y-2">
-                    {/* new */}
                     <button
                       onClick={() => handleAddClass(classes)}
-                      disabled={isInstructor || isAdmin}
+                      disabled={isInstructor == true || isAdmin == true}
                       className="btn-info normal-case"
                     >
-                      {/* <FaRegCalendarCheck /> */}
                       Book now
                     </button>
-                    {/* <button className="btn-info normal-case">Enroll now</button>{" "} */}
-                    {/* new */}
                     <span className="font-bold">
                       {" "}
                       <sup>$</sup>
