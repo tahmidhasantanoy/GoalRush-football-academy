@@ -10,7 +10,7 @@ const useInstructorCollection = () => {
   const jwtAccessToken = localStorage.getItem("jwt-access-token");
   const { data: instructors, refetch } = useQuery({
     queryKey: ["instructor-collections"],
-    enabled: !loading && !!user?.email && !!jwtAccessToken,
+    enabled: !loading/*  && !!user?.email && !!jwtAccessToken */,
     queryFn: async () => {
       const res = await axiosSecure("/users/instructors");
     //   console.log(res.data);

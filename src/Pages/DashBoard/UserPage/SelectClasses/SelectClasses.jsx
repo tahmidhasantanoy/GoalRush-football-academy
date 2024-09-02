@@ -13,7 +13,6 @@ const SelectClasses = () => {
   const [axiosSecure] = useAxiosSecure();
   // console.log(selectClass);
 
-  /* For test if i fount or not */
   const { user } = useAuth();
   const email = user?.email;
   // console.log(email, user);

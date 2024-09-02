@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
@@ -12,9 +12,9 @@ const NavBar = () => {
   const [isGeneralUser] = useGeneralUser();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-  console.log(isAdmin);
-  console.log(isGeneralUser);
-  console.log(isInstructor);
+  // console.log(isAdmin);
+  // console.log(isGeneralUser);
+  // console.log(isInstructor);
 
   const handleLogout = () => {
     logout()
@@ -25,17 +25,53 @@ const NavBar = () => {
   const menu = (
     <>
       <li>
-        <Link>Home</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-cyan-400 hover:text-cyan-600 border-b-2 border-red-500 transition-all duration-500"
+              : "text-white font-semibold hover:text-cyan-300 text-[16px]"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link to={"/instructors"}>Instructor</Link>
+        <NavLink
+          to="/instructors"
+          className={({ isActive }) =>
+            isActive
+              ? "text-cyan-400 hover:text-cyan-600 border-b-2 border-red-500 transition-all duration-500"
+              : "text-white font-semibold hover:text-cyan-300 text-[16px]"
+          }
+        >
+          Trainer
+        </NavLink>
       </li>
       <li>
-        <Link to={"/allclasses"}>Classes</Link>
+        <NavLink
+          to="/allclasses"
+          className={({ isActive }) =>
+            isActive
+              ? "text-cyan-400 hover:text-cyan-600 border-b-2 border-red-500 transition-all duration-500"
+              : "text-white font-semibold hover:text-cyan-400 text-[16px]"
+          }
+        >
+          Classes
+        </NavLink>
       </li>
       {user && (
         <li>
-          <Link to={"dashboard"}>DashBoard</Link>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? "text-cyan-400 hover:text-cyan-600 border-b-2 border-red-500 transition-all duration-500"
+                : "text-white font-semibold hover:text-cyan-400 text-[16px]"
+            }
+          >
+            DashBoard
+          </NavLink>
         </li>
       )}
     </>
@@ -64,7 +100,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu .menu-compact dropdown-content mt-3 p-2 shadow .bg-base-100 .rounded-box .w-52"
             >
               {menu}
             </ul>
@@ -79,7 +115,9 @@ const NavBar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal text-white px-1">{menu}</ul>
+          <ul className=".menu space-x-6 menu-horizontal text-white px-1">
+            {menu}
+          </ul>
         </div>
         <div className="navbar-end">
           {user ? (

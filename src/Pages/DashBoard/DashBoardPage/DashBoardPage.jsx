@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
-  FaBeer,
   FaBook,
   FaBookMedical,
   FaHistory,
@@ -17,6 +16,7 @@ const DashBoardPage = () => {
   const [isGeneralUser] = useGeneralUser();
   const [isInstructor] = useInstructor();
   const [isAdmin] = useAdmin();
+
   return (
     <div className="drawer lg:drawer-open">
       <TitlePage title={"Dashboard"}></TitlePage>
@@ -41,49 +41,94 @@ const DashBoardPage = () => {
           {isGeneralUser?.generalUser && (
             <>
               <li>
-                <Link to={"/"}>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "bg-[#C7FFD8] text-sky-800 btn" : ""
+                  }
+                >
                   <FaHome /> Home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={"/dashboard/select-classes"}>
-                  <FaSwatchbook />
-                  Selected classes
-                </Link>
+                <NavLink
+                  to="/dashboard/select-classes"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                      : ""
+                  }
+                >
+                  <FaSwatchbook /> Selected classes
+                </NavLink>
               </li>
               <li>
-                <Link to={"/dashboard/enroll-class"}>
-                  <FaBook />
-                  Enrolled classes
-                </Link>
+                <NavLink
+                  to="/dashboard/enroll-class"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                      : ""
+                  }
+                >
+                  <FaBook /> Enrolled classes
+                </NavLink>
               </li>
               <li>
-                <Link to={"/dashboard/payment-history"}>
-                  <FaHistory />
-                  Payment history
-                </Link>
+                <NavLink
+                  to="/dashboard/payment-history"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                      : ""
+                  }
+                >
+                  <FaHistory /> Payment history
+                </NavLink>
               </li>
             </>
           )}
+
           <div className="space-y-1">
             {isInstructor?.instructor && (
               <>
                 <li>
-                  <Link to={"/"}>
+                  <NavLink
+                    to={"/"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                        : ""
+                    }
+                  >
                     <FaHome /> Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to={"/dashboard/addclass"}>
+                  <NavLink
+                    to={"/dashboard/addclass"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                        : ""
+                    }
+                  >
                     <FaBookMedical />
                     Add class
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to={"/dashboard/myclass"}>
+                  <NavLink
+                    to={"/dashboard/myclass"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                        : ""
+                    }
+                  >
                     <FaBook />
                     My class
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             )}
@@ -93,21 +138,42 @@ const DashBoardPage = () => {
             {isAdmin?.admin && (
               <>
                 <li>
-                  <Link to={"/"}>
+                  <NavLink
+                    to={"/"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                        : ""
+                    }
+                  >
                     <FaHome /> Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to={"/dashboard/manage-class"}>
+                  <NavLink
+                    to={"/dashboard/manage-class"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                        : ""
+                    }
+                  >
                     <FaSwatchbook />
                     Manage Class
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to={"/dashboard/manage-users"}>
+                  <NavLink
+                    to={"/dashboard/manage-users"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-[#C7FFD8] text-sky-800 hover:bg-[#FFDC7F]"
+                        : ""
+                    }
+                  >
                     <FaBook />
                     Manage Users
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             )}

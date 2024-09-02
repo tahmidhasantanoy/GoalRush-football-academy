@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
 import { FaCaretRight } from "react-icons/fa";
@@ -84,9 +84,11 @@ const InstructorAllClass = () => {
                     </span>
                   </div>{" "}
                   {/* want to add outline button but doesn't work */}
-                  <button className="btn-outline bg-transparent border-2 border-info normal-case">
-                    Details
-                  </button>
+                  <Link to={`/course-details`}>
+                    <button className="btn-outline bg-transparent border-2 border-info normal-case">
+                      Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
