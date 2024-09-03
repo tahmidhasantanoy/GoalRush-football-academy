@@ -130,7 +130,7 @@ const InstructorAllClass = () => {
                   <div className="flex flex-row justify-center items-center sm:flex-col md:flex-row space-y-2">
                     <button
                       onClick={() => handleAddClass(classes)}
-                      disabled={isInstructor == true || isAdmin == true}
+                      disabled={isInstructor?.instructor || isAdmin?.admin}
                       className="btn-info normal-case"
                     >
                       Book now

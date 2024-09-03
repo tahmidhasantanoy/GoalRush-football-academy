@@ -12,9 +12,9 @@ const NavBar = () => {
   const [isGeneralUser] = useGeneralUser();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-  // console.log(isAdmin);
+  console.log(isAdmin);
+  console.log(isInstructor);
   // console.log(isGeneralUser);
-  // console.log(isInstructor);
 
   const handleLogout = () => {
     logout()

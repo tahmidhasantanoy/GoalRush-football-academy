@@ -15,7 +15,7 @@ const UpdateClass = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const {
-    _id,
+    _id: classId,
     availableSeats,
     instructorName,
     instructorEmail,
@@ -98,7 +98,8 @@ const UpdateClass = () => {
             //     }
             //   });
 
-            fetch(`http://localhost:5000/all-class/${_id}`, {
+            fetch(`https://goal-rush-server.vercel.app/all-class/${classId}`, {
+              //change-3
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
@@ -132,7 +133,7 @@ const UpdateClass = () => {
       <div className="py-10 px-10 md:px-20 lg:px-20">
         <TitlePage title={"Add Class | Dashboard"} />
         <p className="text-4xl text-black text-center mt-10 .border-b-2">
-          Add a class {user?.displayName}{" "}
+          Update class {user?.displayName}{" "}
         </p>
         <hr className="" />
         <div className="flex min-h-screen bg-gray-100">
@@ -158,7 +159,7 @@ const UpdateClass = () => {
                     </g>
                   </g>
                 </svg>
-                <span className="pl-2 mx-1">Create new class here</span>
+                <span className="pl-2 mx-1">Update class here</span>
               </button>
 
               <div className="mt-5 bg-white rounded-lg shadow">

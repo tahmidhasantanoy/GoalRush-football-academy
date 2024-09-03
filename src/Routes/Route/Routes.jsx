@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           console.log(params?.email);
           const response = await fetch(
-            `http://localhost:5000/instructor-all-class/${params?.email}`
+            `https://goal-rush-server.vercel.app/instructor-all-class/${params?.email}` //change-2(done)
           );
 
           if (!response.ok) {
