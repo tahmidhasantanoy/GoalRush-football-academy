@@ -147,8 +147,8 @@ const AllClasses = () => {
               src={item.image}
               alt="Class image"
             />
-            <div class="px-6">
-              <p class="font-bold text-xl mt-4 .mb-2">{item.classname}</p>
+            <div className="px-6">
+              <p className="font-bold text-xl mt-4 .mb-2">{item.classname}</p>
             </div>
             <div className="px-6 pt-4 pb-2 flex flex-col mt-6 mb-4">
               <span className="inline-block bg-gray-200 hover:bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">

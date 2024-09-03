@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const TopInstructors = () => {
   const [topInstructorData] = useTopInstrctor();
-  console.log(topInstructorData);
+  // console.log(topInstructorData);
 
   if (!Array.isArray(topInstructorData)) {
     return (

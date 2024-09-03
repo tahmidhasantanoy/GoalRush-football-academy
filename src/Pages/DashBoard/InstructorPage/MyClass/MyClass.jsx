@@ -13,7 +13,7 @@ const MyClass = () => {
   const [specificInstrucClass] = useSpecificClass();
   const [filterItem, setFilterItem] = useState("");
   const [visibleItem, setVisibleItem] = useState(6);
-  console.log(specificInstrucClass);
+  // console.log(specificInstrucClass);
 
   const { user } = useAuth();
   const [insClassData, setInsData] = useState([]);
@@ -44,7 +44,7 @@ const MyClass = () => {
     setVisibleItem((prevVisibleClass) => prevVisibleClass + 6);
   };
 
-  console.log(insClassData);
+  // console.log(insClassData);
 
   return (
     <div className="my-20">

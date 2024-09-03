@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
         axios
           .post("https://goal-rush-server.vercel.app/jwt", { email: currentUser.email })
           .then((data) => {
-            console.log(data.data.token);
+            // console.log(data.data.token);
 
             localStorage.setItem("jwt-access-token", data.data.token);
           });

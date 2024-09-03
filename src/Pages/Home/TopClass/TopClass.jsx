@@ -40,7 +40,7 @@ const TopClass = () => {
     };
 
     if (user?.email) {
-      console.log(user.email);
+      // console.log(user.email);
 
       //Let's do simply
       fetch("https://goal-rush-server.vercel.app/all-class/selected", {

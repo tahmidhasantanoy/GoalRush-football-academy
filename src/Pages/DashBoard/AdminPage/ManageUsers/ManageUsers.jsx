@@ -7,7 +7,7 @@ import TitlePage from "../../../../TitlePage/TitlePage";
 
 const ManageUsers = () => {
   const [usersData, refetch] = useAlluser();
-  console.log(usersData);
+  // console.log(usersData);
 
   const handleMakeAdmin = (user) => {
     // console.log(user);
@@ -20,7 +20,7 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount && data.acknowledged === true) {
           refetch();
           Swal.fire({
@@ -46,7 +46,7 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount && data.acknowledged === true) {
           refetch();
           Swal.fire({
@@ -96,7 +96,7 @@ const ManageUsers = () => {
             </tr>
           </thead>
           {usersData.map((user, idx) => (
-            <tbody className="tableData">
+            <tbody key={idx} className="tableData">
               <tr className="text-center">
                 <td>
                   <div className="flex items-center space-x-3 ">

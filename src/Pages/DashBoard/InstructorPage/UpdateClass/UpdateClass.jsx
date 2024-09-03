@@ -64,13 +64,13 @@ const UpdateClass = () => {
               price,
             } = data;
 
-            console.log(
-              classname,
-              instructorEmail,
-              instructorName,
-              availableSeats,
-              price
-            );
+            // console.log(
+            //   classname,
+            //   instructorEmail,
+            //   instructorName,
+            //   availableSeats,
+            //   price
+            // );
 
             const updateClassData = {
               classname,

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import "./CheckoutForm.css";
 
 const CheckoutForm = ({ paymentClassData, price }) => {
-  console.log(paymentClassData.classId);
+  // console.log(paymentClassData.classId);
   const deleteClassId = paymentClassData.classId;
   const stripe = useStripe();
   const elements = useElements();
@@ -19,7 +19,7 @@ const CheckoutForm = ({ paymentClassData, price }) => {
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-      console.log(res.data.clientSecret);
+      // console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret);
     });
   }, []);
@@ -35,7 +35,7 @@ const CheckoutForm = ({ paymentClassData, price }) => {
     if (card == null) {
       return;
     }
-    console.log("card", card);
+    // console.log("card", card);
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -43,11 +43,11 @@ const CheckoutForm = ({ paymentClassData, price }) => {
     });
 
     if (error) {
-      console.log("error found", error);
+      // console.log("error found", error);
       SetCardErr(error.message);
     } else {
       SetCardErr("");
-      console.log("paymentMethod", paymentMethod);
+      // console.log("paymentMethod", paymentMethod);
     }
 
     setProcessing(true);
@@ -63,14 +63,14 @@ const CheckoutForm = ({ paymentClassData, price }) => {
       });
 
     if (confirmedErr) {
-      console.log(confirmedErr);
+      // console.log(confirmedErr);
       SetCardErr(confirmedErr);
     }
-    console.log("paymentIntent", paymentIntent); //8:05
+    // console.log("paymentIntent", paymentIntent); //8:05
 
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
-      console.log("transsectionId", paymentIntent.id);
+      // console.log("transsectionId", paymentIntent.id);
       const transsactionId = paymentIntent.id;
       setTranssactionId(paymentIntent.id);
 
@@ -90,7 +90,7 @@ const CheckoutForm = ({ paymentClassData, price }) => {
         //   axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
         if (res.data.insertResult.insertedId) {
-          console.log(94, res.data.insertResult.insertedId);
+          // console.log(94, res.data.insertResult.insertedId);
           Swal.fire({
             position: "top-middle",
             icon: "success",

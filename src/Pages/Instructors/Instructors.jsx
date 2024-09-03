@@ -10,7 +10,7 @@ import TitlePage from "../../TitlePage/TitlePage";
 const Instructors = () => {
   const [instructors, refetch] = useInstructorCollection();
   const [filterItem, setFilterItem] = useState("");
-  console.log(instructors);
+  // console.log(instructors);
 
   const searchItems = instructors?.filter(
     (instructor) =>
