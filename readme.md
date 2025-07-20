@@ -6,26 +6,29 @@ A full-featured web application for managing a football academy, built with mode
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-### 👤 General Users
-- Explore football academy features
-- Register/login using secure Firebase Authentication
-- Add classes they are interested in
-- View and delete selected classes
-- Book classes with secure payment
-- Track booking/payment history
+### 👥 General Users
+- 🔍 **Browse Academy Offerings**: Explore available football training classes and general info.
+- 🔐 **Secure Registration & Login**: Create an account using Firebase Authentication for personalized access.
+- ❤️ **Add Favorite Classes**: Select and save preferred classes to your personal dashboard.
+- 🗑️ **Manage Selections**: Remove previously added classes with ease.
+- 💳 **Class Booking & Payment**: Book classes through a secure payment system.
+- 📜 **View Payment History**: Access complete records of your transactions.
+
+---
 
 ### 🎓 Instructors
-- Register/login as an instructor
-- Add and manage their own classes
-- Update class information anytime
+- ✍️ **Instructor Registration**: Create an instructor account to manage your offerings.
+- ➕ **Add New Classes**: Submit new training classes with relevant details and images.
+- 🔄 **Edit Classes**: Update existing class information at any time for accuracy and relevance.
 
-### 🛠 Admin Panel
-- Promote users to **Instructor** or **Admin**
-- Approve or deny submitted classes
-- Provide feedback on denied classes
-- Full administrative control over platform content
+---
+
+### 🛡️ Admins
+- 🔁 **Role Management**: Promote any user to Instructor or Admin roles.
+- ✅❌ **Approve or Reject Classes**: Moderate submitted classes before they go live.
+- 💬 **Send Feedback on Rejection**: Provide reasons and suggestions for denied classes.
 
 ---
 
@@ -44,26 +47,9 @@ A full-featured web application for managing a football academy, built with mode
 
 ---
 
-## 📸 Screenshots (Optional)
-*(You can add some UI screenshots here using markdown if you want.)*
-
----
-
-## 💡 Why GoalRush?
-GoalRush isn't just a demo project — it demonstrates:
-- Real-world authentication & role-based access
-- Dynamic content creation and state management
-- Full admin control system
-- Clean UI with responsive design
-- Secure payments and class management
-
----
-
 ## 📬 Contact
 
 Made with ❤️ by **[Tahmid Hasan](https://www.linkedin.com/in/md-tahmid-hasan-bb3a2017b/)**  
 FullStack Developer | Bulipe Tech  
 GitHub: [@tahmidhasantanoy](https://github.com/tahmidhasantanoy)
-
----
 
