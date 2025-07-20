@@ -1,39 +1,69 @@
-# Assignment no.12
+# ⚽ GoalRush – Football Academy Management System
 
-## Project feature
+A full-featured web application for managing a football academy, built with modern technologies. It provides distinct roles for General Users, Instructors, and Admins to ensure a smooth and interactive experience.
 
-- General Users :
-- This project is about a football academy related website
-- Here,General people can see some features of football academy.
-- But,if he/she want full benefit , then must have to create an account.
-- User can create their own account.
-- User can add which they classes like.
-- User can see their add classes.
-- Also can delete classes from add class history.
-- If user want to book a class they can book by payment option.
-- User can see him/her payment history.
-- Instructor :
-- Instructor can make his/her own account.
-- Instructor can add their classes.
-- Also instructor able to update classes.
-- Admin :
-- Admin can make a user as Instructor/admin.
-- Admin also have super power to accept/deny a class.
-- Admin can send a feedbak for deny a class.
+🔗 **Live Site**: [GoalRush Live](https://goalrush-9bf94.web.app/)
 
+---
 
+## 🚀 Features
 
+### 👤 General Users
+- Explore football academy features
+- Register/login using secure Firebase Authentication
+- Add classes they are interested in
+- View and delete selected classes
+- Book classes with secure payment
+- Track booking/payment history
 
-## Used packages/ technology
+### 🎓 Instructors
+- Register/login as an instructor
+- Add and manage their own classes
+- Update class information anytime
 
-- Firebase Authentication: Integration of Firebase authentication to handle user registration, login, and account management.
-- tanstack query : for fetching data
-- Axios secure : for security
-- React hook form : for validating form
-- React spring : for animation
-- imgBB : for image hosting
-- Json web token : for server security
+### 🛠 Admin Panel
+- Promote users to **Instructor** or **Admin**
+- Approve or deny submitted classes
+- Provide feedback on denied classes
+- Full administrative control over platform content
 
-## 🔗 Live hosting link :
+---
 
-[Live project link](https://goalrush-9bf94.web.app/)
+## 🧩 Tech Stack & Tools
+
+| Technology           | Purpose                                  |
+|----------------------|------------------------------------------|
+| **React.js**         | Frontend framework                       |
+| **Firebase Auth**    | User authentication and role management  |
+| **TanStack Query**   | Server state & data fetching             |
+| **Axios Secure**     | Secure API requests                      |
+| **React Hook Form**  | Efficient form validation                |
+| **React Spring**     | Animations for smooth UI                 |
+| **imgBB API**        | Image hosting                            |
+| **JWT (JSON Web Token)** | Secure user-server communication     |
+
+---
+
+## 📸 Screenshots (Optional)
+*(You can add some UI screenshots here using markdown if you want.)*
+
+---
+
+## 💡 Why GoalRush?
+GoalRush isn't just a demo project — it demonstrates:
+- Real-world authentication & role-based access
+- Dynamic content creation and state management
+- Full admin control system
+- Clean UI with responsive design
+- Secure payments and class management
+
+---
+
+## 📬 Contact
+
+Made with ❤️ by **[Tahmid Hasan](https://www.linkedin.com/in/md-tahmid-hasan-bb3a2017b/)**  
+FullStack Developer | Bulipe Tech  
+GitHub: [@tahmidhasantanoy](https://github.com/tahmidhasantanoy)
+
+---
+
