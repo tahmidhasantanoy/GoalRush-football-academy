@@ -49,7 +49,7 @@ A full-featured web application for managing a football academy, built with mode
 
 ## 📬 Contact
 
-Md. Tahmid Hasan 
+Md. Tahmid Hasan </br>
 FullStack Developer | Bulipe Tech  
-GitHub: **[Tahmid Hasan](https://www.linkedin.com/in/md-tahmid-hasan-bb3a2017b/)**  
+LinkedIn: **[Tahmid Hasan](https://www.linkedin.com/in/md-tahmid-hasan-bb3a2017b/)**  
 
